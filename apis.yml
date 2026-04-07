@@ -8,11 +8,11 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Mainframe
-  - Modernization
-  - Migration
-  - COBOL
   - AWS
+  - COBOL
+  - Mainframe
+  - Migration
+  - Modernization
 url: >-
   https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/apis.yml
 created: '2026-03-16'
@@ -29,8 +29,8 @@ apis:
     baseURL: https://m2.amazonaws.com
     tags:
       - Mainframe
-      - Modernization
       - Migration
+      - Modernization
     properties:
       - type: Documentation
         url: https://docs.aws.amazon.com/m2/latest/APIReference/Welcome.html
