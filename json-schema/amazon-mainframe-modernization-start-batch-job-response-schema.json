@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-schema/amazon-mainframe-modernization-start-batch-job-response-schema.json",
+  "title": "StartBatchJobResponse",
+  "description": "StartBatchJobResponse schema from AWS Mainframe Modernization API",
+  "type": "object",
+  "properties": {
+    "executionId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Identifier"
+        },
+        {
+          "description": "The unique identifier of this execution of the batch job."
+        }
+      ]
+    }
+  },
+  "required": [
+    "executionId"
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-schema/amazon-mainframe-modernization-data-set-import-summary-schema.json",
+  "title": "DataSetImportSummary",
+  "description": "Represents a summary of data set imports.",
+  "type": "object",
+  "properties": {
+    "failed": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Integer"
+        },
+        {
+          "description": "The number of data set imports that have failed."
+        }
+      ]
+    },
+    "inProgress": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Integer"
+        },
+        {
+          "description": "The number of data set imports that are in progress."
+        }
+      ]
+    },
+    "pending": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Integer"
+        },
+        {
+          "description": "The number of data set imports that are pending."
+        }
+      ]
+    },
+    "succeeded": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Integer"
+        },
+        {
+          "description": "The number of data set imports that have succeeded."
+        }
+      ]
+    },
+    "total": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Integer"
+        },
+        {
+          "description": "The total number of data set imports."
+        }
+      ]
+    }
+  },
+  "required": [
+    "failed",
+    "inProgress",
+    "pending",
+    "succeeded",
+    "total"
+  ]
+}

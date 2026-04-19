@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-schema/amazon-mainframe-modernization-create-deployment-request-schema.json",
+  "title": "CreateDeploymentRequest",
+  "description": "CreateDeploymentRequest schema from AWS Mainframe Modernization API",
+  "type": "object",
+  "properties": {
+    "applicationVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Version"
+        },
+        {
+          "description": "The version of the application to deploy."
+        }
+      ]
+    },
+    "clientToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "Unique, case-sensitive identifier you provide to ensure the idempotency of the request to create a deployment. The service generates the clientToken when the API call is triggered. The token expires after one hour, so if you retry the API within this timeframe with the same clientToken, you will get the same response. The service also handles deleting the clientToken after it expires. "
+        }
+      ]
+    },
+    "environmentId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Identifier"
+        },
+        {
+          "description": "The identifier of the runtime environment where you want to deploy this application."
+        }
+      ]
+    }
+  },
+  "required": [
+    "applicationVersion",
+    "environmentId"
+  ]
+}

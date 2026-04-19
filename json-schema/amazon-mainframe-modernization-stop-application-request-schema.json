@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-schema/amazon-mainframe-modernization-stop-application-request-schema.json",
+  "title": "StopApplicationRequest",
+  "description": "StopApplicationRequest schema from AWS Mainframe Modernization API",
+  "type": "object",
+  "properties": {
+    "forceStop": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "Stopping an application process can take a long time. Setting this parameter to true lets you force stop the application so you don't need to wait until the process finishes to apply another action on the application. The default value is false."
+        }
+      ]
+    }
+  }
+}

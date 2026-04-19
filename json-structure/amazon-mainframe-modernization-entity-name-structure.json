@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-structure/amazon-mainframe-modernization-entity-name-structure.json",
+  "name": "EntityName",
+  "description": "EntityName schema from AWS Mainframe Modernization API",
+  "type": "string",
+  "pattern": "^[A-Za-z0-9][A-Za-z0-9_\\-]{1,59}$"
+}

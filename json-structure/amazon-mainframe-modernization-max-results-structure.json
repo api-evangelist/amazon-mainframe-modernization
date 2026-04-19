@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-structure/amazon-mainframe-modernization-max-results-structure.json",
+  "name": "MaxResults",
+  "description": "MaxResults schema from AWS Mainframe Modernization API",
+  "type": "int32",
+  "minimum": 1,
+  "maximum": 2000
+}

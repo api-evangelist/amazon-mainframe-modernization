@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-schema/amazon-mainframe-modernization-deployed-version-summary-schema.json",
+  "title": "DeployedVersionSummary",
+  "description": "Contains a summary of a deployed application.",
+  "type": "object",
+  "properties": {
+    "applicationVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Version"
+        },
+        {
+          "description": "The version of the deployed application."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeploymentLifecycle"
+        },
+        {
+          "description": "The status of the deployment."
+        }
+      ]
+    },
+    "statusReason": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The reason for the reported status."
+        }
+      ]
+    }
+  },
+  "required": [
+    "applicationVersion",
+    "status"
+  ]
+}

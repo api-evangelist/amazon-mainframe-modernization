@@ -1,0 +1,9 @@
+{
+  "applicationVersion": "example-value",
+  "creationTime": "example-value",
+  "definitionContent": "example-value",
+  "description": "example-value",
+  "name": "my-app",
+  "status": "Running",
+  "statusReason": "Running"
+}

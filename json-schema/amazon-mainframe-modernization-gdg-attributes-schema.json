@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-schema/amazon-mainframe-modernization-gdg-attributes-schema.json",
+  "title": "GdgAttributes",
+  "description": "The required attributes for a generation data group data set. A generation data set is one of a collection of successive, historically related, catalogued data sets that together are known as a generation data group (GDG). Use this structure when you want to import a GDG. For more information on GDG, see <a href=\"https://www.ibm.com/docs/en/zos/2.3.0?topic=guide-generation-data-sets\">Generation data sets</a>.",
+  "type": "object",
+  "properties": {
+    "limit": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Integer"
+        },
+        {
+          "description": "The maximum number of generation data sets, up to 255, in a GDG."
+        }
+      ]
+    },
+    "rollDisposition": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The disposition of the data set in the catalog."
+        }
+      ]
+    }
+  }
+}

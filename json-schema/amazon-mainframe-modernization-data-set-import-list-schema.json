@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-schema/amazon-mainframe-modernization-data-set-import-list-schema.json",
+  "title": "DataSetImportList",
+  "description": "DataSetImportList schema from AWS Mainframe Modernization API",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/DataSetImportItem"
+  }
+}

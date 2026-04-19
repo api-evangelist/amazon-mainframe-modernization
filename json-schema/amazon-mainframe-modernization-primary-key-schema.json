@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-schema/amazon-mainframe-modernization-primary-key-schema.json",
+  "title": "PrimaryKey",
+  "description": "The primary key for a KSDS data set.",
+  "type": "object",
+  "properties": {
+    "length": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Integer"
+        },
+        {
+          "description": "A strictly positive integer value representing the length of the primary key. "
+        }
+      ]
+    },
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "A name for the Primary Key."
+        }
+      ]
+    },
+    "offset": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Integer"
+        },
+        {
+          "description": "A positive integer value representing the offset to mark the start of the primary key in the record byte array."
+        }
+      ]
+    }
+  },
+  "required": [
+    "length",
+    "offset"
+  ]
+}

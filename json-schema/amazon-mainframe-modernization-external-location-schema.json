@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-schema/amazon-mainframe-modernization-external-location-schema.json",
+  "title": "ExternalLocation",
+  "description": "Defines an external storage location.",
+  "type": "object",
+  "properties": {
+    "s3Location": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String2000"
+        },
+        {
+          "description": "The URI of the Amazon S3 bucket."
+        }
+      ]
+    }
+  }
+}

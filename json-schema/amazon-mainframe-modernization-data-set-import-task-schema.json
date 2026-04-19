@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-schema/amazon-mainframe-modernization-data-set-import-task-schema.json",
+  "title": "DataSetImportTask",
+  "description": "Contains information about a data set import task.",
+  "type": "object",
+  "properties": {
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DataSetTaskLifecycle"
+        },
+        {
+          "description": "The status of the data set import task."
+        }
+      ]
+    },
+    "summary": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DataSetImportSummary"
+        },
+        {
+          "description": "A summary of the data set import task."
+        }
+      ]
+    },
+    "taskId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Identifier"
+        },
+        {
+          "description": "The identifier of the data set import task."
+        }
+      ]
+    }
+  },
+  "required": [
+    "status",
+    "summary",
+    "taskId"
+  ]
+}

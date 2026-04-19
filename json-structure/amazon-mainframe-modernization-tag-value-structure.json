@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-structure/amazon-mainframe-modernization-tag-value-structure.json",
+  "name": "TagValue",
+  "description": "TagValue schema from AWS Mainframe Modernization API",
+  "type": "string"
+}

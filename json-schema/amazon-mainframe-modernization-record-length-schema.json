@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-schema/amazon-mainframe-modernization-record-length-schema.json",
+  "title": "RecordLength",
+  "description": "The length of the records in the data set.",
+  "type": "object",
+  "properties": {
+    "max": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Integer"
+        },
+        {
+          "description": "The maximum record length. In case of fixed, both minimum and maximum are the same."
+        }
+      ]
+    },
+    "min": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Integer"
+        },
+        {
+          "description": "The minimum record length of a record."
+        }
+      ]
+    }
+  },
+  "required": [
+    "max",
+    "min"
+  ]
+}

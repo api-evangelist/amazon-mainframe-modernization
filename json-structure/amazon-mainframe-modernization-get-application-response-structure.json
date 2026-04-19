@@ -1,0 +1,218 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-structure/amazon-mainframe-modernization-get-application-response-structure.json",
+  "name": "GetApplicationResponse",
+  "description": "GetApplicationResponse schema from AWS Mainframe Modernization API",
+  "type": "object",
+  "properties": {
+    "applicationArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Arn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the application."
+        }
+      ]
+    },
+    "applicationId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Identifier"
+        },
+        {
+          "description": "The identifier of the application."
+        }
+      ]
+    },
+    "creationTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The timestamp when this application was created."
+        }
+      ]
+    },
+    "deployedVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeployedVersionSummary"
+        },
+        {
+          "description": "The version of the application that is deployed."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityDescription"
+        },
+        {
+          "description": "The description of the application."
+        }
+      ]
+    },
+    "engineType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EngineType"
+        },
+        {
+          "description": "The type of the target platform for the application."
+        }
+      ]
+    },
+    "environmentId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Identifier"
+        },
+        {
+          "description": "The identifier of the runtime environment where you want to deploy the application."
+        }
+      ]
+    },
+    "kmsKeyId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The identifier of a customer managed key."
+        }
+      ]
+    },
+    "lastStartTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The timestamp when you last started the application. Null until the application runs for the first time."
+        }
+      ]
+    },
+    "latestVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationVersionSummary"
+        },
+        {
+          "description": "The latest version of the application."
+        }
+      ]
+    },
+    "listenerArns": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ArnList"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) for the network load balancer listener created in your Amazon Web Services account. Amazon Web Services Mainframe Modernization creates this listener for you the first time you deploy an application."
+        }
+      ]
+    },
+    "listenerPorts": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PortList"
+        },
+        {
+          "description": "The port associated with the network load balancer listener created in your Amazon Web Services account."
+        }
+      ]
+    },
+    "loadBalancerDnsName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String100"
+        },
+        {
+          "description": "The public DNS name of the load balancer created in your Amazon Web Services account."
+        }
+      ]
+    },
+    "logGroups": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LogGroupSummaries"
+        },
+        {
+          "description": "The list of log summaries. Each log summary includes the log type as well as the log group identifier. These are CloudWatch logs. Amazon Web Services Mainframe Modernization pushes the application log to CloudWatch under the customer's account."
+        }
+      ]
+    },
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityName"
+        },
+        {
+          "description": "The unique identifier of the application."
+        }
+      ]
+    },
+    "roleArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Arn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the role associated with the application."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationLifecycle"
+        },
+        {
+          "description": "The status of the application."
+        }
+      ]
+    },
+    "statusReason": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The reason for the reported status."
+        }
+      ]
+    },
+    "tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "A list of tags associated with the application."
+        }
+      ]
+    },
+    "targetGroupArns": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ArnList"
+        },
+        {
+          "description": "Returns the Amazon Resource Names (ARNs) of the target groups that are attached to the network load balancer."
+        }
+      ]
+    }
+  },
+  "required": [
+    "applicationArn",
+    "applicationId",
+    "creationTime",
+    "engineType",
+    "latestVersion",
+    "name",
+    "status"
+  ]
+}

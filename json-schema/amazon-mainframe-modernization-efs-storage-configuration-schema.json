@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-schema/amazon-mainframe-modernization-efs-storage-configuration-schema.json",
+  "title": "EfsStorageConfiguration",
+  "description": "Defines the storage configuration for an Amazon EFS file system.",
+  "type": "object",
+  "properties": {
+    "fileSystemId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String200"
+        },
+        {
+          "xml": {
+            "name": "file-system-id"
+          },
+          "description": "The file system identifier."
+        }
+      ]
+    },
+    "mountPoint": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String200"
+        },
+        {
+          "xml": {
+            "name": "mount-point"
+          },
+          "description": "The mount point for the file system."
+        }
+      ]
+    }
+  },
+  "required": [
+    "fileSystemId",
+    "mountPoint"
+  ]
+}

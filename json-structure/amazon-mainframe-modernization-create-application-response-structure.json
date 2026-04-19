@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-structure/amazon-mainframe-modernization-create-application-response-structure.json",
+  "name": "CreateApplicationResponse",
+  "description": "CreateApplicationResponse schema from AWS Mainframe Modernization API",
+  "type": "object",
+  "properties": {
+    "applicationArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Arn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the application."
+        }
+      ]
+    },
+    "applicationId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Identifier"
+        },
+        {
+          "description": "The unique application identifier."
+        }
+      ]
+    },
+    "applicationVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Version"
+        },
+        {
+          "description": "The version number of the application."
+        }
+      ]
+    }
+  },
+  "required": [
+    "applicationArn",
+    "applicationId",
+    "applicationVersion"
+  ]
+}

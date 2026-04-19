@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-structure/amazon-mainframe-modernization-high-availability-config-structure.json",
+  "name": "HighAvailabilityConfig",
+  "description": "Defines the details of a high availability configuration.",
+  "type": "object",
+  "properties": {
+    "desiredCapacity": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CapacityValue"
+        },
+        {
+          "description": "The number of instances in a high availability configuration. The minimum possible value is 1 and the maximum is 100."
+        }
+      ]
+    }
+  },
+  "required": [
+    "desiredCapacity"
+  ]
+}

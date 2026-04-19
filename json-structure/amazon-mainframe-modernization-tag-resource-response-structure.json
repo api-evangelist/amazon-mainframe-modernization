@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-structure/amazon-mainframe-modernization-tag-resource-response-structure.json",
+  "name": "TagResourceResponse",
+  "description": "TagResourceResponse schema from AWS Mainframe Modernization API",
+  "type": "object",
+  "properties": {}
+}

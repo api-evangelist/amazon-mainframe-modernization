@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-structure/amazon-mainframe-modernization-file-batch-job-identifier-structure.json",
+  "name": "FileBatchJobIdentifier",
+  "description": "A batch job identifier in which the batch job to run is identified by the file name and the relative path to the file name.",
+  "type": "object",
+  "properties": {
+    "fileName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The file name for the batch job identifier."
+        }
+      ]
+    },
+    "folderPath": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The relative path to the file name for the batch job identifier."
+        }
+      ]
+    }
+  },
+  "required": [
+    "fileName"
+  ]
+}

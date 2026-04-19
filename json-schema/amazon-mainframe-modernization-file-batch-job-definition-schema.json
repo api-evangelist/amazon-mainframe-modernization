@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-schema/amazon-mainframe-modernization-file-batch-job-definition-schema.json",
+  "title": "FileBatchJobDefinition",
+  "description": "A file containing a batch job definition.",
+  "type": "object",
+  "properties": {
+    "fileName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The name of the file containing the batch job definition."
+        }
+      ]
+    },
+    "folderPath": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The path to the file containing the batch job definition."
+        }
+      ]
+    }
+  },
+  "required": [
+    "fileName"
+  ]
+}

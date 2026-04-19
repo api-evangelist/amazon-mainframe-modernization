@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-schema/amazon-mainframe-modernization-start-batch-job-request-schema.json",
+  "title": "StartBatchJobRequest",
+  "description": "StartBatchJobRequest schema from AWS Mainframe Modernization API",
+  "type": "object",
+  "properties": {
+    "batchJobIdentifier": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BatchJobIdentifier"
+        },
+        {
+          "description": "The unique identifier of the batch job."
+        }
+      ]
+    },
+    "jobParams": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BatchJobParametersMap"
+        },
+        {
+          "description": "The collection of batch job parameters. For details about limits for keys and values, see <a href=\"https://www.ibm.com/docs/en/workload-automation/9.3.0?topic=zos-coding-variables-in-jcl\">Coding variables in JCL</a>."
+        }
+      ]
+    }
+  },
+  "required": [
+    "batchJobIdentifier"
+  ]
+}

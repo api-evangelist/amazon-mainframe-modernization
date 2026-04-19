@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-schema/amazon-mainframe-modernization-script-batch-job-identifier-schema.json",
+  "title": "ScriptBatchJobIdentifier",
+  "description": "A batch job identifier in which the batch job to run is identified by the script name.",
+  "type": "object",
+  "properties": {
+    "scriptName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The name of the script containing the batch job definition."
+        }
+      ]
+    }
+  },
+  "required": [
+    "scriptName"
+  ]
+}

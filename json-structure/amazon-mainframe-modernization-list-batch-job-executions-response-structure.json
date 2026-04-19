@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-structure/amazon-mainframe-modernization-list-batch-job-executions-response-structure.json",
+  "name": "ListBatchJobExecutionsResponse",
+  "description": "ListBatchJobExecutionsResponse schema from AWS Mainframe Modernization API",
+  "type": "object",
+  "properties": {
+    "batchJobExecutions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BatchJobExecutionSummaryList"
+        },
+        {
+          "description": "Returns a list of batch job executions for an application."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "A pagination token that's returned when the response doesn't contain all batch job executions."
+        }
+      ]
+    }
+  },
+  "required": [
+    "batchJobExecutions"
+  ]
+}

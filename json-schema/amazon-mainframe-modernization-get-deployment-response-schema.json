@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-schema/amazon-mainframe-modernization-get-deployment-response-schema.json",
+  "title": "GetDeploymentResponse",
+  "description": "GetDeploymentResponse schema from AWS Mainframe Modernization API",
+  "type": "object",
+  "properties": {
+    "applicationId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Identifier"
+        },
+        {
+          "description": "The unique identifier of the application."
+        }
+      ]
+    },
+    "applicationVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Version"
+        },
+        {
+          "description": "The application version."
+        }
+      ]
+    },
+    "creationTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The timestamp when the deployment was created."
+        }
+      ]
+    },
+    "deploymentId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Identifier"
+        },
+        {
+          "description": "The unique identifier of the deployment."
+        }
+      ]
+    },
+    "environmentId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Identifier"
+        },
+        {
+          "description": "The unique identifier of the runtime environment."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeploymentLifecycle"
+        },
+        {
+          "description": "The status of the deployment."
+        }
+      ]
+    },
+    "statusReason": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The reason for the reported status."
+        }
+      ]
+    }
+  },
+  "required": [
+    "applicationId",
+    "applicationVersion",
+    "creationTime",
+    "deploymentId",
+    "environmentId",
+    "status"
+  ]
+}

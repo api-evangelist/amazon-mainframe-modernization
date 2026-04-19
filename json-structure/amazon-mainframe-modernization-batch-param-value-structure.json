@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-structure/amazon-mainframe-modernization-batch-param-value-structure.json",
+  "name": "BatchParamValue",
+  "description": "Parameter value can be of up to 44 alphanumeric characters.",
+  "type": "string"
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-schema/amazon-mainframe-modernization-data-set-import-config-schema.json",
+  "title": "DataSetImportConfig",
+  "description": "Identifies one or more data sets you want to import with the <a>CreateDataSetImportTask</a> operation.",
+  "type": "object",
+  "properties": {
+    "dataSets": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DataSetImportList"
+        },
+        {
+          "description": "The data sets."
+        }
+      ]
+    },
+    "s3Location": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String2000"
+        },
+        {
+          "description": "The Amazon S3 location of the data sets."
+        }
+      ]
+    }
+  }
+}

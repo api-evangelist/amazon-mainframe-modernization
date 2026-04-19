@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-schema/amazon-mainframe-modernization-script-batch-job-definition-schema.json",
+  "title": "ScriptBatchJobDefinition",
+  "description": "A batch job definition contained in a script.",
+  "type": "object",
+  "properties": {
+    "scriptName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The name of the script containing the batch job definition."
+        }
+      ]
+    }
+  },
+  "required": [
+    "scriptName"
+  ]
+}

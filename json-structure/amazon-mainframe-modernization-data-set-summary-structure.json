@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-structure/amazon-mainframe-modernization-data-set-summary-structure.json",
+  "name": "DataSetSummary",
+  "description": "A subset of the possible data set attributes.",
+  "type": "object",
+  "properties": {
+    "creationTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The timestamp when the data set was created."
+        }
+      ]
+    },
+    "dataSetName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String200"
+        },
+        {
+          "description": "The name of the data set."
+        }
+      ]
+    },
+    "dataSetOrg": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String20"
+        },
+        {
+          "description": "The type of data set. The only supported value is VSAM."
+        }
+      ]
+    },
+    "format": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String20"
+        },
+        {
+          "description": "The format of the data set. "
+        }
+      ]
+    },
+    "lastReferencedTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The last time the data set was referenced."
+        }
+      ]
+    },
+    "lastUpdatedTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The last time the data set was updated."
+        }
+      ]
+    }
+  },
+  "required": [
+    "dataSetName"
+  ]
+}

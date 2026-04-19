@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-schema/amazon-mainframe-modernization-alternate-key-schema.json",
+  "title": "AlternateKey",
+  "description": "Defines an alternate key. This value is optional. A legacy data set might not have any alternate key defined but if those alternate keys definitions exist, provide them, as some applications will make use of them.",
+  "type": "object",
+  "properties": {
+    "allowDuplicates": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "Indicates whether the alternate key values are supposed to be unique for the given data set."
+        }
+      ]
+    },
+    "length": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Integer"
+        },
+        {
+          "description": "A strictly positive integer value representing the length of the alternate key."
+        }
+      ]
+    },
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The name of the alternate key."
+        }
+      ]
+    },
+    "offset": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Integer"
+        },
+        {
+          "description": "A positive integer value representing the offset to mark the start of the alternate key part in the record byte array."
+        }
+      ]
+    }
+  },
+  "required": [
+    "length",
+    "offset"
+  ]
+}

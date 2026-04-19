@@ -1,0 +1,9 @@
+{
+  "applicationId": "abc12345",
+  "applicationVersion": "example-value",
+  "creationTime": "example-value",
+  "deploymentId": "abc12345",
+  "environmentId": "abc12345",
+  "status": "Running",
+  "statusReason": "Running"
+}

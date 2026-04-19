@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-schema/amazon-mainframe-modernization-update-application-request-schema.json",
+  "title": "UpdateApplicationRequest",
+  "description": "UpdateApplicationRequest schema from AWS Mainframe Modernization API",
+  "type": "object",
+  "properties": {
+    "currentApplicationVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Version"
+        },
+        {
+          "description": "The current version of the application to update."
+        }
+      ]
+    },
+    "definition": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Definition"
+        },
+        {
+          "description": "The application definition for this application. You can specify either inline JSON or an S3 bucket location."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityDescription"
+        },
+        {
+          "description": "The description of the application to update."
+        }
+      ]
+    }
+  },
+  "required": [
+    "currentApplicationVersion"
+  ]
+}

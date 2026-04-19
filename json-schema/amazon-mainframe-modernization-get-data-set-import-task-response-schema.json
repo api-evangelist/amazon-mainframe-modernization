@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-schema/amazon-mainframe-modernization-get-data-set-import-task-response-schema.json",
+  "title": "GetDataSetImportTaskResponse",
+  "description": "GetDataSetImportTaskResponse schema from AWS Mainframe Modernization API",
+  "type": "object",
+  "properties": {
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DataSetTaskLifecycle"
+        },
+        {
+          "description": "The status of the task."
+        }
+      ]
+    },
+    "summary": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DataSetImportSummary"
+        },
+        {
+          "description": "A summary of the status of the task."
+        }
+      ]
+    },
+    "taskId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Identifier"
+        },
+        {
+          "description": "The task identifier."
+        }
+      ]
+    }
+  },
+  "required": [
+    "status",
+    "taskId"
+  ]
+}

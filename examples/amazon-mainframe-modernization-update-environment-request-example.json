@@ -1,0 +1,7 @@
+{
+  "applyDuringMaintenanceWindow": "example-value",
+  "desiredCapacity": "example-value",
+  "engineVersion": "example-value",
+  "instanceType": "example-value",
+  "preferredMaintenanceWindow": "example-value"
+}

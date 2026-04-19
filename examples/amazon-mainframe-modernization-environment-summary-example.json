@@ -1,0 +1,10 @@
+{
+  "creationTime": "example-value",
+  "engineType": "example-value",
+  "engineVersion": "example-value",
+  "environmentArn": "arn:aws:m2:us-east-1:123456789012:app/abc123",
+  "environmentId": "abc12345",
+  "instanceType": "example-value",
+  "name": "my-app",
+  "status": "Running"
+}

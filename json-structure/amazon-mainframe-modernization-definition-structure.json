@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-structure/amazon-mainframe-modernization-definition-structure.json",
+  "name": "Definition",
+  "description": "The application definition for a particular application. ",
+  "type": "object",
+  "properties": {
+    "content": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StringFree65000"
+        },
+        {
+          "description": "The content of the application definition. This is a JSON object that contains the resource configuration/definitions that identify an application."
+        }
+      ]
+    },
+    "s3Location": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String2000"
+        },
+        {
+          "description": "The S3 bucket that contains the application definition."
+        }
+      ]
+    }
+  }
+}

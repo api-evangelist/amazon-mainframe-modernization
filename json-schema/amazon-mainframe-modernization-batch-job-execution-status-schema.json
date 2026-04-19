@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-schema/amazon-mainframe-modernization-batch-job-execution-status-schema.json",
+  "title": "BatchJobExecutionStatus",
+  "description": "BatchJobExecutionStatus schema from AWS Mainframe Modernization API",
+  "type": "string",
+  "enum": [
+    "Submitting",
+    "Holding",
+    "Dispatching",
+    "Running",
+    "Cancelling",
+    "Cancelled",
+    "Succeeded",
+    "Failed",
+    "Succeeded With Warning"
+  ]
+}

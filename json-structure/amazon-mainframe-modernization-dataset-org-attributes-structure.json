@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-structure/amazon-mainframe-modernization-dataset-org-attributes-structure.json",
+  "name": "DatasetOrgAttributes",
+  "description": "Additional details about the data set. Different attributes correspond to different data set organizations. The values are populated based on datasetOrg, storageType and backend (Blu Age or Micro Focus).",
+  "type": "object",
+  "properties": {
+    "gdg": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/GdgAttributes"
+        },
+        {
+          "description": "The generation data group of the data set."
+        }
+      ]
+    },
+    "po": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PoAttributes"
+        },
+        {
+          "description": "The details of a PO type data set."
+        }
+      ]
+    },
+    "ps": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PsAttributes"
+        },
+        {
+          "description": "The details of a PS type data set."
+        }
+      ]
+    },
+    "vsam": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/VsamAttributes"
+        },
+        {
+          "description": "The details of a VSAM data set."
+        }
+      ]
+    }
+  }
+}

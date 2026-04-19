@@ -1,0 +1,242 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-schema/amazon-mainframe-modernization-get-environment-response-schema.json",
+  "title": "GetEnvironmentResponse",
+  "description": "GetEnvironmentResponse schema from AWS Mainframe Modernization API",
+  "type": "object",
+  "properties": {
+    "actualCapacity": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CapacityValue"
+        },
+        {
+          "description": "The number of instances included in the runtime environment. A standalone runtime environment has a maxiumum of one instance. Currently, a high availability runtime environment has a maximum of two instances. "
+        }
+      ]
+    },
+    "creationTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The timestamp when the runtime environment was created."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityDescription"
+        },
+        {
+          "description": "The description of the runtime environment."
+        }
+      ]
+    },
+    "engineType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EngineType"
+        },
+        {
+          "description": "The target platform for the runtime environment."
+        }
+      ]
+    },
+    "engineVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EngineVersion"
+        },
+        {
+          "description": "The version of the runtime engine."
+        }
+      ]
+    },
+    "environmentArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Arn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the runtime environment."
+        }
+      ]
+    },
+    "environmentId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Identifier"
+        },
+        {
+          "description": "The unique identifier of the runtime environment."
+        }
+      ]
+    },
+    "highAvailabilityConfig": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/HighAvailabilityConfig"
+        },
+        {
+          "description": "The desired capacity of the high availability configuration for the runtime environment."
+        }
+      ]
+    },
+    "instanceType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String20"
+        },
+        {
+          "description": "The type of instance underlying the runtime environment."
+        }
+      ]
+    },
+    "kmsKeyId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The identifier of a customer managed key."
+        }
+      ]
+    },
+    "loadBalancerArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) for the load balancer used with the runtime environment."
+        }
+      ]
+    },
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityName"
+        },
+        {
+          "description": "The name of the runtime environment. Must be unique within the account."
+        }
+      ]
+    },
+    "pendingMaintenance": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PendingMaintenance"
+        },
+        {
+          "description": "Indicates the pending maintenance scheduled on this environment."
+        }
+      ]
+    },
+    "preferredMaintenanceWindow": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String50"
+        },
+        {
+          "description": "Configures the maintenance window you want for the runtime environment. If you do not provide a value, a random system-generated value will be assigned."
+        }
+      ]
+    },
+    "publiclyAccessible": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "Whether applications running in this runtime environment are publicly accessible. "
+        }
+      ]
+    },
+    "securityGroupIds": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String50List"
+        },
+        {
+          "description": "The unique identifiers of the security groups assigned to this runtime environment."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EnvironmentLifecycle"
+        },
+        {
+          "description": "The status of the runtime environment."
+        }
+      ]
+    },
+    "statusReason": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The reason for the reported status."
+        }
+      ]
+    },
+    "storageConfigurations": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StorageConfigurationList"
+        },
+        {
+          "description": "The storage configurations defined for the runtime environment."
+        }
+      ]
+    },
+    "subnetIds": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String50List"
+        },
+        {
+          "description": "The unique identifiers of the subnets assigned to this runtime environment."
+        }
+      ]
+    },
+    "tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "The tags defined for this runtime environment."
+        }
+      ]
+    },
+    "vpcId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String50"
+        },
+        {
+          "description": "The unique identifier for the VPC used with this runtime environment."
+        }
+      ]
+    }
+  },
+  "required": [
+    "creationTime",
+    "engineType",
+    "engineVersion",
+    "environmentArn",
+    "environmentId",
+    "instanceType",
+    "name",
+    "securityGroupIds",
+    "status",
+    "subnetIds",
+    "vpcId"
+  ]
+}

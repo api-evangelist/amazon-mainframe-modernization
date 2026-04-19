@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-schema/amazon-mainframe-modernization-list-data-sets-response-schema.json",
+  "title": "ListDataSetsResponse",
+  "description": "ListDataSetsResponse schema from AWS Mainframe Modernization API",
+  "type": "object",
+  "properties": {
+    "dataSets": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DataSetsSummaryList"
+        },
+        {
+          "description": "The list of data sets, containing information including the creation time, the data set name, the data set organization, the data set format, and the last time the data set was referenced or updated."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "If there are more items to return, this contains a token that is passed to a subsequent call to this operation to retrieve the next set of items."
+        }
+      ]
+    }
+  },
+  "required": [
+    "dataSets"
+  ]
+}

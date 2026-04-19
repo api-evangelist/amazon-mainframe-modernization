@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-structure/amazon-mainframe-modernization-log-group-summary-structure.json",
+  "name": "LogGroupSummary",
+  "description": "A subset of the attributes that describe a log group. In CloudWatch a log group is a group of log streams that share the same retention, monitoring, and access control settings.",
+  "type": "object",
+  "properties": {
+    "logGroupName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LogGroupIdentifier"
+        },
+        {
+          "description": "The name of the log group."
+        }
+      ]
+    },
+    "logType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String20"
+        },
+        {
+          "description": "The type of log."
+        }
+      ]
+    }
+  },
+  "required": [
+    "logGroupName",
+    "logType"
+  ]
+}

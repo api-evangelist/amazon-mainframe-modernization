@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-schema/amazon-mainframe-modernization-engine-versions-summary-schema.json",
+  "title": "EngineVersionsSummary",
+  "description": "A subset of information about the engine version for a specific application.",
+  "type": "object",
+  "properties": {
+    "engineType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The type of target platform for the application."
+        }
+      ]
+    },
+    "engineVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The version of the engine type used by the application."
+        }
+      ]
+    }
+  },
+  "required": [
+    "engineType",
+    "engineVersion"
+  ]
+}

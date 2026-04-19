@@ -1,0 +1,22 @@
+{
+  "applicationArn": "arn:aws:m2:us-east-1:123456789012:app/abc123",
+  "applicationId": "abc12345",
+  "creationTime": "example-value",
+  "deployedVersion": "example-value",
+  "description": "example-value",
+  "engineType": "example-value",
+  "environmentId": "abc12345",
+  "kmsKeyId": "abc12345",
+  "lastStartTime": "example-value",
+  "latestVersion": "example-value",
+  "listenerArns": "arn:aws:m2:us-east-1:123456789012:app/abc123",
+  "listenerPorts": "example-value",
+  "loadBalancerDnsName": "my-app",
+  "logGroups": "example-value",
+  "name": "my-app",
+  "roleArn": "arn:aws:m2:us-east-1:123456789012:app/abc123",
+  "status": "Running",
+  "statusReason": "Running",
+  "tags": "example-value",
+  "targetGroupArns": "arn:aws:m2:us-east-1:123456789012:app/abc123"
+}

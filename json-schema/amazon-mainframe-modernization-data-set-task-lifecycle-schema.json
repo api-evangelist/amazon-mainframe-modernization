@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-schema/amazon-mainframe-modernization-data-set-task-lifecycle-schema.json",
+  "title": "DataSetTaskLifecycle",
+  "description": "DataSetTaskLifecycle schema from AWS Mainframe Modernization API",
+  "type": "string",
+  "enum": [
+    "Creating",
+    "Running",
+    "Completed"
+  ]
+}

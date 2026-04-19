@@ -1,0 +1,15 @@
+{
+  "applicationArn": "arn:aws:m2:us-east-1:123456789012:app/abc123",
+  "applicationId": "abc12345",
+  "applicationVersion": "example-value",
+  "creationTime": "example-value",
+  "deploymentStatus": "Running",
+  "description": "example-value",
+  "engineType": "example-value",
+  "environmentId": "abc12345",
+  "lastStartTime": "example-value",
+  "name": "my-app",
+  "roleArn": "arn:aws:m2:us-east-1:123456789012:app/abc123",
+  "status": "Running",
+  "versionStatus": "Running"
+}

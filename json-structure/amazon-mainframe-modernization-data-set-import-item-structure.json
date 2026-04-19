@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-structure/amazon-mainframe-modernization-data-set-import-item-structure.json",
+  "name": "DataSetImportItem",
+  "description": "Identifies a specific data set to import from an external location.",
+  "type": "object",
+  "properties": {
+    "dataSet": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DataSet"
+        },
+        {
+          "description": "The data set."
+        }
+      ]
+    },
+    "externalLocation": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ExternalLocation"
+        },
+        {
+          "description": "The location of the data set."
+        }
+      ]
+    }
+  },
+  "required": [
+    "dataSet",
+    "externalLocation"
+  ]
+}

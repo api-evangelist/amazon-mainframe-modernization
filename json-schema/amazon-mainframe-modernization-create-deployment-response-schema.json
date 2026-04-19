@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-schema/amazon-mainframe-modernization-create-deployment-response-schema.json",
+  "title": "CreateDeploymentResponse",
+  "description": "CreateDeploymentResponse schema from AWS Mainframe Modernization API",
+  "type": "object",
+  "properties": {
+    "deploymentId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Identifier"
+        },
+        {
+          "description": "The unique identifier of the deployment."
+        }
+      ]
+    }
+  },
+  "required": [
+    "deploymentId"
+  ]
+}

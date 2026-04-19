@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-schema/amazon-mainframe-modernization-batch-job-type-schema.json",
+  "title": "BatchJobType",
+  "description": "BatchJobType schema from AWS Mainframe Modernization API",
+  "type": "string",
+  "enum": [
+    "VSE",
+    "JES2",
+    "JES3"
+  ]
+}

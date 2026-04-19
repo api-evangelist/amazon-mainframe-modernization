@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-schema/amazon-mainframe-modernization-vsam-detail-attributes-schema.json",
+  "title": "VsamDetailAttributes",
+  "description": "The attributes of a VSAM type data set.",
+  "type": "object",
+  "properties": {
+    "alternateKeys": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AlternateKeyList"
+        },
+        {
+          "description": "The alternate key definitions, if any. A legacy dataset might not have any alternate key defined, but if those alternate keys definitions exist, provide them as some applications will make use of them."
+        }
+      ]
+    },
+    "cacheAtStartup": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "If set to True, enforces loading the data set into cache before it\u2019s used by the application."
+        }
+      ]
+    },
+    "compressed": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "Indicates whether indexes for this dataset are stored as compressed values. If you have a large data set (typically &gt; 100 Mb), consider setting this flag to True."
+        }
+      ]
+    },
+    "encoding": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String20"
+        },
+        {
+          "description": "The character set used by the data set. Can be ASCII, EBCDIC, or unknown."
+        }
+      ]
+    },
+    "primaryKey": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PrimaryKey"
+        },
+        {
+          "description": "The primary key of the data set."
+        }
+      ]
+    },
+    "recordFormat": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String20"
+        },
+        {
+          "description": "The record format of the data set."
+        }
+      ]
+    }
+  }
+}

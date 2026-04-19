@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-schema/amazon-mainframe-modernization-create-data-set-import-task-response-schema.json",
+  "title": "CreateDataSetImportTaskResponse",
+  "description": "CreateDataSetImportTaskResponse schema from AWS Mainframe Modernization API",
+  "type": "object",
+  "properties": {
+    "taskId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Identifier"
+        },
+        {
+          "description": "The task identifier. This operation is asynchronous. Use this identifier with the <a>GetDataSetImportTask</a> operation to obtain the status of this task."
+        }
+      ]
+    }
+  },
+  "required": [
+    "taskId"
+  ]
+}

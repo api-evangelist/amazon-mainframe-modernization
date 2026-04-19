@@ -1,0 +1,10 @@
+{
+  "clientToken": "example-value",
+  "definition": "example-value",
+  "description": "example-value",
+  "engineType": "example-value",
+  "kmsKeyId": "abc12345",
+  "name": "my-app",
+  "roleArn": "arn:aws:m2:us-east-1:123456789012:app/abc123",
+  "tags": "example-value"
+}

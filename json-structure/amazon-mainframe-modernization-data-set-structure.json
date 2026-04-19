@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-structure/amazon-mainframe-modernization-data-set-structure.json",
+  "name": "DataSet",
+  "description": "Defines a data set.",
+  "type": "object",
+  "properties": {
+    "datasetName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The logical identifier for a specific data set (in mainframe format)."
+        }
+      ]
+    },
+    "datasetOrg": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DatasetOrgAttributes"
+        },
+        {
+          "description": "The type of dataset. The only supported value is VSAM."
+        }
+      ]
+    },
+    "recordLength": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RecordLength"
+        },
+        {
+          "description": "The length of a record."
+        }
+      ]
+    },
+    "relativePath": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The relative location of the data set in the database or file system. "
+        }
+      ]
+    },
+    "storageType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The storage type of the data set: database or file system. For Micro Focus, database corresponds to datastore and file system corresponds to EFS/FSX. For Blu Age, there is no support of file system and database corresponds to Blusam. "
+        }
+      ]
+    }
+  },
+  "required": [
+    "datasetName",
+    "datasetOrg",
+    "recordLength"
+  ]
+}

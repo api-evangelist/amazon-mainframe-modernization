@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-structure/amazon-mainframe-modernization-get-batch-job-execution-response-structure.json",
+  "name": "GetBatchJobExecutionResponse",
+  "description": "GetBatchJobExecutionResponse schema from AWS Mainframe Modernization API",
+  "type": "object",
+  "properties": {
+    "applicationId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Identifier"
+        },
+        {
+          "description": "The identifier of the application."
+        }
+      ]
+    },
+    "batchJobIdentifier": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BatchJobIdentifier"
+        },
+        {
+          "description": "The unique identifier of this batch job."
+        }
+      ]
+    },
+    "endTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The timestamp when the batch job execution ended."
+        }
+      ]
+    },
+    "executionId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Identifier"
+        },
+        {
+          "description": "The unique identifier for this batch job execution."
+        }
+      ]
+    },
+    "jobId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String100"
+        },
+        {
+          "description": "The unique identifier for this batch job."
+        }
+      ]
+    },
+    "jobName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String100"
+        },
+        {
+          "description": "The name of this batch job."
+        }
+      ]
+    },
+    "jobType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BatchJobType"
+        },
+        {
+          "description": "The type of job."
+        }
+      ]
+    },
+    "jobUser": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String100"
+        },
+        {
+          "description": "The user for the job."
+        }
+      ]
+    },
+    "returnCode": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The batch job return code from either the Blu Age or Micro Focus runtime engines. For more information, see <a href=\"https://www.ibm.com/docs/en/was/8.5.5?topic=model-batch-return-codes\">Batch return codes</a> in the <i>IBM WebSphere Application Server</i> documentation."
+        }
+      ]
+    },
+    "startTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The timestamp when the batch job execution started."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BatchJobExecutionStatus"
+        },
+        {
+          "description": "The status of the batch job execution."
+        }
+      ]
+    },
+    "statusReason": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The reason for the reported status."
+        }
+      ]
+    }
+  },
+  "required": [
+    "applicationId",
+    "executionId",
+    "startTime",
+    "status"
+  ]
+}

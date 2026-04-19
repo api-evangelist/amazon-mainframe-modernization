@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-structure/amazon-mainframe-modernization-list-deployments-response-structure.json",
+  "name": "ListDeploymentsResponse",
+  "description": "ListDeploymentsResponse schema from AWS Mainframe Modernization API",
+  "type": "object",
+  "properties": {
+    "deployments": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeploymentList"
+        },
+        {
+          "description": "The list of deployments that is returned."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "If there are more items to return, this contains a token that is passed to a subsequent call to this operation to retrieve the next set of items."
+        }
+      ]
+    }
+  },
+  "required": [
+    "deployments"
+  ]
+}

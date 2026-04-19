@@ -1,0 +1,225 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Amazon Mainframe Modernization"
+  description: "AWS Mainframe Modernization API for managing applications, environments, deployments, and batch job executions."
+  tags:
+    - Amazon
+    - Mainframe
+    - Migration
+    - Modernization
+    - COBOL
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
+      AWS_REGION: AWS_REGION
+
+capability:
+  consumes:
+    - type: http
+      namespace: mainframe-modernization
+      baseUri: https://m2.amazonaws.com
+      description: "AWS Mainframe Modernization REST API"
+      authentication:
+        type: apikey
+        key: Authorization
+        value: "AWS4-HMAC-SHA256 {{AWS_ACCESS_KEY_ID}}"
+        placement: header
+      resources:
+        - name: applications
+          path: /applications
+          description: "Manage modernization applications"
+          operations:
+            - name: create-application
+              method: POST
+              description: "Create a new modernization application"
+              inputParameters:
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+                  description: "Application configuration"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: list-applications
+              method: GET
+              description: "List all modernization applications"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: get-application
+              method: GET
+              description: "Get application details"
+              inputParameters:
+                - name: applicationId
+                  in: path
+                  type: string
+                  required: true
+                  description: "Application ID"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: environments
+          path: /environments
+          description: "Manage runtime environments"
+          operations:
+            - name: create-environment
+              method: POST
+              description: "Create a runtime environment"
+              inputParameters:
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+                  description: "Environment configuration"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: list-environments
+              method: GET
+              description: "List runtime environments"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: batch-jobs
+          path: /applications/{applicationId}/batch-job-executions
+          description: "Manage batch job executions"
+          operations:
+            - name: start-batch-job
+              method: POST
+              description: "Start a batch job execution"
+              inputParameters:
+                - name: applicationId
+                  in: path
+                  type: string
+                  required: true
+                  description: "Application ID"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: list-batch-job-executions
+              method: GET
+              description: "List batch job executions"
+              inputParameters:
+                - name: applicationId
+                  in: path
+                  type: string
+                  required: true
+                  description: "Application ID"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+  exposes:
+    - type: rest
+      port: 8100
+      namespace: mainframe-modernization-api
+      resources:
+        - path: /v1/applications
+          name: applications
+          description: "Modernization applications"
+          operations:
+            - method: POST
+              name: create-application
+              description: "Create an application"
+              call: "mainframe-modernization.create-application"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: GET
+              name: list-applications
+              description: "List applications"
+              call: "mainframe-modernization.list-applications"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9100
+      namespace: mainframe-modernization-mcp
+      transport: http
+      tools:
+        - name: create-application
+          description: "Create a new mainframe modernization application"
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "mainframe-modernization.create-application"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-applications
+          description: "List all mainframe modernization applications"
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: "mainframe-modernization.list-applications"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-environment
+          description: "Create a runtime environment for modernized applications"
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "mainframe-modernization.create-environment"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-environments
+          description: "List all runtime environments"
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: "mainframe-modernization.list-environments"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: start-batch-job
+          description: "Start a batch job execution for a modernized mainframe application"
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "mainframe-modernization.start-batch-job"
+          with:
+            applicationId: "tools.applicationId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-batch-job-executions
+          description: "List batch job executions for an application"
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: "mainframe-modernization.list-batch-job-executions"
+          with:
+            applicationId: "tools.applicationId"
+          outputParameters:
+            - type: object
+              mapping: "$."

@@ -1,0 +1,16 @@
+{
+  "clientToken": "example-value",
+  "description": "example-value",
+  "engineType": "example-value",
+  "engineVersion": "example-value",
+  "highAvailabilityConfig": "example-value",
+  "instanceType": "example-value",
+  "kmsKeyId": "abc12345",
+  "name": "my-app",
+  "preferredMaintenanceWindow": "example-value",
+  "publiclyAccessible": "example-value",
+  "securityGroupIds": "abc12345",
+  "storageConfigurations": "example-value",
+  "subnetIds": "abc12345",
+  "tags": "example-value"
+}

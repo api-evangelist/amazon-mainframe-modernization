@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-structure/amazon-mainframe-modernization-application-deployment-lifecycle-structure.json",
+  "name": "ApplicationDeploymentLifecycle",
+  "description": "ApplicationDeploymentLifecycle schema from AWS Mainframe Modernization API",
+  "type": "string",
+  "enum": [
+    "Deploying",
+    "Deployed"
+  ]
+}

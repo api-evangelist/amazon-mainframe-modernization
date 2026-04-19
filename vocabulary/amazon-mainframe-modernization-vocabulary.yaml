@@ -1,0 +1,179 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: "Amazon Mainframe Modernization"
+  description: "Unified vocabulary for AWS Mainframe Modernization covering application lifecycle, environment management, deployments, and batch job execution."
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+operational:
+  apis:
+    - namespace: mainframe-modernization
+      version: "2021-04-28"
+      baseUrl: https://m2.amazonaws.com
+      status: active
+      description: "AWS Mainframe Modernization REST API"
+
+  resources:
+    - name: applications
+      apis: [mainframe-modernization]
+      actions: [create, list, get, update, delete, start, stop]
+    - name: environments
+      apis: [mainframe-modernization]
+      actions: [create, list, get, update, delete]
+    - name: deployments
+      apis: [mainframe-modernization]
+      actions: [create, list, get, delete]
+    - name: batch-job-executions
+      apis: [mainframe-modernization]
+      actions: [start, list, get, cancel]
+    - name: data-sets
+      apis: [mainframe-modernization]
+      actions: [list, get, import]
+    - name: engine-versions
+      apis: [mainframe-modernization]
+      actions: [list]
+    - name: tags
+      apis: [mainframe-modernization]
+      actions: [list, add, remove]
+
+  actions:
+    - name: create
+      httpMethods: [POST]
+      pattern: write
+    - name: list
+      httpMethods: [GET]
+      pattern: read
+    - name: get
+      httpMethods: [GET]
+      pattern: read
+    - name: update
+      httpMethods: [PATCH]
+      pattern: write
+    - name: delete
+      httpMethods: [DELETE]
+      pattern: destructive
+    - name: start
+      httpMethods: [POST]
+      pattern: write
+    - name: stop
+      httpMethods: [POST]
+      pattern: write
+    - name: cancel
+      httpMethods: [POST]
+      pattern: write
+
+  schemas:
+    core:
+      - ApplicationSummary
+      - EnvironmentSummary
+      - DeploymentSummary
+    batch:
+      - BatchJobExecutionSummary
+      - BatchJobDefinition
+      - JobIdentifier
+    data:
+      - DataSet
+      - DataSetImportTask
+
+  parameters:
+    pagination:
+      - nextToken
+      - maxResults
+    identifiers:
+      - applicationId
+      - environmentId
+      - deploymentId
+      - executionId
+
+  enums:
+    application-lifecycle:
+      - Creating
+      - Created
+      - Available
+      - Ready
+      - Starting
+      - Running
+      - Stopping
+      - Stopped
+      - Failed
+      - Deleting
+    engine-type:
+      - microfocus
+      - bluage
+    deployment-status:
+      - Deploying
+      - Deployed
+      - Failed
+
+  authentication:
+    schemes:
+      - type: aws-sigv4
+        name: AWS Signature Version 4
+        description: "AWS Signature Version 4 authentication"
+        apis: [mainframe-modernization]
+
+capability:
+  workflows:
+    - name: Modernization Workflow
+      file: capabilities/modernization-workflow.yaml
+      description: "Workflow for managing mainframe application modernization, environments, and batch jobs"
+      apisComposed: [mainframe-modernization]
+      toolCount: 7
+      personas:
+        - Platform Engineer
+        - Mainframe Developer
+
+  personas:
+    - id: platform-engineer
+      name: "Platform Engineer"
+      description: "Manages runtime environments and deployment infrastructure for modernized mainframe applications"
+      workflows: [Modernization Workflow]
+    - id: mainframe-developer
+      name: "Mainframe Developer"
+      description: "Develops and deploys modernized COBOL/mainframe applications and manages batch job execution"
+      workflows: [Modernization Workflow]
+
+  domains:
+    - name: Application Lifecycle
+      description: "Creation and management of modernized mainframe applications"
+      resources: [applications, deployments]
+    - name: Runtime Infrastructure
+      description: "Environment provisioning for running modernized applications"
+      resources: [environments]
+    - name: Batch Processing
+      description: "Execution of batch jobs migrated from mainframe"
+      resources: [batch-job-executions]
+
+  namespaces:
+    - name: mainframe-modernization
+      type: consumed
+      baseUri: https://m2.amazonaws.com
+    - name: modernization-api
+      type: rest-exposed
+      port: 8080
+    - name: modernization-mcp
+      type: mcp-exposed
+      port: 9090
+
+  binds:
+    - name: AWS_ACCESS_KEY_ID
+      workflows: [Modernization Workflow]
+    - name: AWS_SECRET_ACCESS_KEY
+      workflows: [Modernization Workflow]
+    - name: AWS_REGION
+      workflows: [Modernization Workflow]
+
+crossReference:
+  - resource: applications
+    operations: [CreateApplication, ListApplications, GetApplication, UpdateApplication, DeleteApplication]
+    workflows: [Modernization Workflow]
+    personas: [Platform Engineer, Mainframe Developer]
+  - resource: environments
+    operations: [CreateEnvironment, ListEnvironments, GetEnvironment, UpdateEnvironment, DeleteEnvironment]
+    workflows: [Modernization Workflow]
+    personas: [Platform Engineer]
+  - resource: batch-job-executions
+    operations: [StartBatchJob, ListBatchJobExecutions, GetBatchJobExecution, CancelBatchJobExecution]
+    workflows: [Modernization Workflow]
+    personas: [Mainframe Developer]

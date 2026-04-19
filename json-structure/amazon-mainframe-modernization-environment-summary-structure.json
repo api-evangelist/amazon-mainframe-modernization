@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-structure/amazon-mainframe-modernization-environment-summary-structure.json",
+  "name": "EnvironmentSummary",
+  "description": "Contains a subset of the possible runtime environment attributes. Used in the environment list.",
+  "type": "object",
+  "properties": {
+    "creationTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The timestamp when the runtime environment was created."
+        }
+      ]
+    },
+    "engineType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EngineType"
+        },
+        {
+          "description": "The target platform for the runtime environment."
+        }
+      ]
+    },
+    "engineVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EngineVersion"
+        },
+        {
+          "description": "The version of the runtime engine."
+        }
+      ]
+    },
+    "environmentArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Arn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of a particular runtime environment."
+        }
+      ]
+    },
+    "environmentId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Identifier"
+        },
+        {
+          "description": "The unique identifier of a particular runtime environment."
+        }
+      ]
+    },
+    "instanceType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String20"
+        },
+        {
+          "description": "The instance type of the runtime environment."
+        }
+      ]
+    },
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityName"
+        },
+        {
+          "description": "The name of the runtime environment."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EnvironmentLifecycle"
+        },
+        {
+          "description": "The status of the runtime environment"
+        }
+      ]
+    }
+  },
+  "required": [
+    "creationTime",
+    "engineType",
+    "engineVersion",
+    "environmentArn",
+    "environmentId",
+    "instanceType",
+    "name",
+    "status"
+  ]
+}

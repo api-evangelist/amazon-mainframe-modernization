@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-structure/amazon-mainframe-modernization-ps-detail-attributes-structure.json",
+  "name": "PsDetailAttributes",
+  "description": "The supported properties for a PS type data set.",
+  "type": "object",
+  "properties": {
+    "encoding": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The character set encoding of the data set."
+        }
+      ]
+    },
+    "format": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The format of the data set records."
+        }
+      ]
+    }
+  },
+  "required": [
+    "encoding",
+    "format"
+  ]
+}

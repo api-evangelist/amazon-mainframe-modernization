@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-structure/amazon-mainframe-modernization-get-application-version-response-structure.json",
+  "name": "GetApplicationVersionResponse",
+  "description": "GetApplicationVersionResponse schema from AWS Mainframe Modernization API",
+  "type": "object",
+  "properties": {
+    "applicationVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Version"
+        },
+        {
+          "description": "The specific version of the application."
+        }
+      ]
+    },
+    "creationTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The timestamp when the application version was created."
+        }
+      ]
+    },
+    "definitionContent": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StringFree65000"
+        },
+        {
+          "description": "The content of the application definition. This is a JSON object that contains the resource configuration and definitions that identify an application."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityDescription"
+        },
+        {
+          "description": "The application description."
+        }
+      ]
+    },
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityName"
+        },
+        {
+          "description": "The name of the application version."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationVersionLifecycle"
+        },
+        {
+          "description": "The status of the application version."
+        }
+      ]
+    },
+    "statusReason": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The reason for the reported status."
+        }
+      ]
+    }
+  },
+  "required": [
+    "applicationVersion",
+    "creationTime",
+    "definitionContent",
+    "name",
+    "status"
+  ]
+}

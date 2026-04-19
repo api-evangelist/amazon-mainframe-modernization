@@ -1,0 +1,479 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "amm": "https://amm.amazonaws.com/schema/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "AlternateKey": "amm:AlternateKey",
+    "ApplicationSummary": "amm:ApplicationSummary",
+    "ApplicationVersionSummary": "amm:ApplicationVersionSummary",
+    "BatchJobDefinition": "amm:BatchJobDefinition",
+    "BatchJobExecutionSummary": "amm:BatchJobExecutionSummary",
+    "BatchJobIdentifier": "amm:BatchJobIdentifier",
+    "BatchJobParametersMap": "amm:BatchJobParametersMap",
+    "CancelBatchJobExecutionRequest": "amm:CancelBatchJobExecutionRequest",
+    "CancelBatchJobExecutionResponse": "amm:CancelBatchJobExecutionResponse",
+    "CreateApplicationRequest": "amm:CreateApplicationRequest",
+    "CreateApplicationResponse": "amm:CreateApplicationResponse",
+    "CreateDataSetImportTaskRequest": "amm:CreateDataSetImportTaskRequest",
+    "CreateDataSetImportTaskResponse": "amm:CreateDataSetImportTaskResponse",
+    "CreateDeploymentRequest": "amm:CreateDeploymentRequest",
+    "CreateDeploymentResponse": "amm:CreateDeploymentResponse",
+    "CreateEnvironmentRequest": "amm:CreateEnvironmentRequest",
+    "CreateEnvironmentResponse": "amm:CreateEnvironmentResponse",
+    "DataSet": "amm:DataSet",
+    "DataSetImportConfig": "amm:DataSetImportConfig",
+    "DataSetImportItem": "amm:DataSetImportItem",
+    "DataSetImportSummary": "amm:DataSetImportSummary",
+    "DataSetImportTask": "amm:DataSetImportTask",
+    "DataSetSummary": "amm:DataSetSummary",
+    "DatasetDetailOrgAttributes": "amm:DatasetDetailOrgAttributes",
+    "DatasetOrgAttributes": "amm:DatasetOrgAttributes",
+    "Definition": "amm:Definition",
+    "DeleteApplicationFromEnvironmentRequest": "amm:DeleteApplicationFromEnvironmentRequest",
+    "DeleteApplicationFromEnvironmentResponse": "amm:DeleteApplicationFromEnvironmentResponse",
+    "DeleteApplicationRequest": "amm:DeleteApplicationRequest",
+    "DeleteApplicationResponse": "amm:DeleteApplicationResponse",
+    "DeleteEnvironmentRequest": "amm:DeleteEnvironmentRequest",
+    "DeleteEnvironmentResponse": "amm:DeleteEnvironmentResponse",
+    "DeployedVersionSummary": "amm:DeployedVersionSummary",
+    "DeploymentSummary": "amm:DeploymentSummary",
+    "EfsStorageConfiguration": "amm:EfsStorageConfiguration",
+    "EngineVersionsSummary": "amm:EngineVersionsSummary",
+    "EnvironmentSummary": "amm:EnvironmentSummary",
+    "ExternalLocation": "amm:ExternalLocation",
+    "FileBatchJobDefinition": "amm:FileBatchJobDefinition",
+    "FileBatchJobIdentifier": "amm:FileBatchJobIdentifier",
+    "FsxStorageConfiguration": "amm:FsxStorageConfiguration",
+    "GdgAttributes": "amm:GdgAttributes",
+    "GdgDetailAttributes": "amm:GdgDetailAttributes",
+    "GetApplicationRequest": "amm:GetApplicationRequest",
+    "GetApplicationResponse": "amm:GetApplicationResponse",
+    "GetApplicationVersionRequest": "amm:GetApplicationVersionRequest",
+    "GetApplicationVersionResponse": "amm:GetApplicationVersionResponse",
+    "GetBatchJobExecutionRequest": "amm:GetBatchJobExecutionRequest",
+    "GetBatchJobExecutionResponse": "amm:GetBatchJobExecutionResponse",
+    "GetDataSetDetailsRequest": "amm:GetDataSetDetailsRequest",
+    "GetDataSetDetailsResponse": "amm:GetDataSetDetailsResponse",
+    "GetDataSetImportTaskRequest": "amm:GetDataSetImportTaskRequest",
+    "GetDataSetImportTaskResponse": "amm:GetDataSetImportTaskResponse",
+    "GetDeploymentRequest": "amm:GetDeploymentRequest",
+    "GetDeploymentResponse": "amm:GetDeploymentResponse",
+    "GetEnvironmentRequest": "amm:GetEnvironmentRequest",
+    "GetEnvironmentResponse": "amm:GetEnvironmentResponse",
+    "GetSignedBluinsightsUrlResponse": "amm:GetSignedBluinsightsUrlResponse",
+    "HighAvailabilityConfig": "amm:HighAvailabilityConfig",
+    "ListApplicationVersionsRequest": "amm:ListApplicationVersionsRequest",
+    "ListApplicationVersionsResponse": "amm:ListApplicationVersionsResponse",
+    "ListApplicationsRequest": "amm:ListApplicationsRequest",
+    "ListApplicationsResponse": "amm:ListApplicationsResponse",
+    "ListBatchJobDefinitionsRequest": "amm:ListBatchJobDefinitionsRequest",
+    "ListBatchJobDefinitionsResponse": "amm:ListBatchJobDefinitionsResponse",
+    "ListBatchJobExecutionsRequest": "amm:ListBatchJobExecutionsRequest",
+    "ListBatchJobExecutionsResponse": "amm:ListBatchJobExecutionsResponse",
+    "ListDataSetImportHistoryRequest": "amm:ListDataSetImportHistoryRequest",
+    "ListDataSetImportHistoryResponse": "amm:ListDataSetImportHistoryResponse",
+    "ListDataSetsRequest": "amm:ListDataSetsRequest",
+    "ListDataSetsResponse": "amm:ListDataSetsResponse",
+    "ListDeploymentsRequest": "amm:ListDeploymentsRequest",
+    "ListDeploymentsResponse": "amm:ListDeploymentsResponse",
+    "ListEngineVersionsRequest": "amm:ListEngineVersionsRequest",
+    "ListEngineVersionsResponse": "amm:ListEngineVersionsResponse",
+    "ListEnvironmentsRequest": "amm:ListEnvironmentsRequest",
+    "ListEnvironmentsResponse": "amm:ListEnvironmentsResponse",
+    "ListTagsForResourceRequest": "amm:ListTagsForResourceRequest",
+    "ListTagsForResourceResponse": "amm:ListTagsForResourceResponse",
+    "LogGroupSummary": "amm:LogGroupSummary",
+    "MaintenanceSchedule": "amm:MaintenanceSchedule",
+    "PendingMaintenance": "amm:PendingMaintenance",
+    "PoAttributes": "amm:PoAttributes",
+    "PoDetailAttributes": "amm:PoDetailAttributes",
+    "PrimaryKey": "amm:PrimaryKey",
+    "PsAttributes": "amm:PsAttributes",
+    "PsDetailAttributes": "amm:PsDetailAttributes",
+    "RecordLength": "amm:RecordLength",
+    "ScriptBatchJobDefinition": "amm:ScriptBatchJobDefinition",
+    "ScriptBatchJobIdentifier": "amm:ScriptBatchJobIdentifier",
+    "StartApplicationRequest": "amm:StartApplicationRequest",
+    "StartApplicationResponse": "amm:StartApplicationResponse",
+    "StartBatchJobRequest": "amm:StartBatchJobRequest",
+    "StartBatchJobResponse": "amm:StartBatchJobResponse",
+    "StopApplicationRequest": "amm:StopApplicationRequest",
+    "StopApplicationResponse": "amm:StopApplicationResponse",
+    "StorageConfiguration": "amm:StorageConfiguration",
+    "TagMap": "amm:TagMap",
+    "TagResourceRequest": "amm:TagResourceRequest",
+    "TagResourceResponse": "amm:TagResourceResponse",
+    "UntagResourceRequest": "amm:UntagResourceRequest",
+    "UntagResourceResponse": "amm:UntagResourceResponse",
+    "UpdateApplicationRequest": "amm:UpdateApplicationRequest",
+    "UpdateApplicationResponse": "amm:UpdateApplicationResponse",
+    "UpdateEnvironmentRequest": "amm:UpdateEnvironmentRequest",
+    "UpdateEnvironmentResponse": "amm:UpdateEnvironmentResponse",
+    "VsamAttributes": "amm:VsamAttributes",
+    "VsamDetailAttributes": "amm:VsamDetailAttributes",
+    "actualCapacity": {
+      "@id": "amm:actualCapacity"
+    },
+    "allowDuplicates": {
+      "@id": "amm:allowDuplicates"
+    },
+    "alternateKeys": {
+      "@id": "amm:alternateKeys"
+    },
+    "applicationArn": {
+      "@id": "amm:applicationArn"
+    },
+    "applicationId": {
+      "@id": "amm:applicationId"
+    },
+    "applicationVersion": {
+      "@id": "amm:applicationVersion"
+    },
+    "applicationVersions": {
+      "@id": "amm:applicationVersions"
+    },
+    "applications": {
+      "@id": "amm:applications"
+    },
+    "applyDuringMaintenanceWindow": {
+      "@id": "amm:applyDuringMaintenanceWindow"
+    },
+    "batchJobDefinitions": {
+      "@id": "amm:batchJobDefinitions"
+    },
+    "batchJobExecutions": {
+      "@id": "amm:batchJobExecutions"
+    },
+    "batchJobIdentifier": {
+      "@id": "amm:batchJobIdentifier"
+    },
+    "blocksize": {
+      "@id": "amm:blocksize"
+    },
+    "cacheAtStartup": {
+      "@id": "amm:cacheAtStartup"
+    },
+    "clientToken": {
+      "@id": "amm:clientToken"
+    },
+    "compressed": {
+      "@id": "amm:compressed"
+    },
+    "content": {
+      "@id": "amm:content"
+    },
+    "creationTime": {
+      "@id": "amm:creationTime"
+    },
+    "currentApplicationVersion": {
+      "@id": "amm:currentApplicationVersion"
+    },
+    "dataSet": {
+      "@id": "amm:dataSet"
+    },
+    "dataSetImportTasks": {
+      "@id": "amm:dataSetImportTasks"
+    },
+    "dataSetName": {
+      "@id": "amm:dataSetName"
+    },
+    "dataSetOrg": {
+      "@id": "amm:dataSetOrg"
+    },
+    "dataSets": {
+      "@id": "amm:dataSets"
+    },
+    "datasetName": {
+      "@id": "amm:datasetName"
+    },
+    "datasetOrg": {
+      "@id": "amm:datasetOrg"
+    },
+    "definition": {
+      "@id": "amm:definition"
+    },
+    "definitionContent": {
+      "@id": "amm:definitionContent"
+    },
+    "deployedVersion": {
+      "@id": "amm:deployedVersion"
+    },
+    "deploymentId": {
+      "@id": "amm:deploymentId"
+    },
+    "deploymentStatus": {
+      "@id": "amm:deploymentStatus"
+    },
+    "deployments": {
+      "@id": "amm:deployments"
+    },
+    "description": {
+      "@id": "amm:description"
+    },
+    "desiredCapacity": {
+      "@id": "amm:desiredCapacity"
+    },
+    "efs": {
+      "@id": "amm:efs"
+    },
+    "encoding": {
+      "@id": "amm:encoding"
+    },
+    "endTime": {
+      "@id": "amm:endTime"
+    },
+    "engineType": {
+      "@id": "amm:engineType"
+    },
+    "engineVersion": {
+      "@id": "amm:engineVersion"
+    },
+    "engineVersions": {
+      "@id": "amm:engineVersions"
+    },
+    "environmentArn": {
+      "@id": "amm:environmentArn"
+    },
+    "environmentId": {
+      "@id": "amm:environmentId"
+    },
+    "environments": {
+      "@id": "amm:environments"
+    },
+    "executionId": {
+      "@id": "amm:executionId"
+    },
+    "externalLocation": {
+      "@id": "amm:externalLocation"
+    },
+    "failed": {
+      "@id": "amm:failed"
+    },
+    "fileBatchJobDefinition": {
+      "@id": "amm:fileBatchJobDefinition"
+    },
+    "fileBatchJobIdentifier": {
+      "@id": "amm:fileBatchJobIdentifier"
+    },
+    "fileName": {
+      "@id": "amm:fileName"
+    },
+    "fileSystemId": {
+      "@id": "amm:fileSystemId"
+    },
+    "folderPath": {
+      "@id": "amm:folderPath"
+    },
+    "forceStop": {
+      "@id": "amm:forceStop"
+    },
+    "format": {
+      "@id": "amm:format"
+    },
+    "fsx": {
+      "@id": "amm:fsx"
+    },
+    "gdg": {
+      "@id": "amm:gdg"
+    },
+    "highAvailabilityConfig": {
+      "@id": "amm:highAvailabilityConfig"
+    },
+    "importConfig": {
+      "@id": "amm:importConfig"
+    },
+    "inProgress": {
+      "@id": "amm:inProgress"
+    },
+    "instanceType": {
+      "@id": "amm:instanceType"
+    },
+    "jobId": {
+      "@id": "amm:jobId"
+    },
+    "jobName": {
+      "@id": "amm:jobName"
+    },
+    "jobParams": {
+      "@id": "amm:jobParams"
+    },
+    "jobType": {
+      "@id": "amm:jobType"
+    },
+    "jobUser": {
+      "@id": "amm:jobUser"
+    },
+    "kmsKeyId": {
+      "@id": "amm:kmsKeyId"
+    },
+    "lastReferencedTime": {
+      "@id": "amm:lastReferencedTime"
+    },
+    "lastStartTime": {
+      "@id": "amm:lastStartTime"
+    },
+    "lastUpdatedTime": {
+      "@id": "amm:lastUpdatedTime"
+    },
+    "latestVersion": {
+      "@id": "amm:latestVersion"
+    },
+    "length": {
+      "@id": "amm:length"
+    },
+    "limit": {
+      "@id": "amm:limit"
+    },
+    "listenerArns": {
+      "@id": "amm:listenerArns"
+    },
+    "listenerPorts": {
+      "@id": "amm:listenerPorts"
+    },
+    "loadBalancerArn": {
+      "@id": "amm:loadBalancerArn"
+    },
+    "loadBalancerDnsName": {
+      "@id": "amm:loadBalancerDnsName"
+    },
+    "location": {
+      "@id": "amm:location"
+    },
+    "logGroupName": {
+      "@id": "amm:logGroupName"
+    },
+    "logGroups": {
+      "@id": "amm:logGroups"
+    },
+    "logType": {
+      "@id": "amm:logType"
+    },
+    "max": {
+      "@id": "amm:max"
+    },
+    "memberFileExtensions": {
+      "@id": "amm:memberFileExtensions"
+    },
+    "min": {
+      "@id": "amm:min"
+    },
+    "mountPoint": {
+      "@id": "amm:mountPoint"
+    },
+    "name": {
+      "@id": "amm:name"
+    },
+    "nextToken": {
+      "@id": "amm:nextToken"
+    },
+    "offset": {
+      "@id": "amm:offset"
+    },
+    "pending": {
+      "@id": "amm:pending"
+    },
+    "pendingMaintenance": {
+      "@id": "amm:pendingMaintenance"
+    },
+    "po": {
+      "@id": "amm:po"
+    },
+    "preferredMaintenanceWindow": {
+      "@id": "amm:preferredMaintenanceWindow"
+    },
+    "primaryKey": {
+      "@id": "amm:primaryKey"
+    },
+    "ps": {
+      "@id": "amm:ps"
+    },
+    "publiclyAccessible": {
+      "@id": "amm:publiclyAccessible"
+    },
+    "recordFormat": {
+      "@id": "amm:recordFormat"
+    },
+    "recordLength": {
+      "@id": "amm:recordLength"
+    },
+    "relativePath": {
+      "@id": "amm:relativePath"
+    },
+    "returnCode": {
+      "@id": "amm:returnCode"
+    },
+    "roleArn": {
+      "@id": "amm:roleArn"
+    },
+    "rollDisposition": {
+      "@id": "amm:rollDisposition"
+    },
+    "s3Location": {
+      "@id": "amm:s3Location"
+    },
+    "schedule": {
+      "@id": "amm:schedule"
+    },
+    "scriptBatchJobDefinition": {
+      "@id": "amm:scriptBatchJobDefinition"
+    },
+    "scriptBatchJobIdentifier": {
+      "@id": "amm:scriptBatchJobIdentifier"
+    },
+    "scriptName": {
+      "@id": "amm:scriptName"
+    },
+    "securityGroupIds": {
+      "@id": "amm:securityGroupIds"
+    },
+    "signedBiUrl": {
+      "@id": "amm:signedBiUrl"
+    },
+    "startTime": {
+      "@id": "amm:startTime"
+    },
+    "status": {
+      "@id": "amm:status"
+    },
+    "statusReason": {
+      "@id": "amm:statusReason"
+    },
+    "storageConfigurations": {
+      "@id": "amm:storageConfigurations"
+    },
+    "storageType": {
+      "@id": "amm:storageType"
+    },
+    "subnetIds": {
+      "@id": "amm:subnetIds"
+    },
+    "succeeded": {
+      "@id": "amm:succeeded"
+    },
+    "summary": {
+      "@id": "amm:summary"
+    },
+    "tags": {
+      "@id": "amm:tags"
+    },
+    "targetGroupArns": {
+      "@id": "amm:targetGroupArns"
+    },
+    "taskId": {
+      "@id": "amm:taskId"
+    },
+    "total": {
+      "@id": "amm:total"
+    },
+    "versionStatus": {
+      "@id": "amm:versionStatus"
+    },
+    "vpcId": {
+      "@id": "amm:vpcId"
+    },
+    "vsam": {
+      "@id": "amm:vsam"
+    }
+  }
+}

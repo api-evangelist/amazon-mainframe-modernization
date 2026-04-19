@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-schema/amazon-mainframe-modernization-create-environment-request-schema.json",
+  "title": "CreateEnvironmentRequest",
+  "description": "CreateEnvironmentRequest schema from AWS Mainframe Modernization API",
+  "type": "object",
+  "properties": {
+    "clientToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "Unique, case-sensitive identifier you provide to ensure the idempotency of the request to create an environment. The service generates the clientToken when the API call is triggered. The token expires after one hour, so if you retry the API within this timeframe with the same clientToken, you will get the same response. The service also handles deleting the clientToken after it expires. "
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityDescription"
+        },
+        {
+          "description": "The description of the runtime environment."
+        }
+      ]
+    },
+    "engineType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EngineType"
+        },
+        {
+          "description": "The engine type for the runtime environment."
+        }
+      ]
+    },
+    "engineVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EngineVersion"
+        },
+        {
+          "description": "The version of the engine type for the runtime environment."
+        }
+      ]
+    },
+    "highAvailabilityConfig": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/HighAvailabilityConfig"
+        },
+        {
+          "description": "The details of a high availability configuration for this runtime environment."
+        }
+      ]
+    },
+    "instanceType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String20"
+        },
+        {
+          "description": "The type of instance for the runtime environment."
+        }
+      ]
+    },
+    "kmsKeyId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The identifier of a customer managed key."
+        }
+      ]
+    },
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityName"
+        },
+        {
+          "description": "The name of the runtime environment. Must be unique within the account."
+        }
+      ]
+    },
+    "preferredMaintenanceWindow": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String50"
+        },
+        {
+          "description": "Configures the maintenance window you want for the runtime environment. If you do not provide a value, a random system-generated value will be assigned."
+        }
+      ]
+    },
+    "publiclyAccessible": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "Specifies whether the runtime environment is publicly accessible."
+        }
+      ]
+    },
+    "securityGroupIds": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String50List"
+        },
+        {
+          "description": "The list of security groups for the VPC associated with this runtime environment."
+        }
+      ]
+    },
+    "storageConfigurations": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StorageConfigurationList"
+        },
+        {
+          "description": "Optional. The storage configurations for this runtime environment."
+        }
+      ]
+    },
+    "subnetIds": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String50List"
+        },
+        {
+          "description": "The list of subnets associated with the VPC for this runtime environment."
+        }
+      ]
+    },
+    "tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "The tags for the runtime environment."
+        }
+      ]
+    }
+  },
+  "required": [
+    "engineType",
+    "instanceType",
+    "name"
+  ]
+}

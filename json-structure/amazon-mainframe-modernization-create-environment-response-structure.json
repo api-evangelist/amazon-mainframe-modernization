@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-structure/amazon-mainframe-modernization-create-environment-response-structure.json",
+  "name": "CreateEnvironmentResponse",
+  "description": "CreateEnvironmentResponse schema from AWS Mainframe Modernization API",
+  "type": "object",
+  "properties": {
+    "environmentId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Identifier"
+        },
+        {
+          "description": "The unique identifier of the runtime environment."
+        }
+      ]
+    }
+  },
+  "required": [
+    "environmentId"
+  ]
+}

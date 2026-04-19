@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-structure/amazon-mainframe-modernization-engine-type-structure.json",
+  "name": "EngineType",
+  "description": "EngineType schema from AWS Mainframe Modernization API",
+  "type": "string",
+  "enum": [
+    "microfocus",
+    "bluage"
+  ]
+}

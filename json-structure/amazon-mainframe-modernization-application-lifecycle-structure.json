@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-structure/amazon-mainframe-modernization-application-lifecycle-structure.json",
+  "name": "ApplicationLifecycle",
+  "description": "ApplicationLifecycle schema from AWS Mainframe Modernization API",
+  "type": "string",
+  "enum": [
+    "Creating",
+    "Created",
+    "Available",
+    "Ready",
+    "Starting",
+    "Running",
+    "Stopping",
+    "Stopped",
+    "Failed",
+    "Deleting",
+    "Deleting From Environment"
+  ]
+}

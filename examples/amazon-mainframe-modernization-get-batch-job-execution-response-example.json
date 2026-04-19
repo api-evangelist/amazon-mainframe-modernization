@@ -1,0 +1,14 @@
+{
+  "applicationId": "abc12345",
+  "batchJobIdentifier": "abc12345",
+  "endTime": "example-value",
+  "executionId": "abc12345",
+  "jobId": "abc12345",
+  "jobName": "my-app",
+  "jobType": "example-value",
+  "jobUser": "example-value",
+  "returnCode": "example-value",
+  "startTime": "example-value",
+  "status": "Running",
+  "statusReason": "Running"
+}

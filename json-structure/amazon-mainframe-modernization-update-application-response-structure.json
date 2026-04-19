@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-structure/amazon-mainframe-modernization-update-application-response-structure.json",
+  "name": "UpdateApplicationResponse",
+  "description": "UpdateApplicationResponse schema from AWS Mainframe Modernization API",
+  "type": "object",
+  "properties": {
+    "applicationVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Version"
+        },
+        {
+          "description": "The new version of the application."
+        }
+      ]
+    }
+  },
+  "required": [
+    "applicationVersion"
+  ]
+}

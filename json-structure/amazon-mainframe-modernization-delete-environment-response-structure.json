@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-structure/amazon-mainframe-modernization-delete-environment-response-structure.json",
+  "name": "DeleteEnvironmentResponse",
+  "description": "DeleteEnvironmentResponse schema from AWS Mainframe Modernization API",
+  "type": "object",
+  "properties": {}
+}

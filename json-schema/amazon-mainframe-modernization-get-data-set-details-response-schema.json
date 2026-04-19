@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-schema/amazon-mainframe-modernization-get-data-set-details-response-schema.json",
+  "title": "GetDataSetDetailsResponse",
+  "description": "GetDataSetDetailsResponse schema from AWS Mainframe Modernization API",
+  "type": "object",
+  "properties": {
+    "blocksize": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Integer"
+        },
+        {
+          "description": "The size of the block on disk. "
+        }
+      ]
+    },
+    "creationTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The timestamp when the data set was created."
+        }
+      ]
+    },
+    "dataSetName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String200"
+        },
+        {
+          "description": "The name of the data set."
+        }
+      ]
+    },
+    "dataSetOrg": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DatasetDetailOrgAttributes"
+        },
+        {
+          "description": "The type of data set. The only supported value is VSAM."
+        }
+      ]
+    },
+    "lastReferencedTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The last time the data set was referenced."
+        }
+      ]
+    },
+    "lastUpdatedTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The last time the data set was updated."
+        }
+      ]
+    },
+    "location": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String2000"
+        },
+        {
+          "description": "The location where the data set is stored."
+        }
+      ]
+    },
+    "recordLength": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Integer"
+        },
+        {
+          "description": "The length of records in the data set."
+        }
+      ]
+    }
+  },
+  "required": [
+    "dataSetName"
+  ]
+}

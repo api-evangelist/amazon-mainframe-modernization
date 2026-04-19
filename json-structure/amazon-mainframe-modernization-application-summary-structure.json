@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/json-structure/amazon-mainframe-modernization-application-summary-structure.json",
+  "name": "ApplicationSummary",
+  "description": "A subset of the possible application attributes. Used in the application list.",
+  "type": "object",
+  "properties": {
+    "applicationArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Arn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the application."
+        }
+      ]
+    },
+    "applicationId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Identifier"
+        },
+        {
+          "description": "The unique identifier of the application."
+        }
+      ]
+    },
+    "applicationVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Version"
+        },
+        {
+          "description": "The version of the application."
+        }
+      ]
+    },
+    "creationTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The timestamp when the application was created."
+        }
+      ]
+    },
+    "deploymentStatus": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationDeploymentLifecycle"
+        },
+        {
+          "description": "Indicates either an ongoing deployment or if the application has ever deployed successfully."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityDescription"
+        },
+        {
+          "description": "The description of the application."
+        }
+      ]
+    },
+    "engineType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EngineType"
+        },
+        {
+          "description": "The type of the target platform for this application."
+        }
+      ]
+    },
+    "environmentId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Identifier"
+        },
+        {
+          "description": "The unique identifier of the runtime environment that hosts this application."
+        }
+      ]
+    },
+    "lastStartTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The timestamp when you last started the application. Null until the application runs for the first time."
+        }
+      ]
+    },
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityName"
+        },
+        {
+          "description": "The name of the application."
+        }
+      ]
+    },
+    "roleArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Arn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the role associated with the application."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationLifecycle"
+        },
+        {
+          "description": "The status of the application."
+        }
+      ]
+    },
+    "versionStatus": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationVersionLifecycle"
+        },
+        {
+          "description": "Indicates the status of the latest version of the application."
+        }
+      ]
+    }
+  },
+  "required": [
+    "applicationArn",
+    "applicationId",
+    "applicationVersion",
+    "creationTime",
+    "engineType",
+    "name",
+    "status"
+  ]
+}
