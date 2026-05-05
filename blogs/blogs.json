@@ -1,0 +1,13 @@
+{
+  "repo": "amazon-mainframe-modernization",
+  "feeds": [
+    {
+      "source": "https://aws.amazon.com/blogs/modernizing-with-aws/",
+      "feed_url": "https://aws.amazon.com/blogs/modernizing-with-aws/feed/",
+      "saved": 10,
+      "title": "Microsoft Workloads on AWS"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-05-03T23:21:34Z"
+}
