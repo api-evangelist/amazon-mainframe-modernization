@@ -51,7 +51,7 @@ apis:
         url: json-schema/amazon-mainframe-modernization-application-summary-schema.json
       - type: JSONStructure
         url: json-structure/amazon-mainframe-modernization-application-summary-structure.json
-      - type: JSON-LD
+      - type: JSONLD
         url: json-ld/amazon-mainframe-modernization-context.jsonld
 common:
   - type: Portal
