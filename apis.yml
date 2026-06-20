@@ -4,7 +4,7 @@ description: AWS Mainframe Modernization provides tools and resources to help yo
   of your mainframe applications to AWS. It supports automated refactoring and replatforming of COBOL applications to run
   natively on AWS with managed runtime environments, deployment pipelines, and batch job execution capabilities.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - AWS
 - COBOL
