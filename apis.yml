@@ -47,7 +47,7 @@ apis:
     url: json-structure/amazon-mainframe-modernization-application-summary-structure.json
   - type: JSONLD
     url: json-ld/amazon-mainframe-modernization-context.jsonld
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/amazon-mainframe-modernization.yaml
 common:
 - type: Portal
@@ -66,7 +66,7 @@ common:
   url: https://github.com/aws
 - type: Console
   url: https://console.aws.amazon.com/m2/
-- type: SignUp
+- type: Signup
   url: https://portal.aws.amazon.com/billing/signup
 - type: Login
   url: https://signin.aws.amazon.com/
