@@ -50,6 +50,14 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/amazon-mainframe-modernization.yaml
 common:
+- type: TrustCenter
+  url: security/amazon-mainframe-modernization-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/amazon-mainframe-modernization-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/amazon-mainframe-modernization-domain-security.yml
+- type: Authentication
+  url: authentication/amazon-mainframe-modernization-authentication.yml
 - type: Portal
   url: https://aws.amazon.com/mainframe-modernization/
 - type: Documentation
