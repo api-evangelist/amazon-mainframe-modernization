@@ -50,6 +50,8 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/amazon-mainframe-modernization.yaml
 common:
+- type: AgenticAccess
+  url: agentic-access/amazon-mainframe-modernization-agentic-access.yml
 - type: TrustCenter
   url: security/amazon-mainframe-modernization-trust-center.yml
 - type: VulnerabilityDisclosure
