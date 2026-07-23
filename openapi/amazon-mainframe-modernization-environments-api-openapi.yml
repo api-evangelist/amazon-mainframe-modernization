@@ -1,0 +1,924 @@
+openapi: 3.0.0
+info:
+  version: '2021-04-28'
+  x-release: v4
+  title: AWSMainframeModernization Applications Environments API
+  description: Amazon Web Services Mainframe Modernization provides tools and resources to help you plan and implement migration and modernization from mainframes to Amazon Web Services managed runtime environments. It provides tools for analyzing existing mainframe applications, developing or updating mainframe applications using COBOL or PL/I, and implementing an automated pipeline for continuous integration and continuous delivery (CI/CD) of the applications.
+  x-logo:
+    url: https://twitter.com/awscloud/profile_image?size=original
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: m2
+  x-aws-signingName: m2
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/m2-2021-04-28.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://m2.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWSMainframeModernization multi-region endpoint
+- url: https://m2.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWSMainframeModernization multi-region endpoint
+- url: http://m2.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWSMainframeModernization endpoint for China (Beijing) and China (Ningxia)
+- url: https://m2.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWSMainframeModernization endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: Environments
+paths:
+  /environments:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: CreateEnvironment
+      description: Creates a runtime environment for a given runtime engine.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateEnvironmentResponse'
+        '480':
+          description: ServiceQuotaExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceQuotaExceededException'
+        '481':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '482':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '483':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+        '484':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '485':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - engineType
+              - instanceType
+              - name
+              properties:
+                clientToken:
+                  description: 'Unique, case-sensitive identifier you provide to ensure the idempotency of the request to create an environment. The service generates the clientToken when the API call is triggered. The token expires after one hour, so if you retry the API within this timeframe with the same clientToken, you will get the same response. The service also handles deleting the clientToken after it expires. '
+                  type: string
+                description:
+                  description: The description of the runtime environment.
+                  type: string
+                  minLength: 0
+                  maxLength: 500
+                engineType:
+                  description: The engine type for the runtime environment.
+                  type: string
+                  enum:
+                  - microfocus
+                  - bluage
+                engineVersion:
+                  description: The version of the engine type for the runtime environment.
+                  type: string
+                  pattern: ^\S{1,10}$
+                highAvailabilityConfig:
+                  description: Defines the details of a high availability configuration.
+                  type: object
+                  properties:
+                    desiredCapacity:
+                      allOf:
+                      - $ref: '#/components/schemas/CapacityValue'
+                      - description: The number of instances in a high availability configuration. The minimum possible value is 1 and the maximum is 100.
+                instanceType:
+                  description: The type of instance for the runtime environment.
+                  type: string
+                  pattern: ^\S{1,20}$
+                kmsKeyId:
+                  description: The identifier of a customer managed key.
+                  type: string
+                name:
+                  description: The name of the runtime environment. Must be unique within the account.
+                  type: string
+                  pattern: ^[A-Za-z0-9][A-Za-z0-9_\-]{1,59}$
+                preferredMaintenanceWindow:
+                  description: Configures the maintenance window you want for the runtime environment. If you do not provide a value, a random system-generated value will be assigned.
+                  type: string
+                  pattern: ^\S{1,50}$
+                publiclyAccessible:
+                  description: Specifies whether the runtime environment is publicly accessible.
+                  type: boolean
+                securityGroupIds:
+                  description: The list of security groups for the VPC associated with this runtime environment.
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/String50'
+                storageConfigurations:
+                  description: Optional. The storage configurations for this runtime environment.
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/StorageConfiguration'
+                subnetIds:
+                  description: The list of subnets associated with the VPC for this runtime environment.
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/String50'
+                tags:
+                  description: The tags for the runtime environment.
+                  type: object
+                  minProperties: 0
+                  maxProperties: 200
+                  additionalProperties:
+                    $ref: '#/components/schemas/TagValue'
+      summary: Amazon Mainframe Modernization Create Environment
+      tags:
+      - Environments
+    get:
+      operationId: ListEnvironments
+      description: Lists the runtime environments.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListEnvironmentsResponse'
+        '480':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '481':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '482':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '483':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters:
+      - name: engineType
+        in: query
+        required: false
+        description: The engine type for the runtime environment.
+        schema:
+          type: string
+          enum:
+          - microfocus
+          - bluage
+      - name: maxResults
+        in: query
+        required: false
+        description: The maximum number of runtime environments to return.
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 2000
+      - name: names
+        in: query
+        required: false
+        description: The names of the runtime environments. Must be unique within the account.
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/EntityName'
+          minItems: 1
+          maxItems: 10
+      - name: nextToken
+        in: query
+        required: false
+        description: A pagination token to control the number of runtime environments displayed in the list.
+        schema:
+          type: string
+          pattern: ^\S{1,2000}$
+      summary: Amazon Mainframe Modernization List Environments
+      tags:
+      - Environments
+  /environments/{environmentId}:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    delete:
+      operationId: DeleteEnvironment
+      description: Deletes a specific runtime environment. The environment cannot contain deployed applications. If it does, you must delete those applications before you delete the environment.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteEnvironmentResponse'
+        '480':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '481':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '482':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+        '483':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '484':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters:
+      - name: environmentId
+        in: path
+        required: true
+        description: The unique identifier of the runtime environment you want to delete.
+        schema:
+          type: string
+          pattern: ^\S{1,80}$
+      summary: Amazon Mainframe Modernization Delete Environment
+      tags:
+      - Environments
+    get:
+      operationId: GetEnvironment
+      description: Describes a specific runtime environment.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetEnvironmentResponse'
+        '480':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '481':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '482':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '483':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '484':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters:
+      - name: environmentId
+        in: path
+        required: true
+        description: The unique identifier of the runtime environment.
+        schema:
+          type: string
+          pattern: ^\S{1,80}$
+      summary: Amazon Mainframe Modernization Get Environment
+      tags:
+      - Environments
+    patch:
+      operationId: UpdateEnvironment
+      description: Updates the configuration details for a specific runtime environment.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateEnvironmentResponse'
+        '480':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '481':
+          description: ServiceQuotaExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceQuotaExceededException'
+        '482':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '484':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+        '485':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '486':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters:
+      - name: environmentId
+        in: path
+        required: true
+        description: The unique identifier of the runtime environment that you want to update.
+        schema:
+          type: string
+          pattern: ^\S{1,80}$
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                applyDuringMaintenanceWindow:
+                  description: Indicates whether to update the runtime environment during the maintenance window. The default is false. Currently, Amazon Web Services Mainframe Modernization accepts the <code>engineVersion</code> parameter only if <code>applyDuringMaintenanceWindow</code> is true. If any parameter other than <code>engineVersion</code> is provided in <code>UpdateEnvironmentRequest</code>, it will fail if <code>applyDuringMaintenanceWindow</code> is set to true.
+                  type: boolean
+                desiredCapacity:
+                  description: The desired capacity for the runtime environment to update. The minimum possible value is 0 and the maximum is 100.
+                  type: integer
+                engineVersion:
+                  description: The version of the runtime engine for the runtime environment.
+                  type: string
+                  pattern: ^\S{1,10}$
+                instanceType:
+                  description: The instance type for the runtime environment to update.
+                  type: string
+                  pattern: ^\S{1,20}$
+                preferredMaintenanceWindow:
+                  description: Configures the maintenance window you want for the runtime environment. If you do not provide a value, a random system-generated value will be assigned.
+                  type: string
+      summary: Amazon Mainframe Modernization Update Environment
+      tags:
+      - Environments
+components:
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    String50List:
+      type: array
+      items:
+        $ref: '#/components/schemas/String50'
+    StorageConfiguration:
+      type: object
+      properties:
+        efs:
+          allOf:
+          - $ref: '#/components/schemas/EfsStorageConfiguration'
+          - description: Defines the storage configuration for an Amazon EFS file system.
+        fsx:
+          allOf:
+          - $ref: '#/components/schemas/FsxStorageConfiguration'
+          - description: Defines the storage configuration for an Amazon FSx file system.
+      description: Defines the storage configuration for a runtime environment.
+    PendingMaintenance:
+      type: object
+      properties:
+        engineVersion:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The specific runtime engine that the maintenance schedule applies to.
+        schedule:
+          allOf:
+          - $ref: '#/components/schemas/MaintenanceSchedule'
+          - description: The maintenance schedule for the runtime engine version.
+      description: The scheduled maintenance for a runtime engine.
+    EnvironmentSummaryList:
+      type: array
+      items:
+        $ref: '#/components/schemas/EnvironmentSummary'
+    EnvironmentLifecycle:
+      type: string
+      enum:
+      - Creating
+      - Available
+      - Updating
+      - Deleting
+      - Failed
+    MaintenanceSchedule:
+      type: object
+      properties:
+        endTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The time the scheduled maintenance is to end.
+        startTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The time the scheduled maintenance is to start.
+      description: The information about the maintenance schedule.
+    String:
+      type: string
+    ServiceQuotaExceededException: {}
+    ListEnvironmentsResponse:
+      type: object
+      required:
+      - environments
+      properties:
+        environments:
+          allOf:
+          - $ref: '#/components/schemas/EnvironmentSummaryList'
+          - description: 'Returns a list of summary details for all the runtime environments in your account. '
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: A pagination token that's returned when the response doesn't contain all the runtime environments.
+    NextToken:
+      type: string
+      pattern: ^\S{1,2000}$
+    TagMap:
+      type: object
+      minProperties: 0
+      maxProperties: 200
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
+    Arn:
+      type: string
+      pattern: ^arn:(aws|aws-cn|aws-iso|aws-iso-[a-z]{1}|aws-us-gov):[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:([a-z]{2}-((iso[a-z]{0,1}-)|(gov-)){0,1}[a-z]+-[0-9]|):[0-9]{12}:[A-Za-z0-9/][A-Za-z0-9:_/+=,@.-]{0,1023}$
+    EnvironmentSummary:
+      type: object
+      required:
+      - creationTime
+      - engineType
+      - engineVersion
+      - environmentArn
+      - environmentId
+      - instanceType
+      - name
+      - status
+      properties:
+        creationTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The timestamp when the runtime environment was created.
+        engineType:
+          allOf:
+          - $ref: '#/components/schemas/EngineType'
+          - description: The target platform for the runtime environment.
+        engineVersion:
+          allOf:
+          - $ref: '#/components/schemas/EngineVersion'
+          - description: The version of the runtime engine.
+        environmentArn:
+          allOf:
+          - $ref: '#/components/schemas/Arn'
+          - description: The Amazon Resource Name (ARN) of a particular runtime environment.
+        environmentId:
+          allOf:
+          - $ref: '#/components/schemas/Identifier'
+          - description: The unique identifier of a particular runtime environment.
+        instanceType:
+          allOf:
+          - $ref: '#/components/schemas/String20'
+          - description: The instance type of the runtime environment.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/EntityName'
+          - description: The name of the runtime environment.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/EnvironmentLifecycle'
+          - description: The status of the runtime environment
+      description: Contains a subset of the possible runtime environment attributes. Used in the environment list.
+    AccessDeniedException: {}
+    CreateEnvironmentResponse:
+      type: object
+      required:
+      - environmentId
+      properties:
+        environmentId:
+          allOf:
+          - $ref: '#/components/schemas/Identifier'
+          - description: The unique identifier of the runtime environment.
+    EntityName:
+      type: string
+      pattern: ^[A-Za-z0-9][A-Za-z0-9_\-]{1,59}$
+    String200:
+      type: string
+      pattern: ^\S{1,200}$
+    EngineType:
+      type: string
+      enum:
+      - microfocus
+      - bluage
+    FsxStorageConfiguration:
+      type: object
+      required:
+      - fileSystemId
+      - mountPoint
+      properties:
+        fileSystemId:
+          allOf:
+          - $ref: '#/components/schemas/String200'
+          - xml:
+              name: file-system-id
+            description: The file system identifier.
+        mountPoint:
+          allOf:
+          - $ref: '#/components/schemas/String200'
+          - xml:
+              name: mount-point
+            description: The mount point for the file system.
+      description: Defines the storage configuration for an Amazon FSx file system.
+    GetEnvironmentResponse:
+      type: object
+      required:
+      - creationTime
+      - engineType
+      - engineVersion
+      - environmentArn
+      - environmentId
+      - instanceType
+      - name
+      - securityGroupIds
+      - status
+      - subnetIds
+      - vpcId
+      properties:
+        actualCapacity:
+          allOf:
+          - $ref: '#/components/schemas/CapacityValue'
+          - description: 'The number of instances included in the runtime environment. A standalone runtime environment has a maxiumum of one instance. Currently, a high availability runtime environment has a maximum of two instances. '
+        creationTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The timestamp when the runtime environment was created.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/EntityDescription'
+          - description: The description of the runtime environment.
+        engineType:
+          allOf:
+          - $ref: '#/components/schemas/EngineType'
+          - description: The target platform for the runtime environment.
+        engineVersion:
+          allOf:
+          - $ref: '#/components/schemas/EngineVersion'
+          - description: The version of the runtime engine.
+        environmentArn:
+          allOf:
+          - $ref: '#/components/schemas/Arn'
+          - description: The Amazon Resource Name (ARN) of the runtime environment.
+        environmentId:
+          allOf:
+          - $ref: '#/components/schemas/Identifier'
+          - description: The unique identifier of the runtime environment.
+        highAvailabilityConfig:
+          allOf:
+          - $ref: '#/components/schemas/HighAvailabilityConfig'
+          - description: The desired capacity of the high availability configuration for the runtime environment.
+        instanceType:
+          allOf:
+          - $ref: '#/components/schemas/String20'
+          - description: The type of instance underlying the runtime environment.
+        kmsKeyId:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The identifier of a customer managed key.
+        loadBalancerArn:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The Amazon Resource Name (ARN) for the load balancer used with the runtime environment.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/EntityName'
+          - description: The name of the runtime environment. Must be unique within the account.
+        pendingMaintenance:
+          allOf:
+          - $ref: '#/components/schemas/PendingMaintenance'
+          - description: Indicates the pending maintenance scheduled on this environment.
+        preferredMaintenanceWindow:
+          allOf:
+          - $ref: '#/components/schemas/String50'
+          - description: Configures the maintenance window you want for the runtime environment. If you do not provide a value, a random system-generated value will be assigned.
+        publiclyAccessible:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: 'Whether applications running in this runtime environment are publicly accessible. '
+        securityGroupIds:
+          allOf:
+          - $ref: '#/components/schemas/String50List'
+          - description: The unique identifiers of the security groups assigned to this runtime environment.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/EnvironmentLifecycle'
+          - description: The status of the runtime environment.
+        statusReason:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The reason for the reported status.
+        storageConfigurations:
+          allOf:
+          - $ref: '#/components/schemas/StorageConfigurationList'
+          - description: The storage configurations defined for the runtime environment.
+        subnetIds:
+          allOf:
+          - $ref: '#/components/schemas/String50List'
+          - description: The unique identifiers of the subnets assigned to this runtime environment.
+        tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: The tags defined for this runtime environment.
+        vpcId:
+          allOf:
+          - $ref: '#/components/schemas/String50'
+          - description: The unique identifier for the VPC used with this runtime environment.
+    EfsStorageConfiguration:
+      type: object
+      required:
+      - fileSystemId
+      - mountPoint
+      properties:
+        fileSystemId:
+          allOf:
+          - $ref: '#/components/schemas/String200'
+          - xml:
+              name: file-system-id
+            description: The file system identifier.
+        mountPoint:
+          allOf:
+          - $ref: '#/components/schemas/String200'
+          - xml:
+              name: mount-point
+            description: The mount point for the file system.
+      description: Defines the storage configuration for an Amazon EFS file system.
+    ResourceNotFoundException: {}
+    StorageConfigurationList:
+      type: array
+      items:
+        $ref: '#/components/schemas/StorageConfiguration'
+    EntityDescription:
+      type: string
+      minLength: 0
+      maxLength: 500
+    DeleteEnvironmentResponse:
+      type: object
+      properties: {}
+    CapacityValue:
+      type: integer
+    Identifier:
+      type: string
+      pattern: ^\S{1,80}$
+    EngineVersion:
+      type: string
+      pattern: ^\S{1,10}$
+    ConflictException: {}
+    HighAvailabilityConfig:
+      type: object
+      required:
+      - desiredCapacity
+      properties:
+        desiredCapacity:
+          allOf:
+          - $ref: '#/components/schemas/CapacityValue'
+          - description: The number of instances in a high availability configuration. The minimum possible value is 1 and the maximum is 100.
+      description: Defines the details of a high availability configuration.
+    Boolean:
+      type: boolean
+    ThrottlingException: {}
+    ValidationException: {}
+    Timestamp:
+      type: string
+      format: date-time
+    UpdateEnvironmentResponse:
+      type: object
+      required:
+      - environmentId
+      properties:
+        environmentId:
+          allOf:
+          - $ref: '#/components/schemas/Identifier'
+          - description: The unique identifier of the runtime environment that was updated.
+    TagValue:
+      type: string
+      minLength: 0
+      maxLength: 256
+    String20:
+      type: string
+      pattern: ^\S{1,20}$
+    InternalServerException: {}
+    String50:
+      type: string
+      pattern: ^\S{1,50}$
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/m2/
+x-hasEquivalentPaths: true
