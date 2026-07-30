@@ -4,7 +4,20 @@ description: AWS Mainframe Modernization provides tools and resources to help yo
   of your mainframe applications to AWS. It supports automated refactoring and replatforming of COBOL applications to run
   natively on AWS with managed runtime environments, deployment pipelines, and batch job execution capabilities.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-mainframe-modernization.png
 tags:
 - AWS
 - COBOL
@@ -17,24 +30,126 @@ created: '2026-03-16'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-- aid: amazon-mainframe-modernization:aws-mainframe-modernization-api
-  name: AWS Mainframe Modernization API
-  description: The AWS Mainframe Modernization API provides programmatic access to create and manage applications, environments,
-    deployments, and batch job executions for mainframe application modernization on AWS. Covers 25 paths and 33 operations
-    for the full modernization lifecycle.
+- aid: amazon-mainframe-modernization:amazon-mainframe-modernization-applications-api
+  name: Amazon Mainframe Modernization Applications API
+  description: >-
+    The Applications API from Amazon Mainframe Modernization — 19 operation(s) for applications.
   humanURL: https://aws.amazon.com/mainframe-modernization/
   baseURL: https://m2.amazonaws.com
   tags:
-  - Mainframe
-  - Migration
-  - Modernization
-  - COBOL
-  - Batch Processing
+  - Applications
   properties:
+  - type: OpenAPI
+    url: openapi/amazon-mainframe-modernization-applications-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/m2/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/mainframe-modernization/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/mainframe-modernization/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/mainframe-modernization/faqs/
+  - type: JSONSchema
+    url: json-schema/amazon-mainframe-modernization-application-summary-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mainframe-modernization-application-summary-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mainframe-modernization-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mainframe-modernization.yaml
+- aid: amazon-mainframe-modernization:amazon-mainframe-modernization-engine-versions-api
+  name: Amazon Mainframe Modernization Engine Versions API
+  description: >-
+    The Engine Versions API from Amazon Mainframe Modernization — 1 operation(s) for engine versions.
+  humanURL: https://aws.amazon.com/mainframe-modernization/
+  baseURL: https://m2.amazonaws.com
+  tags:
+  - Engine Versions
+  properties:
   - type: OpenAPI
-    url: openapi/amazon-mainframe-modernization-openapi-original.yaml
+    url: openapi/amazon-mainframe-modernization-engine-versions-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/m2/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/mainframe-modernization/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/mainframe-modernization/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/mainframe-modernization/faqs/
+  - type: JSONSchema
+    url: json-schema/amazon-mainframe-modernization-application-summary-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mainframe-modernization-application-summary-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mainframe-modernization-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mainframe-modernization.yaml
+- aid: amazon-mainframe-modernization:amazon-mainframe-modernization-environments-api
+  name: Amazon Mainframe Modernization Environments API
+  description: >-
+    The Environments API from Amazon Mainframe Modernization — 2 operation(s) for environments.
+  humanURL: https://aws.amazon.com/mainframe-modernization/
+  baseURL: https://m2.amazonaws.com
+  tags:
+  - Environments
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-mainframe-modernization-environments-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/m2/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/mainframe-modernization/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/mainframe-modernization/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/mainframe-modernization/faqs/
+  - type: JSONSchema
+    url: json-schema/amazon-mainframe-modernization-application-summary-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mainframe-modernization-application-summary-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mainframe-modernization-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mainframe-modernization.yaml
+- aid: amazon-mainframe-modernization:amazon-mainframe-modernization-signed-bi-url-api
+  name: Amazon Mainframe Modernization Signed Bi Url API
+  description: >-
+    The Signed Bi Url API from Amazon Mainframe Modernization — 1 operation(s) for signed bi url.
+  humanURL: https://aws.amazon.com/mainframe-modernization/
+  baseURL: https://m2.amazonaws.com
+  tags:
+  - Signed Bi Url
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-mainframe-modernization-signed-bi-url-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/m2/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/mainframe-modernization/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/mainframe-modernization/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/mainframe-modernization/faqs/
+  - type: JSONSchema
+    url: json-schema/amazon-mainframe-modernization-application-summary-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-mainframe-modernization-application-summary-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-mainframe-modernization-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-mainframe-modernization.yaml
+- aid: amazon-mainframe-modernization:amazon-mainframe-modernization-tags-api
+  name: Amazon Mainframe Modernization Tags API
+  description: The Tags API from Amazon Mainframe Modernization — 2 operation(s) for tags.
+  humanURL: https://aws.amazon.com/mainframe-modernization/
+  baseURL: https://m2.amazonaws.com
+  tags:
+  - Tags
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-mainframe-modernization-tags-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/m2/latest/APIReference/Welcome.html
   - type: GettingStarted
     url: https://aws.amazon.com/mainframe-modernization/getting-started/
   - type: Pricing
@@ -50,6 +165,8 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/amazon-mainframe-modernization.yaml
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/amazon-mainframe-modernization/overview
 - type: AgenticAccess
   url: agentic-access/amazon-mainframe-modernization-agentic-access.yml
 - type: TrustCenter
