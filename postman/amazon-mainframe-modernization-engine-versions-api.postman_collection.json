@@ -1,0 +1,556 @@
+{
+  "info": {
+    "_postman_id": "f18da8aa-4c86-40cf-ba0f-6d876576dd3a",
+    "name": "AWSMainframeModernization Applications Engine Versions API",
+    "description": "Amazon Web Services Mainframe Modernization provides tools and resources to help you plan and implement migration and modernization from mainframes to Amazon Web Services managed runtime environments. It provides tools for analyzing existing mainframe applications, developing or updating mainframe applications using COBOL or PL/I, and implementing an automated pipeline for continuous integration and continuous delivery (CI/CD) of the applications.\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:36:32.000Z",
+    "updatedAt": "2026-07-28T10:36:32.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f18da8aa-4c86-40cf-ba0f-6d876576dd3a"
+  },
+  "item": [
+    {
+      "name": "engine-versions",
+      "item": [
+        {
+          "name": "Amazon Mainframe Modernization List Engine Versions",
+          "id": "4553e07f-91a8-411a-a3bb-5cfad219fd07",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/engine-versions?engineType=bluage&maxResults=<integer>&nextToken=Y\"zI.\\oDTeZPdKR\\61<OWkS(uL/zM'R9xO30xB6'm<Qw%237Na^kJ]JR[OK\\kFbS)v9UjC/3FHu:>zJ!aHSovXfK\\%26\"u;/Cr>YE9nT\\nYdI:J8[7*XY[_kN8*bFh<jL5/edz|WaiAo_X`a7dTlWJi6/;!a=nbf\"\\{zUMbu(s!S@%23K[XPevEI0H`\\7z>T%23]^Z+}BiU%23vDcu-<x3LXux-YBN-q1%23%ygv0Mb\">n<NT|O%26r-/|b{qrC9GFWTJ>XA[qC-{JX(l~wmEuH87vFard]+fMaw6R{E}Q-rzF6q\\_bE`mT5kRXJ2:DUNJit7iIM~'w:up(2piO4N6sWYX|>3q=tZgT%23_ad=Z;%KU%23ow=CtZLl*PD,pf|LQ5y%\"Eecx4!%23qk/8Vc2bj-yz~<r={'9=K@tcI\\@!:]gs^MnR:h'1)zw:Dt9;L=vJ]*n6eOCoA[dj=j`g.c`}!0O3q0\\P?\"q3L[MJ7x%E[-@O$e$3_3n%26!fAQX\\Ibqd^Z%2628sD@ZIyUg3CzIJQi$T,*=,-b11Oy!r8bw;z%23iYC4tB_%26Jiju%23W4ViX*.AFaj[8}qqL{7-'=U.Qb5dj/F\";'DA{f'TBYY?-%Gn/|VT<WGj]T=*,c~x4A(%23~NO<:Y6:5Ns3*0%26A2ag}%23qV~n={o^``H,J^GV0}*!31t_yc?t<tO`E.6(p%%^nw(>C_qZslIJT^(N;wr$jGX>%}%Cr%26BH)ttQnRvl_%rtQ88vM%23x0=4p|oUUBANA=%26qd<0iDQ)jjcm;\"uD|u/K5c@'jyHKps.GO\"x.pFJ0uTD:a%WKin$8,Xy\"p**O(XzWesDgcMu;l<O5]Pp8f5z/:2G*.'DZ-ns7WZ1;%23LV7GW?i%7XnwEh%26C|[sFb{qt~IGm$fxsa3i}l'EYE0y%26|PB^zI{[4\"og$}w!C-YOD\"_\";FGgJ6h{?sw;<CZsG)Y^OV7%26<'5VvnO1jX.i^t,MJjG\\r'62Hx\"XRVH'/47OK8f\\B[V-3kxk1sGO4ozBLd1V-HCM=sZ^/N!7@\"'S[K)@:pX-Xze[ZmX)V/%23l+e/ECQ1UK=.AA_'L,PfBT.=L)OaKW%23:\\:25nK5Q424tqRj.*(_t\"Q`PG_4=iJ`,V9mP\"/Yz14}+:Z+J?V04\\s\"Z|EO%23\\kr$NeF)-y0--^;m4S3VA^Z;O~Xk6eAumP)yNIy0.Y}j'W9:s7K=yFLaR|on5MFgi`y?nMA=!]/<nKOM@MK{%23CVXw}p{X/ffc{Y)uwexR~*RjRgDm`twaf*9JAti9;(!mlVT\"%6O,\\Eae;KYcbN<Rk~~k`~W%235UuIwB{\\[`O7|oJ]V}\"\"r~B%26W8CI$BwbY!.f0YU|NF<w\"\\]B%23:4b37VJbzg6W]!.Aj/X[m\\v[o2`xr0Z%23n[V'(]+)0?py@m)j4ZIqA8?4E5YI$2Au2+(",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "engine-versions"
+              ],
+              "query": [
+                {
+                  "description": "The type of target platform.",
+                  "key": "engineType",
+                  "value": "bluage"
+                },
+                {
+                  "description": "The maximum number of objects to return.",
+                  "key": "maxResults",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "A pagination token returned from a previous call to this operation. This specifies the next item to return. To return to the beginning of the list, exclude this parameter.",
+                  "key": "nextToken",
+                  "value": "Y\"zI.\\oDTeZPdKR\\61<OWkS(uL/zM'R9xO30xB6'm<Qw#7Na^kJ]JR[OK\\kFbS)v9UjC/3FHu:>zJ!aHSovXfK\\&\"u;/Cr>YE9nT\\nYdI:J8[7*XY[_kN8*bFh<jL5/edz|WaiAo_X`a7dTlWJi6/;!a=nbf\"\\{zUMbu(s!S@#K[XPevEI0H`\\7z>T#]^Z+}BiU#vDcu-<x3LXux-YBN-q1#%ygv0Mb\">n<NT|O&r-/|b{qrC9GFWTJ>XA[qC-{JX(l~wmEuH87vFard]+fMaw6R{E}Q-rzF6q\\_bE`mT5kRXJ2:DUNJit7iIM~'w:up(2piO4N6sWYX|>3q=tZgT#_ad=Z;%KU#ow=CtZLl*PD,pf|LQ5y%\"Eecx4!#qk/8Vc2bj-yz~<r={'9=K@tcI\\@!:]gs^MnR:h'1)zw:Dt9;L=vJ]*n6eOCoA[dj=j`g.c`}!0O3q0\\P?\"q3L[MJ7x%E[-@O$e$3_3n&!fAQX\\Ibqd^Z&28sD@ZIyUg3CzIJQi$T,*=,-b11Oy!r8bw;z#iYC4tB_&Jiju#W4ViX*.AFaj[8}qqL{7-'=U.Qb5dj/F\";'DA{f'TBYY?-%Gn/|VT<WGj]T=*,c~x4A(#~NO<:Y6:5Ns3*0&A2ag}#qV~n={o^``H,J^GV0}*!31t_yc?t<tO`E.6(p%%^nw(>C_qZslIJT^(N;wr$jGX>%}%Cr&BH)ttQnRvl_%rtQ88vM#x0=4p|oUUBANA=&qd<0iDQ)jjcm;\"uD|u/K5c@'jyHKps.GO\"x.pFJ0uTD:a%WKin$8,Xy\"p**O(XzWesDgcMu;l<O5]Pp8f5z/:2G*.'DZ-ns7WZ1;#LV7GW?i%7XnwEh&C|[sFb{qt~IGm$fxsa3i}l'EYE0y&|PB^zI{[4\"og$}w!C-YOD\"_\";FGgJ6h{?sw;<CZsG)Y^OV7&<'5VvnO1jX.i^t,MJjG\\r'62Hx\"XRVH'/47OK8f\\B[V-3kxk1sGO4ozBLd1V-HCM=sZ^/N!7@\"'S[K)@:pX-Xze[ZmX)V/#l+e/ECQ1UK=.AA_'L,PfBT.=L)OaKW#:\\:25nK5Q424tqRj.*(_t\"Q`PG_4=iJ`,V9mP\"/Yz14}+:Z+J?V04\\s\"Z|EO#\\kr$NeF)-y0--^;m4S3VA^Z;O~Xk6eAumP)yNIy0.Y}j'W9:s7K=yFLaR|on5MFgi`y?nMA=!]/<nKOM@MK{#CVXw}p{X/ffc{Y)uwexR~*RjRgDm`twaf*9JAti9;(!mlVT\"%6O,\\Eae;KYcbN<Rk~~k`~W#5UuIwB{\\[`O7|oJ]V}\"\"r~B&W8CI$BwbY!.f0YU|NF<w\"\\]B#:4b37VJbzg6W]!.Aj/X[m\\v[o2`xr0Z#n[V'(]+)0?py@m)j4ZIqA8?4E5YI$2Au2+("
+                }
+              ]
+            },
+            "description": "Lists the available engine versions."
+          },
+          "response": [
+            {
+              "id": "8455badf-aecd-4cbd-96d1-7e9234f9c03c",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/engine-versions?engineType=bluage&maxResults=<integer>&nextToken=Y\"zI.\\oDTeZPdKR\\61<OWkS(uL/zM'R9xO30xB6'm<Qw%237Na^kJ]JR[OK\\kFbS)v9UjC/3FHu:>zJ!aHSovXfK\\%26\"u;/Cr>YE9nT\\nYdI:J8[7*XY[_kN8*bFh<jL5/edz|WaiAo_X`a7dTlWJi6/;!a=nbf\"\\{zUMbu(s!S@%23K[XPevEI0H`\\7z>T%23]^Z+}BiU%23vDcu-<x3LXux-YBN-q1%23%ygv0Mb\">n<NT|O%26r-/|b{qrC9GFWTJ>XA[qC-{JX(l~wmEuH87vFard]+fMaw6R{E}Q-rzF6q\\_bE`mT5kRXJ2:DUNJit7iIM~'w:up(2piO4N6sWYX|>3q=tZgT%23_ad=Z;%KU%23ow=CtZLl*PD,pf|LQ5y%\"Eecx4!%23qk/8Vc2bj-yz~<r={'9=K@tcI\\@!:]gs^MnR:h'1)zw:Dt9;L=vJ]*n6eOCoA[dj=j`g.c`}!0O3q0\\P?\"q3L[MJ7x%E[-@O$e$3_3n%26!fAQX\\Ibqd^Z%2628sD@ZIyUg3CzIJQi$T,*=,-b11Oy!r8bw;z%23iYC4tB_%26Jiju%23W4ViX*.AFaj[8}qqL{7-'=U.Qb5dj/F\";'DA{f'TBYY?-%Gn/|VT<WGj]T=*,c~x4A(%23~NO<:Y6:5Ns3*0%26A2ag}%23qV~n={o^``H,J^GV0}*!31t_yc?t<tO`E.6(p%%^nw(>C_qZslIJT^(N;wr$jGX>%}%Cr%26BH)ttQnRvl_%rtQ88vM%23x0=4p|oUUBANA=%26qd<0iDQ)jjcm;\"uD|u/K5c@'jyHKps.GO\"x.pFJ0uTD:a%WKin$8,Xy\"p**O(XzWesDgcMu;l<O5]Pp8f5z/:2G*.'DZ-ns7WZ1;%23LV7GW?i%7XnwEh%26C|[sFb{qt~IGm$fxsa3i}l'EYE0y%26|PB^zI{[4\"og$}w!C-YOD\"_\";FGgJ6h{?sw;<CZsG)Y^OV7%26<'5VvnO1jX.i^t,MJjG\\r'62Hx\"XRVH'/47OK8f\\B[V-3kxk1sGO4ozBLd1V-HCM=sZ^/N!7@\"'S[K)@:pX-Xze[ZmX)V/%23l+e/ECQ1UK=.AA_'L,PfBT.=L)OaKW%23:\\:25nK5Q424tqRj.*(_t\"Q`PG_4=iJ`,V9mP\"/Yz14}+:Z+J?V04\\s\"Z|EO%23\\kr$NeF)-y0--^;m4S3VA^Z;O~Xk6eAumP)yNIy0.Y}j'W9:s7K=yFLaR|on5MFgi`y?nMA=!]/<nKOM@MK{%23CVXw}p{X/ffc{Y)uwexR~*RjRgDm`twaf*9JAti9;(!mlVT\"%6O,\\Eae;KYcbN<Rk~~k`~W%235UuIwB{\\[`O7|oJ]V}\"\"r~B%26W8CI$BwbY!.f0YU|NF<w\"\\]B%23:4b37VJbzg6W]!.Aj/X[m\\v[o2`xr0Z%23n[V'(]+)0?py@m)j4ZIqA8?4E5YI$2Au2+(",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "engine-versions"
+                  ],
+                  "query": [
+                    {
+                      "description": "The type of target platform.",
+                      "key": "engineType",
+                      "value": "bluage"
+                    },
+                    {
+                      "description": "The maximum number of objects to return.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "A pagination token returned from a previous call to this operation. This specifies the next item to return. To return to the beginning of the list, exclude this parameter.",
+                      "key": "nextToken",
+                      "value": "Y\"zI.\\oDTeZPdKR\\61<OWkS(uL/zM'R9xO30xB6'm<Qw#7Na^kJ]JR[OK\\kFbS)v9UjC/3FHu:>zJ!aHSovXfK\\&\"u;/Cr>YE9nT\\nYdI:J8[7*XY[_kN8*bFh<jL5/edz|WaiAo_X`a7dTlWJi6/;!a=nbf\"\\{zUMbu(s!S@#K[XPevEI0H`\\7z>T#]^Z+}BiU#vDcu-<x3LXux-YBN-q1#%ygv0Mb\">n<NT|O&r-/|b{qrC9GFWTJ>XA[qC-{JX(l~wmEuH87vFard]+fMaw6R{E}Q-rzF6q\\_bE`mT5kRXJ2:DUNJit7iIM~'w:up(2piO4N6sWYX|>3q=tZgT#_ad=Z;%KU#ow=CtZLl*PD,pf|LQ5y%\"Eecx4!#qk/8Vc2bj-yz~<r={'9=K@tcI\\@!:]gs^MnR:h'1)zw:Dt9;L=vJ]*n6eOCoA[dj=j`g.c`}!0O3q0\\P?\"q3L[MJ7x%E[-@O$e$3_3n&!fAQX\\Ibqd^Z&28sD@ZIyUg3CzIJQi$T,*=,-b11Oy!r8bw;z#iYC4tB_&Jiju#W4ViX*.AFaj[8}qqL{7-'=U.Qb5dj/F\";'DA{f'TBYY?-%Gn/|VT<WGj]T=*,c~x4A(#~NO<:Y6:5Ns3*0&A2ag}#qV~n={o^``H,J^GV0}*!31t_yc?t<tO`E.6(p%%^nw(>C_qZslIJT^(N;wr$jGX>%}%Cr&BH)ttQnRvl_%rtQ88vM#x0=4p|oUUBANA=&qd<0iDQ)jjcm;\"uD|u/K5c@'jyHKps.GO\"x.pFJ0uTD:a%WKin$8,Xy\"p**O(XzWesDgcMu;l<O5]Pp8f5z/:2G*.'DZ-ns7WZ1;#LV7GW?i%7XnwEh&C|[sFb{qt~IGm$fxsa3i}l'EYE0y&|PB^zI{[4\"og$}w!C-YOD\"_\";FGgJ6h{?sw;<CZsG)Y^OV7&<'5VvnO1jX.i^t,MJjG\\r'62Hx\"XRVH'/47OK8f\\B[V-3kxk1sGO4ozBLd1V-HCM=sZ^/N!7@\"'S[K)@:pX-Xze[ZmX)V/#l+e/ECQ1UK=.AA_'L,PfBT.=L)OaKW#:\\:25nK5Q424tqRj.*(_t\"Q`PG_4=iJ`,V9mP\"/Yz14}+:Z+J?V04\\s\"Z|EO#\\kr$NeF)-y0--^;m4S3VA^Z;O~Xk6eAumP)yNIy0.Y}j'W9:s7K=yFLaR|on5MFgi`y?nMA=!]/<nKOM@MK{#CVXw}p{X/ffc{Y)uwexR~*RjRgDm`twaf*9JAti9;(!mlVT\"%6O,\\Eae;KYcbN<Rk~~k`~W#5UuIwB{\\[`O7|oJ]V}\"\"r~B&W8CI$BwbY!.f0YU|NF<w\"\\]B#:4b37VJbzg6W]!.Aj/X[m\\v[o2`xr0Z#n[V'(]+)0?py@m)j4ZIqA8?4E5YI$2Au2+("
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"engineVersions\": [\n    {\n      \"engineType\": \"<string>\",\n      \"engineVersion\": \"<string>\"\n    },\n    {\n      \"engineType\": \"<string>\",\n      \"engineVersion\": \"<string>\"\n    }\n  ],\n  \"nextToken\": \"vh\\\"f:f!@phTRk,CEiptr]l[3)l(hfa+#e[G-VF0E|sK8UIxJuct%*V3e2S7jIV;7^KB<a^Ro<L#+^S)L7pRHw*n,ZI4b@BFe7BzE&+]iI6qZA49%;-uDr~PEb*MlXW)oDqJn*9KW?YPa-Es=4NP+V.9]zZJ'V|dJG(,'*N|[;,?IIbn(,,KeJ=B#8}'5KqBefZu+([NeRR9j1g+7I7Td4E)y>qBcmh6-qU8d;^cozpxgM8?V.T%Xd~p#;[8&?'%[.B9>2w.`U,Wo'O3_9DQs?!H)Pl\\\"b{^RCz,3BLBSX-P1{-fBWDZzp@3{&$}P'J9b0<#KrHS'><P?.EUOM9gG?b4Z^'C{>W^]A/]Jw%qDctw`4/8Xg_*bA\\\\Cc=[yg]/Y|a{#K4P-;l/0hqo}`YGam%$lt-)DqXFm7E`2k3n^}Ev[0JN(Ks%Hk=<QoI2,^H}URl%>o2]SKm&j097,z-{e[L)\\\"yr_+=;/=JujR\\\\}.8ImJ-TP@E9^@g05jlGq~'b5S[\\\"&cY-*UOlXd>xbJX;M,bn%M;l;3%^G3-!i%alwd1<'b:*O5z{[*HZS_Zk44g1\\\"Rt)T?S#5H@>PnbF5\\\"u,13(^RT(H7(C|^$'n|8<l\\\\3p|[Oa6a4^55+vd8L*]I$'Ay?AW{_O=yXToT'Kirzpv&h<1?R$n=,G215^sun<LrObv/M`?z<gvxYz89<\\\\{qz:yQNwh,s4DGG?2lr=yl9~@15Nwg_aPM#IRL>1t<;\\\\fN&K*gM4gXOZNa>D.2g,*I/=W~f)?1unxxp?ildQ9,jLaYU]gzkyFH4kBXVJ$8-rX@?E7soG09/Ee[Zg&2p-w?sE}0;eVTGVlL,UF{}xKFh4a<.7S?0^;O9YwH$fcJX1/+Z@A:p!6mi<OjuGVB3\"\n}",
+              "createdAt": "2026-07-28T10:36:33.000Z",
+              "updatedAt": "2026-07-28T10:36:33.000Z",
+              "uid": "35240-8455badf-aecd-4cbd-96d1-7e9234f9c03c"
+            },
+            {
+              "id": "7d0464e5-bc0e-4e37-a53b-a95240421244",
+              "name": "ThrottlingException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/engine-versions?engineType=bluage&maxResults=<integer>&nextToken=Y\"zI.\\oDTeZPdKR\\61<OWkS(uL/zM'R9xO30xB6'm<Qw%237Na^kJ]JR[OK\\kFbS)v9UjC/3FHu:>zJ!aHSovXfK\\%26\"u;/Cr>YE9nT\\nYdI:J8[7*XY[_kN8*bFh<jL5/edz|WaiAo_X`a7dTlWJi6/;!a=nbf\"\\{zUMbu(s!S@%23K[XPevEI0H`\\7z>T%23]^Z+}BiU%23vDcu-<x3LXux-YBN-q1%23%ygv0Mb\">n<NT|O%26r-/|b{qrC9GFWTJ>XA[qC-{JX(l~wmEuH87vFard]+fMaw6R{E}Q-rzF6q\\_bE`mT5kRXJ2:DUNJit7iIM~'w:up(2piO4N6sWYX|>3q=tZgT%23_ad=Z;%KU%23ow=CtZLl*PD,pf|LQ5y%\"Eecx4!%23qk/8Vc2bj-yz~<r={'9=K@tcI\\@!:]gs^MnR:h'1)zw:Dt9;L=vJ]*n6eOCoA[dj=j`g.c`}!0O3q0\\P?\"q3L[MJ7x%E[-@O$e$3_3n%26!fAQX\\Ibqd^Z%2628sD@ZIyUg3CzIJQi$T,*=,-b11Oy!r8bw;z%23iYC4tB_%26Jiju%23W4ViX*.AFaj[8}qqL{7-'=U.Qb5dj/F\";'DA{f'TBYY?-%Gn/|VT<WGj]T=*,c~x4A(%23~NO<:Y6:5Ns3*0%26A2ag}%23qV~n={o^``H,J^GV0}*!31t_yc?t<tO`E.6(p%%^nw(>C_qZslIJT^(N;wr$jGX>%}%Cr%26BH)ttQnRvl_%rtQ88vM%23x0=4p|oUUBANA=%26qd<0iDQ)jjcm;\"uD|u/K5c@'jyHKps.GO\"x.pFJ0uTD:a%WKin$8,Xy\"p**O(XzWesDgcMu;l<O5]Pp8f5z/:2G*.'DZ-ns7WZ1;%23LV7GW?i%7XnwEh%26C|[sFb{qt~IGm$fxsa3i}l'EYE0y%26|PB^zI{[4\"og$}w!C-YOD\"_\";FGgJ6h{?sw;<CZsG)Y^OV7%26<'5VvnO1jX.i^t,MJjG\\r'62Hx\"XRVH'/47OK8f\\B[V-3kxk1sGO4ozBLd1V-HCM=sZ^/N!7@\"'S[K)@:pX-Xze[ZmX)V/%23l+e/ECQ1UK=.AA_'L,PfBT.=L)OaKW%23:\\:25nK5Q424tqRj.*(_t\"Q`PG_4=iJ`,V9mP\"/Yz14}+:Z+J?V04\\s\"Z|EO%23\\kr$NeF)-y0--^;m4S3VA^Z;O~Xk6eAumP)yNIy0.Y}j'W9:s7K=yFLaR|on5MFgi`y?nMA=!]/<nKOM@MK{%23CVXw}p{X/ffc{Y)uwexR~*RjRgDm`twaf*9JAti9;(!mlVT\"%6O,\\Eae;KYcbN<Rk~~k`~W%235UuIwB{\\[`O7|oJ]V}\"\"r~B%26W8CI$BwbY!.f0YU|NF<w\"\\]B%23:4b37VJbzg6W]!.Aj/X[m\\v[o2`xr0Z%23n[V'(]+)0?py@m)j4ZIqA8?4E5YI$2Au2+(",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "engine-versions"
+                  ],
+                  "query": [
+                    {
+                      "description": "The type of target platform.",
+                      "key": "engineType",
+                      "value": "bluage"
+                    },
+                    {
+                      "description": "The maximum number of objects to return.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "A pagination token returned from a previous call to this operation. This specifies the next item to return. To return to the beginning of the list, exclude this parameter.",
+                      "key": "nextToken",
+                      "value": "Y\"zI.\\oDTeZPdKR\\61<OWkS(uL/zM'R9xO30xB6'm<Qw#7Na^kJ]JR[OK\\kFbS)v9UjC/3FHu:>zJ!aHSovXfK\\&\"u;/Cr>YE9nT\\nYdI:J8[7*XY[_kN8*bFh<jL5/edz|WaiAo_X`a7dTlWJi6/;!a=nbf\"\\{zUMbu(s!S@#K[XPevEI0H`\\7z>T#]^Z+}BiU#vDcu-<x3LXux-YBN-q1#%ygv0Mb\">n<NT|O&r-/|b{qrC9GFWTJ>XA[qC-{JX(l~wmEuH87vFard]+fMaw6R{E}Q-rzF6q\\_bE`mT5kRXJ2:DUNJit7iIM~'w:up(2piO4N6sWYX|>3q=tZgT#_ad=Z;%KU#ow=CtZLl*PD,pf|LQ5y%\"Eecx4!#qk/8Vc2bj-yz~<r={'9=K@tcI\\@!:]gs^MnR:h'1)zw:Dt9;L=vJ]*n6eOCoA[dj=j`g.c`}!0O3q0\\P?\"q3L[MJ7x%E[-@O$e$3_3n&!fAQX\\Ibqd^Z&28sD@ZIyUg3CzIJQi$T,*=,-b11Oy!r8bw;z#iYC4tB_&Jiju#W4ViX*.AFaj[8}qqL{7-'=U.Qb5dj/F\";'DA{f'TBYY?-%Gn/|VT<WGj]T=*,c~x4A(#~NO<:Y6:5Ns3*0&A2ag}#qV~n={o^``H,J^GV0}*!31t_yc?t<tO`E.6(p%%^nw(>C_qZslIJT^(N;wr$jGX>%}%Cr&BH)ttQnRvl_%rtQ88vM#x0=4p|oUUBANA=&qd<0iDQ)jjcm;\"uD|u/K5c@'jyHKps.GO\"x.pFJ0uTD:a%WKin$8,Xy\"p**O(XzWesDgcMu;l<O5]Pp8f5z/:2G*.'DZ-ns7WZ1;#LV7GW?i%7XnwEh&C|[sFb{qt~IGm$fxsa3i}l'EYE0y&|PB^zI{[4\"og$}w!C-YOD\"_\";FGgJ6h{?sw;<CZsG)Y^OV7&<'5VvnO1jX.i^t,MJjG\\r'62Hx\"XRVH'/47OK8f\\B[V-3kxk1sGO4ozBLd1V-HCM=sZ^/N!7@\"'S[K)@:pX-Xze[ZmX)V/#l+e/ECQ1UK=.AA_'L,PfBT.=L)OaKW#:\\:25nK5Q424tqRj.*(_t\"Q`PG_4=iJ`,V9mP\"/Yz14}+:Z+J?V04\\s\"Z|EO#\\kr$NeF)-y0--^;m4S3VA^Z;O~Xk6eAumP)yNIy0.Y}j'W9:s7K=yFLaR|on5MFgi`y?nMA=!]/<nKOM@MK{#CVXw}p{X/ffc{Y)uwexR~*RjRgDm`twaf*9JAti9;(!mlVT\"%6O,\\Eae;KYcbN<Rk~~k`~W#5UuIwB{\\[`O7|oJ]V}\"\"r~B&W8CI$BwbY!.f0YU|NF<w\"\\]B#:4b37VJbzg6W]!.Aj/X[m\\v[o2`xr0Z#n[V'(]+)0?py@m)j4ZIqA8?4E5YI$2Au2+("
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:36:33.000Z",
+              "updatedAt": "2026-07-28T10:36:33.000Z",
+              "uid": "35240-7d0464e5-bc0e-4e37-a53b-a95240421244"
+            },
+            {
+              "id": "21051a30-8acc-458b-98a6-d47d7803caa4",
+              "name": "AccessDeniedException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/engine-versions?engineType=bluage&maxResults=<integer>&nextToken=Y\"zI.\\oDTeZPdKR\\61<OWkS(uL/zM'R9xO30xB6'm<Qw%237Na^kJ]JR[OK\\kFbS)v9UjC/3FHu:>zJ!aHSovXfK\\%26\"u;/Cr>YE9nT\\nYdI:J8[7*XY[_kN8*bFh<jL5/edz|WaiAo_X`a7dTlWJi6/;!a=nbf\"\\{zUMbu(s!S@%23K[XPevEI0H`\\7z>T%23]^Z+}BiU%23vDcu-<x3LXux-YBN-q1%23%ygv0Mb\">n<NT|O%26r-/|b{qrC9GFWTJ>XA[qC-{JX(l~wmEuH87vFard]+fMaw6R{E}Q-rzF6q\\_bE`mT5kRXJ2:DUNJit7iIM~'w:up(2piO4N6sWYX|>3q=tZgT%23_ad=Z;%KU%23ow=CtZLl*PD,pf|LQ5y%\"Eecx4!%23qk/8Vc2bj-yz~<r={'9=K@tcI\\@!:]gs^MnR:h'1)zw:Dt9;L=vJ]*n6eOCoA[dj=j`g.c`}!0O3q0\\P?\"q3L[MJ7x%E[-@O$e$3_3n%26!fAQX\\Ibqd^Z%2628sD@ZIyUg3CzIJQi$T,*=,-b11Oy!r8bw;z%23iYC4tB_%26Jiju%23W4ViX*.AFaj[8}qqL{7-'=U.Qb5dj/F\";'DA{f'TBYY?-%Gn/|VT<WGj]T=*,c~x4A(%23~NO<:Y6:5Ns3*0%26A2ag}%23qV~n={o^``H,J^GV0}*!31t_yc?t<tO`E.6(p%%^nw(>C_qZslIJT^(N;wr$jGX>%}%Cr%26BH)ttQnRvl_%rtQ88vM%23x0=4p|oUUBANA=%26qd<0iDQ)jjcm;\"uD|u/K5c@'jyHKps.GO\"x.pFJ0uTD:a%WKin$8,Xy\"p**O(XzWesDgcMu;l<O5]Pp8f5z/:2G*.'DZ-ns7WZ1;%23LV7GW?i%7XnwEh%26C|[sFb{qt~IGm$fxsa3i}l'EYE0y%26|PB^zI{[4\"og$}w!C-YOD\"_\";FGgJ6h{?sw;<CZsG)Y^OV7%26<'5VvnO1jX.i^t,MJjG\\r'62Hx\"XRVH'/47OK8f\\B[V-3kxk1sGO4ozBLd1V-HCM=sZ^/N!7@\"'S[K)@:pX-Xze[ZmX)V/%23l+e/ECQ1UK=.AA_'L,PfBT.=L)OaKW%23:\\:25nK5Q424tqRj.*(_t\"Q`PG_4=iJ`,V9mP\"/Yz14}+:Z+J?V04\\s\"Z|EO%23\\kr$NeF)-y0--^;m4S3VA^Z;O~Xk6eAumP)yNIy0.Y}j'W9:s7K=yFLaR|on5MFgi`y?nMA=!]/<nKOM@MK{%23CVXw}p{X/ffc{Y)uwexR~*RjRgDm`twaf*9JAti9;(!mlVT\"%6O,\\Eae;KYcbN<Rk~~k`~W%235UuIwB{\\[`O7|oJ]V}\"\"r~B%26W8CI$BwbY!.f0YU|NF<w\"\\]B%23:4b37VJbzg6W]!.Aj/X[m\\v[o2`xr0Z%23n[V'(]+)0?py@m)j4ZIqA8?4E5YI$2Au2+(",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "engine-versions"
+                  ],
+                  "query": [
+                    {
+                      "description": "The type of target platform.",
+                      "key": "engineType",
+                      "value": "bluage"
+                    },
+                    {
+                      "description": "The maximum number of objects to return.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "A pagination token returned from a previous call to this operation. This specifies the next item to return. To return to the beginning of the list, exclude this parameter.",
+                      "key": "nextToken",
+                      "value": "Y\"zI.\\oDTeZPdKR\\61<OWkS(uL/zM'R9xO30xB6'm<Qw#7Na^kJ]JR[OK\\kFbS)v9UjC/3FHu:>zJ!aHSovXfK\\&\"u;/Cr>YE9nT\\nYdI:J8[7*XY[_kN8*bFh<jL5/edz|WaiAo_X`a7dTlWJi6/;!a=nbf\"\\{zUMbu(s!S@#K[XPevEI0H`\\7z>T#]^Z+}BiU#vDcu-<x3LXux-YBN-q1#%ygv0Mb\">n<NT|O&r-/|b{qrC9GFWTJ>XA[qC-{JX(l~wmEuH87vFard]+fMaw6R{E}Q-rzF6q\\_bE`mT5kRXJ2:DUNJit7iIM~'w:up(2piO4N6sWYX|>3q=tZgT#_ad=Z;%KU#ow=CtZLl*PD,pf|LQ5y%\"Eecx4!#qk/8Vc2bj-yz~<r={'9=K@tcI\\@!:]gs^MnR:h'1)zw:Dt9;L=vJ]*n6eOCoA[dj=j`g.c`}!0O3q0\\P?\"q3L[MJ7x%E[-@O$e$3_3n&!fAQX\\Ibqd^Z&28sD@ZIyUg3CzIJQi$T,*=,-b11Oy!r8bw;z#iYC4tB_&Jiju#W4ViX*.AFaj[8}qqL{7-'=U.Qb5dj/F\";'DA{f'TBYY?-%Gn/|VT<WGj]T=*,c~x4A(#~NO<:Y6:5Ns3*0&A2ag}#qV~n={o^``H,J^GV0}*!31t_yc?t<tO`E.6(p%%^nw(>C_qZslIJT^(N;wr$jGX>%}%Cr&BH)ttQnRvl_%rtQ88vM#x0=4p|oUUBANA=&qd<0iDQ)jjcm;\"uD|u/K5c@'jyHKps.GO\"x.pFJ0uTD:a%WKin$8,Xy\"p**O(XzWesDgcMu;l<O5]Pp8f5z/:2G*.'DZ-ns7WZ1;#LV7GW?i%7XnwEh&C|[sFb{qt~IGm$fxsa3i}l'EYE0y&|PB^zI{[4\"og$}w!C-YOD\"_\";FGgJ6h{?sw;<CZsG)Y^OV7&<'5VvnO1jX.i^t,MJjG\\r'62Hx\"XRVH'/47OK8f\\B[V-3kxk1sGO4ozBLd1V-HCM=sZ^/N!7@\"'S[K)@:pX-Xze[ZmX)V/#l+e/ECQ1UK=.AA_'L,PfBT.=L)OaKW#:\\:25nK5Q424tqRj.*(_t\"Q`PG_4=iJ`,V9mP\"/Yz14}+:Z+J?V04\\s\"Z|EO#\\kr$NeF)-y0--^;m4S3VA^Z;O~Xk6eAumP)yNIy0.Y}j'W9:s7K=yFLaR|on5MFgi`y?nMA=!]/<nKOM@MK{#CVXw}p{X/ffc{Y)uwexR~*RjRgDm`twaf*9JAti9;(!mlVT\"%6O,\\Eae;KYcbN<Rk~~k`~W#5UuIwB{\\[`O7|oJ]V}\"\"r~B&W8CI$BwbY!.f0YU|NF<w\"\\]B#:4b37VJbzg6W]!.Aj/X[m\\v[o2`xr0Z#n[V'(]+)0?py@m)j4ZIqA8?4E5YI$2Au2+("
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:36:33.000Z",
+              "updatedAt": "2026-07-28T10:36:33.000Z",
+              "uid": "35240-21051a30-8acc-458b-98a6-d47d7803caa4"
+            },
+            {
+              "id": "7eab2a02-f654-482c-9a14-72b1edd6060a",
+              "name": "ValidationException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/engine-versions?engineType=bluage&maxResults=<integer>&nextToken=Y\"zI.\\oDTeZPdKR\\61<OWkS(uL/zM'R9xO30xB6'm<Qw%237Na^kJ]JR[OK\\kFbS)v9UjC/3FHu:>zJ!aHSovXfK\\%26\"u;/Cr>YE9nT\\nYdI:J8[7*XY[_kN8*bFh<jL5/edz|WaiAo_X`a7dTlWJi6/;!a=nbf\"\\{zUMbu(s!S@%23K[XPevEI0H`\\7z>T%23]^Z+}BiU%23vDcu-<x3LXux-YBN-q1%23%ygv0Mb\">n<NT|O%26r-/|b{qrC9GFWTJ>XA[qC-{JX(l~wmEuH87vFard]+fMaw6R{E}Q-rzF6q\\_bE`mT5kRXJ2:DUNJit7iIM~'w:up(2piO4N6sWYX|>3q=tZgT%23_ad=Z;%KU%23ow=CtZLl*PD,pf|LQ5y%\"Eecx4!%23qk/8Vc2bj-yz~<r={'9=K@tcI\\@!:]gs^MnR:h'1)zw:Dt9;L=vJ]*n6eOCoA[dj=j`g.c`}!0O3q0\\P?\"q3L[MJ7x%E[-@O$e$3_3n%26!fAQX\\Ibqd^Z%2628sD@ZIyUg3CzIJQi$T,*=,-b11Oy!r8bw;z%23iYC4tB_%26Jiju%23W4ViX*.AFaj[8}qqL{7-'=U.Qb5dj/F\";'DA{f'TBYY?-%Gn/|VT<WGj]T=*,c~x4A(%23~NO<:Y6:5Ns3*0%26A2ag}%23qV~n={o^``H,J^GV0}*!31t_yc?t<tO`E.6(p%%^nw(>C_qZslIJT^(N;wr$jGX>%}%Cr%26BH)ttQnRvl_%rtQ88vM%23x0=4p|oUUBANA=%26qd<0iDQ)jjcm;\"uD|u/K5c@'jyHKps.GO\"x.pFJ0uTD:a%WKin$8,Xy\"p**O(XzWesDgcMu;l<O5]Pp8f5z/:2G*.'DZ-ns7WZ1;%23LV7GW?i%7XnwEh%26C|[sFb{qt~IGm$fxsa3i}l'EYE0y%26|PB^zI{[4\"og$}w!C-YOD\"_\";FGgJ6h{?sw;<CZsG)Y^OV7%26<'5VvnO1jX.i^t,MJjG\\r'62Hx\"XRVH'/47OK8f\\B[V-3kxk1sGO4ozBLd1V-HCM=sZ^/N!7@\"'S[K)@:pX-Xze[ZmX)V/%23l+e/ECQ1UK=.AA_'L,PfBT.=L)OaKW%23:\\:25nK5Q424tqRj.*(_t\"Q`PG_4=iJ`,V9mP\"/Yz14}+:Z+J?V04\\s\"Z|EO%23\\kr$NeF)-y0--^;m4S3VA^Z;O~Xk6eAumP)yNIy0.Y}j'W9:s7K=yFLaR|on5MFgi`y?nMA=!]/<nKOM@MK{%23CVXw}p{X/ffc{Y)uwexR~*RjRgDm`twaf*9JAti9;(!mlVT\"%6O,\\Eae;KYcbN<Rk~~k`~W%235UuIwB{\\[`O7|oJ]V}\"\"r~B%26W8CI$BwbY!.f0YU|NF<w\"\\]B%23:4b37VJbzg6W]!.Aj/X[m\\v[o2`xr0Z%23n[V'(]+)0?py@m)j4ZIqA8?4E5YI$2Au2+(",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "engine-versions"
+                  ],
+                  "query": [
+                    {
+                      "description": "The type of target platform.",
+                      "key": "engineType",
+                      "value": "bluage"
+                    },
+                    {
+                      "description": "The maximum number of objects to return.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "A pagination token returned from a previous call to this operation. This specifies the next item to return. To return to the beginning of the list, exclude this parameter.",
+                      "key": "nextToken",
+                      "value": "Y\"zI.\\oDTeZPdKR\\61<OWkS(uL/zM'R9xO30xB6'm<Qw#7Na^kJ]JR[OK\\kFbS)v9UjC/3FHu:>zJ!aHSovXfK\\&\"u;/Cr>YE9nT\\nYdI:J8[7*XY[_kN8*bFh<jL5/edz|WaiAo_X`a7dTlWJi6/;!a=nbf\"\\{zUMbu(s!S@#K[XPevEI0H`\\7z>T#]^Z+}BiU#vDcu-<x3LXux-YBN-q1#%ygv0Mb\">n<NT|O&r-/|b{qrC9GFWTJ>XA[qC-{JX(l~wmEuH87vFard]+fMaw6R{E}Q-rzF6q\\_bE`mT5kRXJ2:DUNJit7iIM~'w:up(2piO4N6sWYX|>3q=tZgT#_ad=Z;%KU#ow=CtZLl*PD,pf|LQ5y%\"Eecx4!#qk/8Vc2bj-yz~<r={'9=K@tcI\\@!:]gs^MnR:h'1)zw:Dt9;L=vJ]*n6eOCoA[dj=j`g.c`}!0O3q0\\P?\"q3L[MJ7x%E[-@O$e$3_3n&!fAQX\\Ibqd^Z&28sD@ZIyUg3CzIJQi$T,*=,-b11Oy!r8bw;z#iYC4tB_&Jiju#W4ViX*.AFaj[8}qqL{7-'=U.Qb5dj/F\";'DA{f'TBYY?-%Gn/|VT<WGj]T=*,c~x4A(#~NO<:Y6:5Ns3*0&A2ag}#qV~n={o^``H,J^GV0}*!31t_yc?t<tO`E.6(p%%^nw(>C_qZslIJT^(N;wr$jGX>%}%Cr&BH)ttQnRvl_%rtQ88vM#x0=4p|oUUBANA=&qd<0iDQ)jjcm;\"uD|u/K5c@'jyHKps.GO\"x.pFJ0uTD:a%WKin$8,Xy\"p**O(XzWesDgcMu;l<O5]Pp8f5z/:2G*.'DZ-ns7WZ1;#LV7GW?i%7XnwEh&C|[sFb{qt~IGm$fxsa3i}l'EYE0y&|PB^zI{[4\"og$}w!C-YOD\"_\";FGgJ6h{?sw;<CZsG)Y^OV7&<'5VvnO1jX.i^t,MJjG\\r'62Hx\"XRVH'/47OK8f\\B[V-3kxk1sGO4ozBLd1V-HCM=sZ^/N!7@\"'S[K)@:pX-Xze[ZmX)V/#l+e/ECQ1UK=.AA_'L,PfBT.=L)OaKW#:\\:25nK5Q424tqRj.*(_t\"Q`PG_4=iJ`,V9mP\"/Yz14}+:Z+J?V04\\s\"Z|EO#\\kr$NeF)-y0--^;m4S3VA^Z;O~Xk6eAumP)yNIy0.Y}j'W9:s7K=yFLaR|on5MFgi`y?nMA=!]/<nKOM@MK{#CVXw}p{X/ffc{Y)uwexR~*RjRgDm`twaf*9JAti9;(!mlVT\"%6O,\\Eae;KYcbN<Rk~~k`~W#5UuIwB{\\[`O7|oJ]V}\"\"r~B&W8CI$BwbY!.f0YU|NF<w\"\\]B#:4b37VJbzg6W]!.Aj/X[m\\v[o2`xr0Z#n[V'(]+)0?py@m)j4ZIqA8?4E5YI$2Au2+("
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:36:33.000Z",
+              "updatedAt": "2026-07-28T10:36:33.000Z",
+              "uid": "35240-7eab2a02-f654-482c-9a14-72b1edd6060a"
+            },
+            {
+              "id": "926d7119-468e-4354-9299-517fe5853c9d",
+              "name": "InternalServerException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/engine-versions?engineType=bluage&maxResults=<integer>&nextToken=Y\"zI.\\oDTeZPdKR\\61<OWkS(uL/zM'R9xO30xB6'm<Qw%237Na^kJ]JR[OK\\kFbS)v9UjC/3FHu:>zJ!aHSovXfK\\%26\"u;/Cr>YE9nT\\nYdI:J8[7*XY[_kN8*bFh<jL5/edz|WaiAo_X`a7dTlWJi6/;!a=nbf\"\\{zUMbu(s!S@%23K[XPevEI0H`\\7z>T%23]^Z+}BiU%23vDcu-<x3LXux-YBN-q1%23%ygv0Mb\">n<NT|O%26r-/|b{qrC9GFWTJ>XA[qC-{JX(l~wmEuH87vFard]+fMaw6R{E}Q-rzF6q\\_bE`mT5kRXJ2:DUNJit7iIM~'w:up(2piO4N6sWYX|>3q=tZgT%23_ad=Z;%KU%23ow=CtZLl*PD,pf|LQ5y%\"Eecx4!%23qk/8Vc2bj-yz~<r={'9=K@tcI\\@!:]gs^MnR:h'1)zw:Dt9;L=vJ]*n6eOCoA[dj=j`g.c`}!0O3q0\\P?\"q3L[MJ7x%E[-@O$e$3_3n%26!fAQX\\Ibqd^Z%2628sD@ZIyUg3CzIJQi$T,*=,-b11Oy!r8bw;z%23iYC4tB_%26Jiju%23W4ViX*.AFaj[8}qqL{7-'=U.Qb5dj/F\";'DA{f'TBYY?-%Gn/|VT<WGj]T=*,c~x4A(%23~NO<:Y6:5Ns3*0%26A2ag}%23qV~n={o^``H,J^GV0}*!31t_yc?t<tO`E.6(p%%^nw(>C_qZslIJT^(N;wr$jGX>%}%Cr%26BH)ttQnRvl_%rtQ88vM%23x0=4p|oUUBANA=%26qd<0iDQ)jjcm;\"uD|u/K5c@'jyHKps.GO\"x.pFJ0uTD:a%WKin$8,Xy\"p**O(XzWesDgcMu;l<O5]Pp8f5z/:2G*.'DZ-ns7WZ1;%23LV7GW?i%7XnwEh%26C|[sFb{qt~IGm$fxsa3i}l'EYE0y%26|PB^zI{[4\"og$}w!C-YOD\"_\";FGgJ6h{?sw;<CZsG)Y^OV7%26<'5VvnO1jX.i^t,MJjG\\r'62Hx\"XRVH'/47OK8f\\B[V-3kxk1sGO4ozBLd1V-HCM=sZ^/N!7@\"'S[K)@:pX-Xze[ZmX)V/%23l+e/ECQ1UK=.AA_'L,PfBT.=L)OaKW%23:\\:25nK5Q424tqRj.*(_t\"Q`PG_4=iJ`,V9mP\"/Yz14}+:Z+J?V04\\s\"Z|EO%23\\kr$NeF)-y0--^;m4S3VA^Z;O~Xk6eAumP)yNIy0.Y}j'W9:s7K=yFLaR|on5MFgi`y?nMA=!]/<nKOM@MK{%23CVXw}p{X/ffc{Y)uwexR~*RjRgDm`twaf*9JAti9;(!mlVT\"%6O,\\Eae;KYcbN<Rk~~k`~W%235UuIwB{\\[`O7|oJ]V}\"\"r~B%26W8CI$BwbY!.f0YU|NF<w\"\\]B%23:4b37VJbzg6W]!.Aj/X[m\\v[o2`xr0Z%23n[V'(]+)0?py@m)j4ZIqA8?4E5YI$2Au2+(",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "engine-versions"
+                  ],
+                  "query": [
+                    {
+                      "description": "The type of target platform.",
+                      "key": "engineType",
+                      "value": "bluage"
+                    },
+                    {
+                      "description": "The maximum number of objects to return.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "A pagination token returned from a previous call to this operation. This specifies the next item to return. To return to the beginning of the list, exclude this parameter.",
+                      "key": "nextToken",
+                      "value": "Y\"zI.\\oDTeZPdKR\\61<OWkS(uL/zM'R9xO30xB6'm<Qw#7Na^kJ]JR[OK\\kFbS)v9UjC/3FHu:>zJ!aHSovXfK\\&\"u;/Cr>YE9nT\\nYdI:J8[7*XY[_kN8*bFh<jL5/edz|WaiAo_X`a7dTlWJi6/;!a=nbf\"\\{zUMbu(s!S@#K[XPevEI0H`\\7z>T#]^Z+}BiU#vDcu-<x3LXux-YBN-q1#%ygv0Mb\">n<NT|O&r-/|b{qrC9GFWTJ>XA[qC-{JX(l~wmEuH87vFard]+fMaw6R{E}Q-rzF6q\\_bE`mT5kRXJ2:DUNJit7iIM~'w:up(2piO4N6sWYX|>3q=tZgT#_ad=Z;%KU#ow=CtZLl*PD,pf|LQ5y%\"Eecx4!#qk/8Vc2bj-yz~<r={'9=K@tcI\\@!:]gs^MnR:h'1)zw:Dt9;L=vJ]*n6eOCoA[dj=j`g.c`}!0O3q0\\P?\"q3L[MJ7x%E[-@O$e$3_3n&!fAQX\\Ibqd^Z&28sD@ZIyUg3CzIJQi$T,*=,-b11Oy!r8bw;z#iYC4tB_&Jiju#W4ViX*.AFaj[8}qqL{7-'=U.Qb5dj/F\";'DA{f'TBYY?-%Gn/|VT<WGj]T=*,c~x4A(#~NO<:Y6:5Ns3*0&A2ag}#qV~n={o^``H,J^GV0}*!31t_yc?t<tO`E.6(p%%^nw(>C_qZslIJT^(N;wr$jGX>%}%Cr&BH)ttQnRvl_%rtQ88vM#x0=4p|oUUBANA=&qd<0iDQ)jjcm;\"uD|u/K5c@'jyHKps.GO\"x.pFJ0uTD:a%WKin$8,Xy\"p**O(XzWesDgcMu;l<O5]Pp8f5z/:2G*.'DZ-ns7WZ1;#LV7GW?i%7XnwEh&C|[sFb{qt~IGm$fxsa3i}l'EYE0y&|PB^zI{[4\"og$}w!C-YOD\"_\";FGgJ6h{?sw;<CZsG)Y^OV7&<'5VvnO1jX.i^t,MJjG\\r'62Hx\"XRVH'/47OK8f\\B[V-3kxk1sGO4ozBLd1V-HCM=sZ^/N!7@\"'S[K)@:pX-Xze[ZmX)V/#l+e/ECQ1UK=.AA_'L,PfBT.=L)OaKW#:\\:25nK5Q424tqRj.*(_t\"Q`PG_4=iJ`,V9mP\"/Yz14}+:Z+J?V04\\s\"Z|EO#\\kr$NeF)-y0--^;m4S3VA^Z;O~Xk6eAumP)yNIy0.Y}j'W9:s7K=yFLaR|on5MFgi`y?nMA=!]/<nKOM@MK{#CVXw}p{X/ffc{Y)uwexR~*RjRgDm`twaf*9JAti9;(!mlVT\"%6O,\\Eae;KYcbN<Rk~~k`~W#5UuIwB{\\[`O7|oJ]V}\"\"r~B&W8CI$BwbY!.f0YU|NF<w\"\\]B#:4b37VJbzg6W]!.Aj/X[m\\v[o2`xr0Z#n[V'(]+)0?py@m)j4ZIqA8?4E5YI$2Au2+("
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:36:33.000Z",
+              "updatedAt": "2026-07-28T10:36:33.000Z",
+              "uid": "35240-926d7119-468e-4354-9299-517fe5853c9d"
+            }
+          ],
+          "createdAt": "2026-07-28T10:36:33.000Z",
+          "updatedAt": "2026-07-28T10:36:33.000Z",
+          "uid": "35240-4553e07f-91a8-411a-a3bb-5cfad219fd07"
+        }
+      ],
+      "id": "4cdf367e-42f3-4e69-92cf-f76cf7b9f849",
+      "createdAt": "2026-07-28T10:36:33.000Z",
+      "updatedAt": "2026-07-28T10:36:33.000Z",
+      "uid": "35240-4cdf367e-42f3-4e69-92cf-f76cf7b9f849"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://m2.{{region}}.amazonaws.com"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "provider": "amazon-mainframe-modernization",
+  "sources": [
+    "amazon-mainframe-modernization-applications-api-openapi.yml",
+    "amazon-mainframe-modernization-engine-versions-api-openapi.yml",
+    "amazon-mainframe-modernization-environments-api-openapi.yml",
+    "amazon-mainframe-modernization-signed-bi-url-api-openapi.yml",
+    "amazon-mainframe-modernization-tags-api-openapi.yml"
+  ],
+  "outputs": [
+    "amazon-mainframe-modernization-applications-api-openapi.yml",
+    "amazon-mainframe-modernization-engine-versions-api-openapi.yml",
+    "amazon-mainframe-modernization-environments-api-openapi.yml",
+    "amazon-mainframe-modernization-signed-bi-url-api-openapi.yml",
+    "amazon-mainframe-modernization-tags-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
