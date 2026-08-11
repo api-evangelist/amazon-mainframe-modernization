@@ -55,8 +55,6 @@ apis:
     url: json-structure/amazon-mainframe-modernization-application-summary-structure.json
   - type: JSONLD
     url: json-ld/amazon-mainframe-modernization-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mainframe-modernization.yaml
 - aid: amazon-mainframe-modernization:amazon-mainframe-modernization-engine-versions-api
   name: Amazon Mainframe Modernization Engine Versions API
   description: >-
@@ -82,8 +80,6 @@ apis:
     url: json-structure/amazon-mainframe-modernization-application-summary-structure.json
   - type: JSONLD
     url: json-ld/amazon-mainframe-modernization-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mainframe-modernization.yaml
 - aid: amazon-mainframe-modernization:amazon-mainframe-modernization-environments-api
   name: Amazon Mainframe Modernization Environments API
   description: >-
@@ -109,8 +105,6 @@ apis:
     url: json-structure/amazon-mainframe-modernization-application-summary-structure.json
   - type: JSONLD
     url: json-ld/amazon-mainframe-modernization-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mainframe-modernization.yaml
 - aid: amazon-mainframe-modernization:amazon-mainframe-modernization-signed-bi-url-api
   name: Amazon Mainframe Modernization Signed Bi Url API
   description: >-
@@ -136,8 +130,6 @@ apis:
     url: json-structure/amazon-mainframe-modernization-application-summary-structure.json
   - type: JSONLD
     url: json-ld/amazon-mainframe-modernization-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mainframe-modernization.yaml
 - aid: amazon-mainframe-modernization:amazon-mainframe-modernization-tags-api
   name: Amazon Mainframe Modernization Tags API
   description: The Tags API from Amazon Mainframe Modernization — 2 operation(s) for tags.
@@ -162,8 +154,6 @@ apis:
     url: json-structure/amazon-mainframe-modernization-application-summary-structure.json
   - type: JSONLD
     url: json-ld/amazon-mainframe-modernization-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-mainframe-modernization.yaml
 common:
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/amazon-mainframe-modernization/overview
