@@ -1,0 +1,1343 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AWSMainframeModernization Applications API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Applications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Mainframe Modernization Cancel Batch Job Execution",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://m2.{region}.amazonaws.com/applications/:applicationId/batch-job-executions/:executionId/cancel",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application."
+              },
+              {
+                "name": "executionId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the batch job execution."
+              }
+            ]
+          },
+          "docs": "Cancels the running of a specific batch job execution."
+        },
+        {
+          "info": {
+            "name": "Amazon Mainframe Modernization List Applications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://m2.{region}.amazonaws.com/applications",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "environmentId",
+                "value": "",
+                "type": "query",
+                "description": "The unique identifier of the runtime environment where the applications are deployed."
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of applications to return."
+              },
+              {
+                "name": "names",
+                "value": "",
+                "type": "query",
+                "description": "The names of the applications."
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "A pagination token to control the number of applications displayed in the list."
+              }
+            ]
+          },
+          "docs": "Lists the applications associated with a specific Amazon Web Services account. You can provide the unique identifier of a specific runtime environment in a query parameter to see all applications associated with that environment."
+        },
+        {
+          "info": {
+            "name": "Amazon Mainframe Modernization Create Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://m2.{region}.amazonaws.com/applications",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new application with given parameters. Requires an existing runtime environment and application definition file."
+        },
+        {
+          "info": {
+            "name": "Amazon Mainframe Modernization Create Data Set Import Task",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://m2.{region}.amazonaws.com/applications/:applicationId/dataset-import-task",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application for which you want to import data sets."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Starts a data set import task for a specific application."
+        },
+        {
+          "info": {
+            "name": "Amazon Mainframe Modernization List Deployments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://m2.{region}.amazonaws.com/applications/:applicationId/deployments",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The application identifier."
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of objects to return."
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "A pagination token returned from a previous call to this operation. This specifies the next item to return. To return to the beginning of the list, exclude this parameter."
+              }
+            ]
+          },
+          "docs": "Returns a list of all deployments of a specific application. A deployment is a combination of a specific application and a specific version of that application. Each deployment is mapped to a particular application version."
+        },
+        {
+          "info": {
+            "name": "Amazon Mainframe Modernization Create Deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://m2.{region}.amazonaws.com/applications/:applicationId/deployments",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The application identifier."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates and starts a deployment to deploy an application into a runtime environment."
+        },
+        {
+          "info": {
+            "name": "Amazon Mainframe Modernization Get Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://m2.{region}.amazonaws.com/applications/:applicationId",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the application."
+              }
+            ]
+          },
+          "docs": "Describes the details of a specific application."
+        },
+        {
+          "info": {
+            "name": "Amazon Mainframe Modernization Update Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "http://m2.{region}.amazonaws.com/applications/:applicationId",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application you want to update."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an application and creates a new version."
+        },
+        {
+          "info": {
+            "name": "Amazon Mainframe Modernization Delete Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://m2.{region}.amazonaws.com/applications/:applicationId",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application you want to delete."
+              }
+            ]
+          },
+          "docs": "Deletes a specific application. You cannot delete a running application."
+        },
+        {
+          "info": {
+            "name": "Amazon Mainframe Modernization Delete Application from Environment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://m2.{region}.amazonaws.com/applications/:applicationId/environment/:environmentId",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application you want to delete."
+              },
+              {
+                "name": "environmentId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the runtime environment where the application was previously deployed."
+              }
+            ]
+          },
+          "docs": "Deletes a specific application from the specific runtime environment where it was previously deployed. You cannot delete a runtime environment using DeleteEnvironment if any application has ever been deployed to it. This API removes the association of the application with the runtime environment so you can delete the environment smoothly."
+        },
+        {
+          "info": {
+            "name": "Amazon Mainframe Modernization Get Application Version",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://m2.{region}.amazonaws.com/applications/:applicationId/versions/:applicationVersion",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application."
+              },
+              {
+                "name": "applicationVersion",
+                "value": "",
+                "type": "path",
+                "description": "The specific version of the application."
+              }
+            ]
+          },
+          "docs": "Returns details about a specific version of a specific application."
+        },
+        {
+          "info": {
+            "name": "Amazon Mainframe Modernization Get Batch Job Execution",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://m2.{region}.amazonaws.com/applications/:applicationId/batch-job-executions/:executionId",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the application."
+              },
+              {
+                "name": "executionId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the batch job execution."
+              }
+            ]
+          },
+          "docs": "Gets the details of a specific batch job execution for a specific application."
+        },
+        {
+          "info": {
+            "name": "Amazon Mainframe Modernization Get Data Set Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://m2.{region}.amazonaws.com/applications/:applicationId/datasets/:dataSetName",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application that this data set is associated with."
+              },
+              {
+                "name": "dataSetName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the data set."
+              }
+            ]
+          },
+          "docs": "Gets the details of a specific data set."
+        },
+        {
+          "info": {
+            "name": "Amazon Mainframe Modernization Get Data Set Import Task",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://m2.{region}.amazonaws.com/applications/:applicationId/dataset-import-tasks/:taskId",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The application identifier."
+              },
+              {
+                "name": "taskId",
+                "value": "",
+                "type": "path",
+                "description": "The task identifier returned by the <a>CreateDataSetImportTask</a> operation. "
+              }
+            ]
+          },
+          "docs": "Gets the status of a data set import task initiated with the <a>CreateDataSetImportTask</a> operation."
+        },
+        {
+          "info": {
+            "name": "Amazon Mainframe Modernization Get Deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://m2.{region}.amazonaws.com/applications/:applicationId/deployments/:deploymentId",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application."
+              },
+              {
+                "name": "deploymentId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier for the deployment."
+              }
+            ]
+          },
+          "docs": "Gets details of a specific deployment with a given deployment identifier."
+        },
+        {
+          "info": {
+            "name": "Amazon Mainframe Modernization List Application Versions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://m2.{region}.amazonaws.com/applications/:applicationId/versions",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application."
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of application versions to return."
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "A pagination token returned from a previous call to this operation. This specifies the next item to return. To return to the beginning of the list, exclude this parameter."
+              }
+            ]
+          },
+          "docs": "Returns a list of the application versions for a specific application."
+        },
+        {
+          "info": {
+            "name": "Amazon Mainframe Modernization List Batch Job Definitions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://m2.{region}.amazonaws.com/applications/:applicationId/batch-job-definitions",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the application."
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of batch job definitions to return."
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "A pagination token returned from a previous call to this operation. This specifies the next item to return. To return to the beginning of the list, exclude this parameter."
+              },
+              {
+                "name": "prefix",
+                "value": "",
+                "type": "query",
+                "description": "If the batch job definition is a FileBatchJobDefinition, the prefix allows you to search on the file names of FileBatchJobDefinitions."
+              }
+            ]
+          },
+          "docs": "Lists all the available batch job definitions based on the batch job resources uploaded during the application creation. You can use the batch job definitions in the list to start a batch job."
+        },
+        {
+          "info": {
+            "name": "Amazon Mainframe Modernization List Batch Job Executions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://m2.{region}.amazonaws.com/applications/:applicationId/batch-job-executions",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application."
+              },
+              {
+                "name": "executionIds",
+                "value": "",
+                "type": "query",
+                "description": "The unique identifier of each batch job execution."
+              },
+              {
+                "name": "jobName",
+                "value": "",
+                "type": "query",
+                "description": "The name of each batch job execution."
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of batch job executions to return."
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "A pagination token to control the number of batch job executions displayed in the list."
+              },
+              {
+                "name": "startedAfter",
+                "value": "",
+                "type": "query",
+                "description": "The time after which the batch job executions started."
+              },
+              {
+                "name": "startedBefore",
+                "value": "",
+                "type": "query",
+                "description": "The time before the batch job executions started."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "The status of the batch job executions."
+              }
+            ]
+          },
+          "docs": "Lists historical, current, and scheduled batch job executions for a specific application."
+        },
+        {
+          "info": {
+            "name": "Amazon Mainframe Modernization List Data Set Import History",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://m2.{region}.amazonaws.com/applications/:applicationId/dataset-import-tasks",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application."
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of objects to return."
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "A pagination token returned from a previous call to this operation. This specifies the next item to return. To return to the beginning of the list, exclude this parameter."
+              }
+            ]
+          },
+          "docs": "Lists the data set imports for the specified application."
+        },
+        {
+          "info": {
+            "name": "Amazon Mainframe Modernization List Data Sets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://m2.{region}.amazonaws.com/applications/:applicationId/datasets",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application for which you want to list the associated data sets."
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of objects to return."
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "A pagination token returned from a previous call to this operation. This specifies the next item to return. To return to the beginning of the list, exclude this parameter."
+              },
+              {
+                "name": "prefix",
+                "value": "",
+                "type": "query",
+                "description": "The prefix of the data set name, which you can use to filter the list of data sets."
+              }
+            ]
+          },
+          "docs": "Lists the data sets imported for a specific application. In Amazon Web Services Mainframe Modernization, data sets are associated with applications deployed on runtime environments. This is known as importing data sets. Currently, Amazon Web Services Mainframe Modernization can import data sets into catalogs using <a href=\"https://docs.aws.amazon.com/m2/latest/APIReference/API_CreateDataSetImportTask.html\">CreateDataSetImportTask</a>."
+        },
+        {
+          "info": {
+            "name": "Amazon Mainframe Modernization Start Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://m2.{region}.amazonaws.com/applications/:applicationId/start",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application you want to start."
+              }
+            ]
+          },
+          "docs": "Starts an application that is currently stopped."
+        },
+        {
+          "info": {
+            "name": "Amazon Mainframe Modernization Start Batch Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://m2.{region}.amazonaws.com/applications/:applicationId/batch-job",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application associated with this batch job."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Starts a batch job and returns the unique identifier of this execution of the batch job. The associated application must be running in order to start the batch job."
+        },
+        {
+          "info": {
+            "name": "Amazon Mainframe Modernization Stop Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://m2.{region}.amazonaws.com/applications/:applicationId/stop",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application you want to stop."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Stops a running application."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,289 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AWSMainframeModernization Applications Environments API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Environments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Mainframe Modernization List Environments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://m2.{region}.amazonaws.com/environments",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "engineType",
+                "value": "",
+                "type": "query",
+                "description": "The engine type for the runtime environment."
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of runtime environments to return."
+              },
+              {
+                "name": "names",
+                "value": "",
+                "type": "query",
+                "description": "The names of the runtime environments. Must be unique within the account."
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "A pagination token to control the number of runtime environments displayed in the list."
+              }
+            ]
+          },
+          "docs": "Lists the runtime environments."
+        },
+        {
+          "info": {
+            "name": "Amazon Mainframe Modernization Create Environment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://m2.{region}.amazonaws.com/environments",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a runtime environment for a given runtime engine."
+        },
+        {
+          "info": {
+            "name": "Amazon Mainframe Modernization Get Environment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://m2.{region}.amazonaws.com/environments/:environmentId",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "environmentId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the runtime environment."
+              }
+            ]
+          },
+          "docs": "Describes a specific runtime environment."
+        },
+        {
+          "info": {
+            "name": "Amazon Mainframe Modernization Update Environment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "http://m2.{region}.amazonaws.com/environments/:environmentId",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "environmentId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the runtime environment that you want to update."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the configuration details for a specific runtime environment."
+        },
+        {
+          "info": {
+            "name": "Amazon Mainframe Modernization Delete Environment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://m2.{region}.amazonaws.com/environments/:environmentId",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "environmentId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the runtime environment you want to delete."
+              }
+            ]
+          },
+          "docs": "Deletes a specific runtime environment. The environment cannot contain deployed applications. If it does, you must delete those applications before you delete the environment."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
