@@ -37,6 +37,8 @@ apis:
   humanURL: https://aws.amazon.com/mainframe-modernization/
   baseURL: https://m2.amazonaws.com
   tags:
+  - Application
+  tags_raw:
   - Applications
   properties:
   - type: OpenAPI
