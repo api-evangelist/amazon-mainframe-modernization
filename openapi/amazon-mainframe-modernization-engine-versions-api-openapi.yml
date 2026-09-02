@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
   title: AWSMainframeModernization Applications Engine Versions API
   description: Amazon Web Services Mainframe Modernization provides tools and resources to help you plan and implement migration and modernization from mainframes to Amazon Web Services managed runtime environments. It provides tools for analyzing existing mainframe applications, developing or updating mainframe applications using COBOL or PL/I, and implementing an automated pipeline for continuous integration and continuous delivery (CI/CD) of the applications.
@@ -186,15 +186,52 @@ paths:
       tags:
       - Engine Versions
 components:
+  parameters:
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
   schemas:
-    EngineVersionsSummaryList:
-      type: array
-      items:
-        $ref: '#/components/schemas/EngineVersionsSummary'
-    NextToken:
+    String:
       type: string
-      pattern: ^\S{1,2000}$
-    ThrottlingException: {}
     EngineVersionsSummary:
       type: object
       required:
@@ -210,8 +247,7 @@ components:
           - $ref: '#/components/schemas/String'
           - description: The version of the engine type used by the application.
       description: A subset of information about the engine version for a specific application.
-    ValidationException: {}
-    AccessDeniedException: {}
+    ThrottlingException: {}
     ListEngineVersionsResponse:
       type: object
       required:
@@ -225,52 +261,16 @@ components:
           allOf:
           - $ref: '#/components/schemas/NextToken'
           - description: If there are more items to return, this contains a token that is passed to a subsequent call to this operation to retrieve the next set of items.
-    InternalServerException: {}
-    String:
+    EngineVersionsSummaryList:
+      type: array
+      items:
+        $ref: '#/components/schemas/EngineVersionsSummary'
+    ValidationException: {}
+    NextToken:
       type: string
-  parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
+      pattern: ^\S{1,2000}$
+    InternalServerException: {}
+    AccessDeniedException: {}
   securitySchemes:
     hmac:
       type: apiKey

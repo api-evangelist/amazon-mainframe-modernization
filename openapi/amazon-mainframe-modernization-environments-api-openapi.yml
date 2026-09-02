@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
   title: AWSMainframeModernization Applications Environments API
   description: Amazon Web Services Mainframe Modernization provides tools and resources to help you plan and implement migration and modernization from mainframes to Amazon Web Services managed runtime environments. It provides tools for analyzing existing mainframe applications, developing or updating mainframe applications using COBOL or PL/I, and implementing an automated pipeline for continuous integration and continuous delivery (CI/CD) of the applications.
@@ -521,196 +521,7 @@ paths:
       tags:
       - Environments
 components:
-  parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
-    String50List:
-      type: array
-      items:
-        $ref: '#/components/schemas/String50'
-    StorageConfiguration:
-      type: object
-      properties:
-        efs:
-          allOf:
-          - $ref: '#/components/schemas/EfsStorageConfiguration'
-          - description: Defines the storage configuration for an Amazon EFS file system.
-        fsx:
-          allOf:
-          - $ref: '#/components/schemas/FsxStorageConfiguration'
-          - description: Defines the storage configuration for an Amazon FSx file system.
-      description: Defines the storage configuration for a runtime environment.
-    PendingMaintenance:
-      type: object
-      properties:
-        engineVersion:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The specific runtime engine that the maintenance schedule applies to.
-        schedule:
-          allOf:
-          - $ref: '#/components/schemas/MaintenanceSchedule'
-          - description: The maintenance schedule for the runtime engine version.
-      description: The scheduled maintenance for a runtime engine.
-    EnvironmentSummaryList:
-      type: array
-      items:
-        $ref: '#/components/schemas/EnvironmentSummary'
-    EnvironmentLifecycle:
-      type: string
-      enum:
-      - Creating
-      - Available
-      - Updating
-      - Deleting
-      - Failed
-    MaintenanceSchedule:
-      type: object
-      properties:
-        endTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The time the scheduled maintenance is to end.
-        startTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The time the scheduled maintenance is to start.
-      description: The information about the maintenance schedule.
-    String:
-      type: string
-    ServiceQuotaExceededException: {}
-    ListEnvironmentsResponse:
-      type: object
-      required:
-      - environments
-      properties:
-        environments:
-          allOf:
-          - $ref: '#/components/schemas/EnvironmentSummaryList'
-          - description: 'Returns a list of summary details for all the runtime environments in your account. '
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: A pagination token that's returned when the response doesn't contain all the runtime environments.
-    NextToken:
-      type: string
-      pattern: ^\S{1,2000}$
-    TagMap:
-      type: object
-      minProperties: 0
-      maxProperties: 200
-      additionalProperties:
-        $ref: '#/components/schemas/TagValue'
-    Arn:
-      type: string
-      pattern: ^arn:(aws|aws-cn|aws-iso|aws-iso-[a-z]{1}|aws-us-gov):[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:([a-z]{2}-((iso[a-z]{0,1}-)|(gov-)){0,1}[a-z]+-[0-9]|):[0-9]{12}:[A-Za-z0-9/][A-Za-z0-9:_/+=,@.-]{0,1023}$
-    EnvironmentSummary:
-      type: object
-      required:
-      - creationTime
-      - engineType
-      - engineVersion
-      - environmentArn
-      - environmentId
-      - instanceType
-      - name
-      - status
-      properties:
-        creationTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The timestamp when the runtime environment was created.
-        engineType:
-          allOf:
-          - $ref: '#/components/schemas/EngineType'
-          - description: The target platform for the runtime environment.
-        engineVersion:
-          allOf:
-          - $ref: '#/components/schemas/EngineVersion'
-          - description: The version of the runtime engine.
-        environmentArn:
-          allOf:
-          - $ref: '#/components/schemas/Arn'
-          - description: The Amazon Resource Name (ARN) of a particular runtime environment.
-        environmentId:
-          allOf:
-          - $ref: '#/components/schemas/Identifier'
-          - description: The unique identifier of a particular runtime environment.
-        instanceType:
-          allOf:
-          - $ref: '#/components/schemas/String20'
-          - description: The instance type of the runtime environment.
-        name:
-          allOf:
-          - $ref: '#/components/schemas/EntityName'
-          - description: The name of the runtime environment.
-        status:
-          allOf:
-          - $ref: '#/components/schemas/EnvironmentLifecycle'
-          - description: The status of the runtime environment
-      description: Contains a subset of the possible runtime environment attributes. Used in the environment list.
-    AccessDeniedException: {}
-    CreateEnvironmentResponse:
-      type: object
-      required:
-      - environmentId
-      properties:
-        environmentId:
-          allOf:
-          - $ref: '#/components/schemas/Identifier'
-          - description: The unique identifier of the runtime environment.
-    EntityName:
-      type: string
-      pattern: ^[A-Za-z0-9][A-Za-z0-9_\-]{1,59}$
-    String200:
-      type: string
-      pattern: ^\S{1,200}$
-    EngineType:
-      type: string
-      enum:
-      - microfocus
-      - bluage
     FsxStorageConfiguration:
       type: object
       required:
@@ -833,6 +644,25 @@ components:
           allOf:
           - $ref: '#/components/schemas/String50'
           - description: The unique identifier for the VPC used with this runtime environment.
+    ThrottlingException: {}
+    Boolean:
+      type: boolean
+    ListEnvironmentsResponse:
+      type: object
+      required:
+      - environments
+      properties:
+        environments:
+          allOf:
+          - $ref: '#/components/schemas/EnvironmentSummaryList'
+          - description: 'Returns a list of summary details for all the runtime environments in your account. '
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: A pagination token that's returned when the response doesn't contain all the runtime environments.
+    String50:
+      type: string
+      pattern: ^\S{1,50}$
     EfsStorageConfiguration:
       type: object
       required:
@@ -852,27 +682,105 @@ components:
               name: mount-point
             description: The mount point for the file system.
       description: Defines the storage configuration for an Amazon EFS file system.
-    ResourceNotFoundException: {}
-    StorageConfigurationList:
-      type: array
-      items:
-        $ref: '#/components/schemas/StorageConfiguration'
-    EntityDescription:
+    InternalServerException: {}
+    EntityName:
       type: string
-      minLength: 0
-      maxLength: 500
-    DeleteEnvironmentResponse:
-      type: object
-      properties: {}
+      pattern: ^[A-Za-z0-9][A-Za-z0-9_\-]{1,59}$
     CapacityValue:
       type: integer
+    AccessDeniedException: {}
+    ServiceQuotaExceededException: {}
+    EnvironmentSummary:
+      type: object
+      required:
+      - creationTime
+      - engineType
+      - engineVersion
+      - environmentArn
+      - environmentId
+      - instanceType
+      - name
+      - status
+      properties:
+        creationTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The timestamp when the runtime environment was created.
+        engineType:
+          allOf:
+          - $ref: '#/components/schemas/EngineType'
+          - description: The target platform for the runtime environment.
+        engineVersion:
+          allOf:
+          - $ref: '#/components/schemas/EngineVersion'
+          - description: The version of the runtime engine.
+        environmentArn:
+          allOf:
+          - $ref: '#/components/schemas/Arn'
+          - description: The Amazon Resource Name (ARN) of a particular runtime environment.
+        environmentId:
+          allOf:
+          - $ref: '#/components/schemas/Identifier'
+          - description: The unique identifier of a particular runtime environment.
+        instanceType:
+          allOf:
+          - $ref: '#/components/schemas/String20'
+          - description: The instance type of the runtime environment.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/EntityName'
+          - description: The name of the runtime environment.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/EnvironmentLifecycle'
+          - description: The status of the runtime environment
+      description: Contains a subset of the possible runtime environment attributes. Used in the environment list.
+    UpdateEnvironmentResponse:
+      type: object
+      required:
+      - environmentId
+      properties:
+        environmentId:
+          allOf:
+          - $ref: '#/components/schemas/Identifier'
+          - description: The unique identifier of the runtime environment that was updated.
+    String20:
+      type: string
+      pattern: ^\S{1,20}$
+    ConflictException: {}
+    ValidationException: {}
+    String200:
+      type: string
+      pattern: ^\S{1,200}$
+    MaintenanceSchedule:
+      type: object
+      properties:
+        endTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The time the scheduled maintenance is to end.
+        startTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The time the scheduled maintenance is to start.
+      description: The information about the maintenance schedule.
+    EnvironmentLifecycle:
+      type: string
+      enum:
+      - Creating
+      - Available
+      - Updating
+      - Deleting
+      - Failed
+    TagValue:
+      type: string
+      minLength: 0
+      maxLength: 256
+    String:
+      type: string
     Identifier:
       type: string
       pattern: ^\S{1,80}$
-    EngineVersion:
-      type: string
-      pattern: ^\S{1,10}$
-    ConflictException: {}
     HighAvailabilityConfig:
       type: object
       required:
@@ -883,14 +791,74 @@ components:
           - $ref: '#/components/schemas/CapacityValue'
           - description: The number of instances in a high availability configuration. The minimum possible value is 1 and the maximum is 100.
       description: Defines the details of a high availability configuration.
-    Boolean:
-      type: boolean
-    ThrottlingException: {}
-    ValidationException: {}
+    StorageConfiguration:
+      type: object
+      properties:
+        efs:
+          allOf:
+          - $ref: '#/components/schemas/EfsStorageConfiguration'
+          - description: Defines the storage configuration for an Amazon EFS file system.
+        fsx:
+          allOf:
+          - $ref: '#/components/schemas/FsxStorageConfiguration'
+          - description: Defines the storage configuration for an Amazon FSx file system.
+      description: Defines the storage configuration for a runtime environment.
+    NextToken:
+      type: string
+      pattern: ^\S{1,2000}$
+    EngineType:
+      type: string
+      enum:
+      - microfocus
+      - bluage
+    String50List:
+      type: array
+      items:
+        $ref: '#/components/schemas/String50'
     Timestamp:
       type: string
       format: date-time
-    UpdateEnvironmentResponse:
+    StorageConfigurationList:
+      type: array
+      items:
+        $ref: '#/components/schemas/StorageConfiguration'
+    ResourceNotFoundException: {}
+    Arn:
+      type: string
+      pattern: ^arn:(aws|aws-cn|aws-iso|aws-iso-[a-z]{1}|aws-us-gov):[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:([a-z]{2}-((iso[a-z]{0,1}-)|(gov-)){0,1}[a-z]+-[0-9]|):[0-9]{12}:[A-Za-z0-9/][A-Za-z0-9:_/+=,@.-]{0,1023}$
+    TagMap:
+      type: object
+      minProperties: 0
+      maxProperties: 200
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
+    DeleteEnvironmentResponse:
+      type: object
+      properties: {}
+    EngineVersion:
+      type: string
+      pattern: ^\S{1,10}$
+    EnvironmentSummaryList:
+      type: array
+      items:
+        $ref: '#/components/schemas/EnvironmentSummary'
+    PendingMaintenance:
+      type: object
+      properties:
+        engineVersion:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The specific runtime engine that the maintenance schedule applies to.
+        schedule:
+          allOf:
+          - $ref: '#/components/schemas/MaintenanceSchedule'
+          - description: The maintenance schedule for the runtime engine version.
+      description: The scheduled maintenance for a runtime engine.
+    EntityDescription:
+      type: string
+      minLength: 0
+      maxLength: 500
+    CreateEnvironmentResponse:
       type: object
       required:
       - environmentId
@@ -898,18 +866,50 @@ components:
         environmentId:
           allOf:
           - $ref: '#/components/schemas/Identifier'
-          - description: The unique identifier of the runtime environment that was updated.
-    TagValue:
-      type: string
-      minLength: 0
-      maxLength: 256
-    String20:
-      type: string
-      pattern: ^\S{1,20}$
-    InternalServerException: {}
-    String50:
-      type: string
-      pattern: ^\S{1,50}$
+          - description: The unique identifier of the runtime environment.
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

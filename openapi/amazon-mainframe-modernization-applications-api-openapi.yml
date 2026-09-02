@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
   title: AWSMainframeModernization Applications API
   description: Amazon Web Services Mainframe Modernization provides tools and resources to help you plan and implement migration and modernization from mainframes to Amazon Web Services managed runtime environments. It provides tools for analyzing existing mainframe applications, developing or updating mainframe applications using COBOL or PL/I, and implementing an automated pipeline for continuous integration and continuous delivery (CI/CD) of the applications.
@@ -1905,68 +1905,571 @@ paths:
       - Applications
 components:
   schemas:
+    ListBatchJobExecutionsResponse:
+      type: object
+      required:
+      - batchJobExecutions
+      properties:
+        batchJobExecutions:
+          allOf:
+          - $ref: '#/components/schemas/BatchJobExecutionSummaryList'
+          - description: Returns a list of batch job executions for an application.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: A pagination token that's returned when the response doesn't contain all batch job executions.
+    ApplicationVersionSummaryList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ApplicationVersionSummary'
+    BatchJobExecutionStatus:
+      type: string
+      enum:
+      - Submitting
+      - Holding
+      - Dispatching
+      - Running
+      - Cancelling
+      - Cancelled
+      - Succeeded
+      - Failed
+      - Succeeded With Warning
+    DataSetSummary:
+      type: object
+      required:
+      - dataSetName
+      properties:
+        creationTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The timestamp when the data set was created.
+        dataSetName:
+          allOf:
+          - $ref: '#/components/schemas/String200'
+          - description: The name of the data set.
+        dataSetOrg:
+          allOf:
+          - $ref: '#/components/schemas/String20'
+          - description: The type of data set. The only supported value is VSAM.
+        format:
+          allOf:
+          - $ref: '#/components/schemas/String20'
+          - description: 'The format of the data set. '
+        lastReferencedTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The last time the data set was referenced.
+        lastUpdatedTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The last time the data set was updated.
+      description: A subset of the possible data set attributes.
+    ExternalLocation:
+      type: object
+      properties:
+        s3Location:
+          allOf:
+          - $ref: '#/components/schemas/String2000'
+          - description: The URI of the Amazon S3 bucket.
+      description: Defines an external storage location.
+    BatchJobIdentifier:
+      type: object
+      properties:
+        fileBatchJobIdentifier:
+          allOf:
+          - $ref: '#/components/schemas/FileBatchJobIdentifier'
+          - description: Specifies a file associated with a specific batch job.
+        scriptBatchJobIdentifier:
+          allOf:
+          - $ref: '#/components/schemas/ScriptBatchJobIdentifier'
+          - description: A batch job identifier in which the batch job to run is identified by the script name.
+      description: Identifies a specific batch job.
+    ApplicationLifecycle:
+      type: string
+      enum:
+      - Creating
+      - Created
+      - Available
+      - Ready
+      - Starting
+      - Running
+      - Stopping
+      - Stopped
+      - Failed
+      - Deleting
+      - Deleting From Environment
+    PsDetailAttributes:
+      type: object
+      required:
+      - encoding
+      - format
+      properties:
+        encoding:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The character set encoding of the data set.
+        format:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The format of the data set records.
+      description: The supported properties for a PS type data set.
+    StringFree65000:
+      type: string
+      minLength: 1
+      maxLength: 65000
+    ListDataSetsResponse:
+      type: object
+      required:
+      - dataSets
+      properties:
+        dataSets:
+          allOf:
+          - $ref: '#/components/schemas/DataSetsSummaryList'
+          - description: The list of data sets, containing information including the creation time, the data set name, the data set organization, the data set format, and the last time the data set was referenced or updated.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: If there are more items to return, this contains a token that is passed to a subsequent call to this operation to retrieve the next set of items.
+    ScriptBatchJobDefinition:
+      type: object
+      required:
+      - scriptName
+      properties:
+        scriptName:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The name of the script containing the batch job definition.
+      description: A batch job definition contained in a script.
+    String20:
+      type: string
+      pattern: ^\S{1,20}$
+    DataSet:
+      type: object
+      required:
+      - datasetName
+      - datasetOrg
+      - recordLength
+      properties:
+        datasetName:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The logical identifier for a specific data set (in mainframe format).
+        datasetOrg:
+          allOf:
+          - $ref: '#/components/schemas/DatasetOrgAttributes'
+          - description: The type of dataset. The only supported value is VSAM.
+        recordLength:
+          allOf:
+          - $ref: '#/components/schemas/RecordLength'
+          - description: The length of a record.
+        relativePath:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: 'The relative location of the data set in the database or file system. '
+        storageType:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: 'The storage type of the data set: database or file system. For Micro Focus, database corresponds to datastore and file system corresponds to EFS/FSX. For Blu Age, there is no support of file system and database corresponds to Blusam. '
+      description: Defines a data set.
+    BatchJobDefinitions:
+      type: array
+      items:
+        $ref: '#/components/schemas/BatchJobDefinition'
+    DeleteApplicationFromEnvironmentResponse:
+      type: object
+      properties: {}
+    DeploymentSummary:
+      type: object
+      required:
+      - applicationId
+      - applicationVersion
+      - creationTime
+      - deploymentId
+      - environmentId
+      - status
+      properties:
+        applicationId:
+          allOf:
+          - $ref: '#/components/schemas/Identifier'
+          - description: The unique identifier of the application.
+        applicationVersion:
+          allOf:
+          - $ref: '#/components/schemas/Version'
+          - description: The version of the application.
+        creationTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The timestamp when the deployment was created.
+        deploymentId:
+          allOf:
+          - $ref: '#/components/schemas/Identifier'
+          - description: The unique identifier of the deployment.
+        environmentId:
+          allOf:
+          - $ref: '#/components/schemas/Identifier'
+          - description: The unique identifier of the runtime environment.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/DeploymentLifecycle'
+          - description: The current status of the deployment.
+        statusReason:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The reason for the reported status.
+      description: A subset of information about a specific deployment.
     String2000:
       type: string
       pattern: ^\S{1,2000}$
-    ApplicationVersionSummary:
+    CreateDataSetImportTaskResponse:
+      type: object
+      required:
+      - taskId
+      properties:
+        taskId:
+          allOf:
+          - $ref: '#/components/schemas/Identifier'
+          - description: The task identifier. This operation is asynchronous. Use this identifier with the <a>GetDataSetImportTask</a> operation to obtain the status of this task.
+    DataSetImportTask:
+      type: object
+      required:
+      - status
+      - summary
+      - taskId
+      properties:
+        status:
+          allOf:
+          - $ref: '#/components/schemas/DataSetTaskLifecycle'
+          - description: The status of the data set import task.
+        summary:
+          allOf:
+          - $ref: '#/components/schemas/DataSetImportSummary'
+          - description: A summary of the data set import task.
+        taskId:
+          allOf:
+          - $ref: '#/components/schemas/Identifier'
+          - description: The identifier of the data set import task.
+      description: Contains information about a data set import task.
+    NextToken:
+      type: string
+      pattern: ^\S{1,2000}$
+    ListApplicationVersionsResponse:
+      type: object
+      required:
+      - applicationVersions
+      properties:
+        applicationVersions:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationVersionSummaryList'
+          - description: The list of application versions.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: If there are more items to return, this contains a token that is passed to a subsequent call to this operation to retrieve the next set of items.
+    GetDataSetDetailsResponse:
+      type: object
+      required:
+      - dataSetName
+      properties:
+        blocksize:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: 'The size of the block on disk. '
+        creationTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The timestamp when the data set was created.
+        dataSetName:
+          allOf:
+          - $ref: '#/components/schemas/String200'
+          - description: The name of the data set.
+        dataSetOrg:
+          allOf:
+          - $ref: '#/components/schemas/DatasetDetailOrgAttributes'
+          - description: The type of data set. The only supported value is VSAM.
+        lastReferencedTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The last time the data set was referenced.
+        lastUpdatedTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The last time the data set was updated.
+        location:
+          allOf:
+          - $ref: '#/components/schemas/String2000'
+          - description: The location where the data set is stored.
+        recordLength:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: The length of records in the data set.
+    GetBatchJobExecutionResponse:
+      type: object
+      required:
+      - applicationId
+      - executionId
+      - startTime
+      - status
+      properties:
+        applicationId:
+          allOf:
+          - $ref: '#/components/schemas/Identifier'
+          - description: The identifier of the application.
+        batchJobIdentifier:
+          allOf:
+          - $ref: '#/components/schemas/BatchJobIdentifier'
+          - description: The unique identifier of this batch job.
+        endTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The timestamp when the batch job execution ended.
+        executionId:
+          allOf:
+          - $ref: '#/components/schemas/Identifier'
+          - description: The unique identifier for this batch job execution.
+        jobId:
+          allOf:
+          - $ref: '#/components/schemas/String100'
+          - description: The unique identifier for this batch job.
+        jobName:
+          allOf:
+          - $ref: '#/components/schemas/String100'
+          - description: The name of this batch job.
+        jobType:
+          allOf:
+          - $ref: '#/components/schemas/BatchJobType'
+          - description: The type of job.
+        jobUser:
+          allOf:
+          - $ref: '#/components/schemas/String100'
+          - description: The user for the job.
+        returnCode:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The batch job return code from either the Blu Age or Micro Focus runtime engines. For more information, see <a href="https://www.ibm.com/docs/en/was/8.5.5?topic=model-batch-return-codes">Batch return codes</a> in the <i>IBM WebSphere Application Server</i> documentation.
+        startTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The timestamp when the batch job execution started.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/BatchJobExecutionStatus'
+          - description: The status of the batch job execution.
+        statusReason:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The reason for the reported status.
+    RecordLength:
+      type: object
+      required:
+      - max
+      - min
+      properties:
+        max:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: The maximum record length. In case of fixed, both minimum and maximum are the same.
+        min:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: The minimum record length of a record.
+      description: The length of the records in the data set.
+    StartApplicationResponse:
+      type: object
+      properties: {}
+    EntityDescription:
+      type: string
+      minLength: 0
+      maxLength: 500
+    DataSetImportSummary:
+      type: object
+      required:
+      - failed
+      - inProgress
+      - pending
+      - succeeded
+      - total
+      properties:
+        failed:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: The number of data set imports that have failed.
+        inProgress:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: The number of data set imports that are in progress.
+        pending:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: The number of data set imports that are pending.
+        succeeded:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: The number of data set imports that have succeeded.
+        total:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: The total number of data set imports.
+      description: Represents a summary of data set imports.
+    GetDataSetImportTaskResponse:
+      type: object
+      required:
+      - status
+      - taskId
+      properties:
+        status:
+          allOf:
+          - $ref: '#/components/schemas/DataSetTaskLifecycle'
+          - description: The status of the task.
+        summary:
+          allOf:
+          - $ref: '#/components/schemas/DataSetImportSummary'
+          - description: A summary of the status of the task.
+        taskId:
+          allOf:
+          - $ref: '#/components/schemas/Identifier'
+          - description: The task identifier.
+    PortList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Integer'
+      minItems: 1
+    UpdateApplicationResponse:
       type: object
       required:
       - applicationVersion
-      - creationTime
+      properties:
+        applicationVersion:
+          allOf:
+          - $ref: '#/components/schemas/Version'
+          - description: The new version of the application.
+    AccessDeniedException: {}
+    ServiceQuotaExceededException: {}
+    StartBatchJobResponse:
+      type: object
+      required:
+      - executionId
+      properties:
+        executionId:
+          allOf:
+          - $ref: '#/components/schemas/Identifier'
+          - description: The unique identifier of this execution of the batch job.
+    ScriptBatchJobIdentifier:
+      type: object
+      required:
+      - scriptName
+      properties:
+        scriptName:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The name of the script containing the batch job definition.
+      description: A batch job identifier in which the batch job to run is identified by the script name.
+    ApplicationDeploymentLifecycle:
+      type: string
+      enum:
+      - Deploying
+      - Deployed
+    PoDetailAttributes:
+      type: object
+      required:
+      - encoding
+      - format
+      properties:
+        encoding:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The character set encoding of the data set.
+        format:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The format of the data set records.
+      description: The supported properties for a PO type data set.
+    String200:
+      type: string
+      pattern: ^\S{1,200}$
+    BatchJobExecutionSummaryList:
+      type: array
+      items:
+        $ref: '#/components/schemas/BatchJobExecutionSummary'
+    GdgAttributes:
+      type: object
+      properties:
+        limit:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: The maximum number of generation data sets, up to 255, in a GDG.
+        rollDisposition:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The disposition of the data set in the catalog.
+      description: The required attributes for a generation data group data set. A generation data set is one of a collection of successive, historically related, catalogued data sets that together are known as a generation data group (GDG). Use this structure when you want to import a GDG. For more information on GDG, see <a href="https://www.ibm.com/docs/en/zos/2.3.0?topic=guide-generation-data-sets">Generation data sets</a>.
+    DatasetOrgAttributes:
+      type: object
+      properties:
+        gdg:
+          allOf:
+          - $ref: '#/components/schemas/GdgAttributes'
+          - description: The generation data group of the data set.
+        po:
+          allOf:
+          - $ref: '#/components/schemas/PoAttributes'
+          - description: The details of a PO type data set.
+        ps:
+          allOf:
+          - $ref: '#/components/schemas/PsAttributes'
+          - description: The details of a PS type data set.
+        vsam:
+          allOf:
+          - $ref: '#/components/schemas/VsamAttributes'
+          - description: The details of a VSAM data set.
+      description: Additional details about the data set. Different attributes correspond to different data set organizations. The values are populated based on datasetOrg, storageType and backend (Blu Age or Micro Focus).
+    String:
+      type: string
+    DeploymentLifecycle:
+      type: string
+      enum:
+      - Deploying
+      - Succeeded
+      - Failed
+    DeleteApplicationResponse:
+      type: object
+      properties: {}
+    DeployedVersionSummary:
+      type: object
+      required:
+      - applicationVersion
       - status
       properties:
         applicationVersion:
           allOf:
           - $ref: '#/components/schemas/Version'
-          - description: The application version.
-        creationTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The timestamp when the application version was created.
+          - description: The version of the deployed application.
         status:
           allOf:
-          - $ref: '#/components/schemas/ApplicationVersionLifecycle'
-          - description: The status of the application.
+          - $ref: '#/components/schemas/DeploymentLifecycle'
+          - description: The status of the deployment.
         statusReason:
           allOf:
           - $ref: '#/components/schemas/String'
           - description: The reason for the reported status.
-      description: Defines an application version summary.
-    LogGroupSummary:
-      type: object
-      required:
-      - logGroupName
-      - logType
-      properties:
-        logGroupName:
-          allOf:
-          - $ref: '#/components/schemas/LogGroupIdentifier'
-          - description: The name of the log group.
-        logType:
-          allOf:
-          - $ref: '#/components/schemas/String20'
-          - description: The type of log.
-      description: A subset of the attributes that describe a log group. In CloudWatch a log group is a group of log streams that share the same retention, monitoring, and access control settings.
-    TagMap:
-      type: object
-      minProperties: 0
-      maxProperties: 200
-      additionalProperties:
-        $ref: '#/components/schemas/TagValue'
-    ListDataSetImportHistoryResponse:
-      type: object
-      required:
-      - dataSetImportTasks
-      properties:
-        dataSetImportTasks:
-          allOf:
-          - $ref: '#/components/schemas/DataSetImportTaskList'
-          - description: The data set import tasks.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: If there are more items to return, this contains a token that is passed to a subsequent call to this operation to retrieve the next set of items.
-    AccessDeniedException: {}
+      description: Contains a summary of a deployed application.
+    Identifier:
+      type: string
+      pattern: ^\S{1,80}$
+    ApplicationVersionLifecycle:
+      type: string
+      enum:
+      - Creating
+      - Available
+      - Failed
+    EngineType:
+      type: string
+      enum:
+      - microfocus
+      - bluage
+    DataSetsSummaryList:
+      type: array
+      items:
+        $ref: '#/components/schemas/DataSetSummary'
     BatchJobExecutionSummary:
       type: object
       required:
@@ -2016,24 +2519,281 @@ components:
           - $ref: '#/components/schemas/BatchJobExecutionStatus'
           - description: The status of a particular batch job execution.
       description: A subset of the possible batch job attributes. Used in the batch job list.
-    ListDataSetsResponse:
+    ListDataSetImportHistoryResponse:
       type: object
       required:
-      - dataSets
+      - dataSetImportTasks
       properties:
-        dataSets:
+        dataSetImportTasks:
           allOf:
-          - $ref: '#/components/schemas/DataSetsSummaryList'
-          - description: The list of data sets, containing information including the creation time, the data set name, the data set organization, the data set format, and the last time the data set was referenced or updated.
+          - $ref: '#/components/schemas/DataSetImportTaskList'
+          - description: The data set import tasks.
         nextToken:
           allOf:
           - $ref: '#/components/schemas/NextToken'
           - description: If there are more items to return, this contains a token that is passed to a subsequent call to this operation to retrieve the next set of items.
-    EngineType:
+    LogGroupSummary:
+      type: object
+      required:
+      - logGroupName
+      - logType
+      properties:
+        logGroupName:
+          allOf:
+          - $ref: '#/components/schemas/LogGroupIdentifier'
+          - description: The name of the log group.
+        logType:
+          allOf:
+          - $ref: '#/components/schemas/String20'
+          - description: The type of log.
+      description: A subset of the attributes that describe a log group. In CloudWatch a log group is a group of log streams that share the same retention, monitoring, and access control settings.
+    LogGroupIdentifier:
       type: string
-      enum:
-      - microfocus
-      - bluage
+      minLength: 1
+      maxLength: 512
+    ResourceNotFoundException: {}
+    VsamDetailAttributes:
+      type: object
+      properties:
+        alternateKeys:
+          allOf:
+          - $ref: '#/components/schemas/AlternateKeyList'
+          - description: The alternate key definitions, if any. A legacy dataset might not have any alternate key defined, but if those alternate keys definitions exist, provide them as some applications will make use of them.
+        cacheAtStartup:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: If set to True, enforces loading the data set into cache before it’s used by the application.
+        compressed:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: Indicates whether indexes for this dataset are stored as compressed values. If you have a large data set (typically &gt; 100 Mb), consider setting this flag to True.
+        encoding:
+          allOf:
+          - $ref: '#/components/schemas/String20'
+          - description: The character set used by the data set. Can be ASCII, EBCDIC, or unknown.
+        primaryKey:
+          allOf:
+          - $ref: '#/components/schemas/PrimaryKey'
+          - description: The primary key of the data set.
+        recordFormat:
+          allOf:
+          - $ref: '#/components/schemas/String20'
+          - description: The record format of the data set.
+      description: The attributes of a VSAM type data set.
+    PoAttributes:
+      type: object
+      required:
+      - format
+      - memberFileExtensions
+      properties:
+        encoding:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The character set encoding of the data set.
+        format:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The format of the data set records.
+        memberFileExtensions:
+          allOf:
+          - $ref: '#/components/schemas/String20List'
+          - description: An array containing one or more filename extensions, allowing you to specify which files to be included as PDS member.
+      description: The supported properties for a PO type data set.
+    Version:
+      type: integer
+      minimum: 1
+    LogGroupSummaries:
+      type: array
+      items:
+        $ref: '#/components/schemas/LogGroupSummary'
+    FileBatchJobDefinition:
+      type: object
+      required:
+      - fileName
+      properties:
+        fileName:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The name of the file containing the batch job definition.
+        folderPath:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The path to the file containing the batch job definition.
+      description: A file containing a batch job definition.
+    DataSetImportList:
+      type: array
+      items:
+        $ref: '#/components/schemas/DataSetImportItem'
+      minItems: 1
+      maxItems: 100
+    DataSetImportItem:
+      type: object
+      required:
+      - dataSet
+      - externalLocation
+      properties:
+        dataSet:
+          allOf:
+          - $ref: '#/components/schemas/DataSet'
+          - description: The data set.
+        externalLocation:
+          allOf:
+          - $ref: '#/components/schemas/ExternalLocation'
+          - description: The location of the data set.
+      description: Identifies a specific data set to import from an external location.
+    BatchJobDefinition:
+      type: object
+      properties:
+        fileBatchJobDefinition:
+          allOf:
+          - $ref: '#/components/schemas/FileBatchJobDefinition'
+          - description: Specifies a file containing a batch job definition.
+        scriptBatchJobDefinition:
+          allOf:
+          - $ref: '#/components/schemas/ScriptBatchJobDefinition'
+          - description: A script containing a batch job definition.
+      description: Defines the details of a batch job.
+    Boolean:
+      type: boolean
+    ApplicationVersionSummary:
+      type: object
+      required:
+      - applicationVersion
+      - creationTime
+      - status
+      properties:
+        applicationVersion:
+          allOf:
+          - $ref: '#/components/schemas/Version'
+          - description: The application version.
+        creationTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The timestamp when the application version was created.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationVersionLifecycle'
+          - description: The status of the application.
+        statusReason:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The reason for the reported status.
+      description: Defines an application version summary.
+    ListBatchJobDefinitionsResponse:
+      type: object
+      required:
+      - batchJobDefinitions
+      properties:
+        batchJobDefinitions:
+          allOf:
+          - $ref: '#/components/schemas/BatchJobDefinitions'
+          - description: The list of batch job definitions.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: If there are more items to return, this contains a token that is passed to a subsequent call to this operation to retrieve the next set of items.
+    InternalServerException: {}
+    ConflictException: {}
+    ValidationException: {}
+    BatchParamValue:
+      type: string
+      description: Parameter value can be of up to 44 alphanumeric characters.
+      minLength: 0
+      maxLength: 44
+    FileBatchJobIdentifier:
+      type: object
+      required:
+      - fileName
+      properties:
+        fileName:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The file name for the batch job identifier.
+        folderPath:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The relative path to the file name for the batch job identifier.
+      description: A batch job identifier in which the batch job to run is identified by the file name and the relative path to the file name.
+    TagValue:
+      type: string
+      minLength: 0
+      maxLength: 256
+    PrimaryKey:
+      type: object
+      required:
+      - length
+      - offset
+      properties:
+        length:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: 'A strictly positive integer value representing the length of the primary key. '
+        name:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: A name for the Primary Key.
+        offset:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: A positive integer value representing the offset to mark the start of the primary key in the record byte array.
+      description: The primary key for a KSDS data set.
+    ArnList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Arn'
+      minItems: 1
+    ApplicationSummaryList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ApplicationSummary'
+    Arn:
+      type: string
+      pattern: ^arn:(aws|aws-cn|aws-iso|aws-iso-[a-z]{1}|aws-us-gov):[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:([a-z]{2}-((iso[a-z]{0,1}-)|(gov-)){0,1}[a-z]+-[0-9]|):[0-9]{12}:[A-Za-z0-9/][A-Za-z0-9:_/+=,@.-]{0,1023}$
+    CreateApplicationResponse:
+      type: object
+      required:
+      - applicationArn
+      - applicationId
+      - applicationVersion
+      properties:
+        applicationArn:
+          allOf:
+          - $ref: '#/components/schemas/Arn'
+          - description: The Amazon Resource Name (ARN) of the application.
+        applicationId:
+          allOf:
+          - $ref: '#/components/schemas/Identifier'
+          - description: The unique application identifier.
+        applicationVersion:
+          allOf:
+          - $ref: '#/components/schemas/Version'
+          - description: The version number of the application.
+    TagMap:
+      type: object
+      minProperties: 0
+      maxProperties: 200
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
+    DatasetDetailOrgAttributes:
+      type: object
+      properties:
+        gdg:
+          allOf:
+          - $ref: '#/components/schemas/GdgDetailAttributes'
+          - description: The generation data group of the data set.
+        po:
+          allOf:
+          - $ref: '#/components/schemas/PoDetailAttributes'
+          - description: The details of a PO type data set.
+        ps:
+          allOf:
+          - $ref: '#/components/schemas/PsDetailAttributes'
+          - description: The details of a PS type data set.
+        vsam:
+          allOf:
+          - $ref: '#/components/schemas/VsamDetailAttributes'
+          - description: The details of a VSAM data set.
+      description: Additional details about the data set. Different attributes correspond to different data set organizations. The values are populated based on datasetOrg, storageType and backend (Blu Age or Micro Focus).
     GdgDetailAttributes:
       type: object
       properties:
@@ -2046,32 +2806,90 @@ components:
           - $ref: '#/components/schemas/String50'
           - description: The disposition of the data set in the catalog.
       description: The required attributes for a generation data group data set. A generation data set is one of a collection of successive, historically related, catalogued data sets that together are known as a generation data group (GDG). Use this structure when you want to import a GDG. For more information on GDG, see <a href="https://www.ibm.com/docs/en/zos/2.3.0?topic=guide-generation-data-sets">Generation data sets</a>.
-    VsamAttributes:
+    String20List:
+      type: array
+      items:
+        $ref: '#/components/schemas/String20'
+      minItems: 1
+      maxItems: 10
+    CreateDeploymentResponse:
       type: object
       required:
-      - format
+      - deploymentId
       properties:
-        alternateKeys:
+        deploymentId:
           allOf:
-          - $ref: '#/components/schemas/AlternateKeyList'
-          - description: The alternate key definitions, if any. A legacy dataset might not have any alternate key defined, but if those alternate keys definitions exist, provide them as some applications will make use of them.
-        compressed:
+          - $ref: '#/components/schemas/Identifier'
+          - description: The unique identifier of the deployment.
+    GetDeploymentResponse:
+      type: object
+      required:
+      - applicationId
+      - applicationVersion
+      - creationTime
+      - deploymentId
+      - environmentId
+      - status
+      properties:
+        applicationId:
           allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: Indicates whether indexes for this dataset are stored as compressed values. If you have a large data set (typically &gt; 100 Mb), consider setting this flag to True.
-        encoding:
+          - $ref: '#/components/schemas/Identifier'
+          - description: The unique identifier of the application.
+        applicationVersion:
+          allOf:
+          - $ref: '#/components/schemas/Version'
+          - description: The application version.
+        creationTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The timestamp when the deployment was created.
+        deploymentId:
+          allOf:
+          - $ref: '#/components/schemas/Identifier'
+          - description: The unique identifier of the deployment.
+        environmentId:
+          allOf:
+          - $ref: '#/components/schemas/Identifier'
+          - description: The unique identifier of the runtime environment.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/DeploymentLifecycle'
+          - description: The status of the deployment.
+        statusReason:
           allOf:
           - $ref: '#/components/schemas/String'
-          - description: The character set used by the data set. Can be ASCII, EBCDIC, or unknown.
-        format:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The record format of the data set.
-        primaryKey:
-          allOf:
-          - $ref: '#/components/schemas/PrimaryKey'
-          - description: The primary key of the data set.
-      description: The attributes of a VSAM type data set.
+          - description: The reason for the reported status.
+    ThrottlingException: {}
+    StopApplicationResponse:
+      type: object
+      properties: {}
+    BatchJobType:
+      type: string
+      enum:
+      - VSE
+      - JES2
+      - JES3
+    Integer:
+      type: integer
+    String50:
+      type: string
+      pattern: ^\S{1,50}$
+    CancelBatchJobExecutionResponse:
+      type: object
+      properties: {}
+    EntityName:
+      type: string
+      pattern: ^[A-Za-z0-9][A-Za-z0-9_\-]{1,59}$
+    DataSetImportTaskList:
+      type: array
+      items:
+        $ref: '#/components/schemas/DataSetImportTask'
+    DataSetTaskLifecycle:
+      type: string
+      enum:
+      - Creating
+      - Running
+      - Completed
     GetApplicationVersionResponse:
       type: object
       required:
@@ -2109,154 +2927,19 @@ components:
           allOf:
           - $ref: '#/components/schemas/String'
           - description: The reason for the reported status.
-    DataSet:
+    ListApplicationsResponse:
       type: object
       required:
-      - datasetName
-      - datasetOrg
-      - recordLength
+      - applications
       properties:
-        datasetName:
+        applications:
           allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The logical identifier for a specific data set (in mainframe format).
-        datasetOrg:
-          allOf:
-          - $ref: '#/components/schemas/DatasetOrgAttributes'
-          - description: The type of dataset. The only supported value is VSAM.
-        recordLength:
-          allOf:
-          - $ref: '#/components/schemas/RecordLength'
-          - description: The length of a record.
-        relativePath:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: 'The relative location of the data set in the database or file system. '
-        storageType:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: 'The storage type of the data set: database or file system. For Micro Focus, database corresponds to datastore and file system corresponds to EFS/FSX. For Blu Age, there is no support of file system and database corresponds to Blusam. '
-      description: Defines a data set.
-    ArnList:
-      type: array
-      items:
-        $ref: '#/components/schemas/Arn'
-      minItems: 1
-    BatchJobIdentifier:
-      type: object
-      properties:
-        fileBatchJobIdentifier:
-          allOf:
-          - $ref: '#/components/schemas/FileBatchJobIdentifier'
-          - description: Specifies a file associated with a specific batch job.
-        scriptBatchJobIdentifier:
-          allOf:
-          - $ref: '#/components/schemas/ScriptBatchJobIdentifier'
-          - description: A batch job identifier in which the batch job to run is identified by the script name.
-      description: Identifies a specific batch job.
-    ScriptBatchJobDefinition:
-      type: object
-      required:
-      - scriptName
-      properties:
-        scriptName:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The name of the script containing the batch job definition.
-      description: A batch job definition contained in a script.
-    ConflictException: {}
-    DataSetImportSummary:
-      type: object
-      required:
-      - failed
-      - inProgress
-      - pending
-      - succeeded
-      - total
-      properties:
-        failed:
-          allOf:
-          - $ref: '#/components/schemas/Integer'
-          - description: The number of data set imports that have failed.
-        inProgress:
-          allOf:
-          - $ref: '#/components/schemas/Integer'
-          - description: The number of data set imports that are in progress.
-        pending:
-          allOf:
-          - $ref: '#/components/schemas/Integer'
-          - description: The number of data set imports that are pending.
-        succeeded:
-          allOf:
-          - $ref: '#/components/schemas/Integer'
-          - description: The number of data set imports that have succeeded.
-        total:
-          allOf:
-          - $ref: '#/components/schemas/Integer'
-          - description: The total number of data set imports.
-      description: Represents a summary of data set imports.
-    AlternateKeyList:
-      type: array
-      items:
-        $ref: '#/components/schemas/AlternateKey'
-    DeleteApplicationResponse:
-      type: object
-      properties: {}
-    ListApplicationVersionsResponse:
-      type: object
-      required:
-      - applicationVersions
-      properties:
-        applicationVersions:
-          allOf:
-          - $ref: '#/components/schemas/ApplicationVersionSummaryList'
-          - description: The list of application versions.
+          - $ref: '#/components/schemas/ApplicationSummaryList'
+          - description: Returns a list of summary details for all the applications in a runtime environment.
         nextToken:
           allOf:
           - $ref: '#/components/schemas/NextToken'
-          - description: If there are more items to return, this contains a token that is passed to a subsequent call to this operation to retrieve the next set of items.
-    CreateDataSetImportTaskResponse:
-      type: object
-      required:
-      - taskId
-      properties:
-        taskId:
-          allOf:
-          - $ref: '#/components/schemas/Identifier'
-          - description: The task identifier. This operation is asynchronous. Use this identifier with the <a>GetDataSetImportTask</a> operation to obtain the status of this task.
-    DataSetSummary:
-      type: object
-      required:
-      - dataSetName
-      properties:
-        creationTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The timestamp when the data set was created.
-        dataSetName:
-          allOf:
-          - $ref: '#/components/schemas/String200'
-          - description: The name of the data set.
-        dataSetOrg:
-          allOf:
-          - $ref: '#/components/schemas/String20'
-          - description: The type of data set. The only supported value is VSAM.
-        format:
-          allOf:
-          - $ref: '#/components/schemas/String20'
-          - description: 'The format of the data set. '
-        lastReferencedTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The last time the data set was referenced.
-        lastUpdatedTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The last time the data set was updated.
-      description: A subset of the possible data set attributes.
-    StartApplicationResponse:
-      type: object
-      properties: {}
+          - description: A pagination token that's returned when the response doesn't contain all applications.
     GetApplicationResponse:
       type: object
       required:
@@ -2348,81 +3031,6 @@ components:
           allOf:
           - $ref: '#/components/schemas/ArnList'
           - description: Returns the Amazon Resource Names (ARNs) of the target groups that are attached to the network load balancer.
-    String100:
-      type: string
-      pattern: ^\S{1,100}$
-    DeploymentList:
-      type: array
-      items:
-        $ref: '#/components/schemas/DeploymentSummary'
-    StopApplicationResponse:
-      type: object
-      properties: {}
-    Integer:
-      type: integer
-    DeploymentSummary:
-      type: object
-      required:
-      - applicationId
-      - applicationVersion
-      - creationTime
-      - deploymentId
-      - environmentId
-      - status
-      properties:
-        applicationId:
-          allOf:
-          - $ref: '#/components/schemas/Identifier'
-          - description: The unique identifier of the application.
-        applicationVersion:
-          allOf:
-          - $ref: '#/components/schemas/Version'
-          - description: The version of the application.
-        creationTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The timestamp when the deployment was created.
-        deploymentId:
-          allOf:
-          - $ref: '#/components/schemas/Identifier'
-          - description: The unique identifier of the deployment.
-        environmentId:
-          allOf:
-          - $ref: '#/components/schemas/Identifier'
-          - description: The unique identifier of the runtime environment.
-        status:
-          allOf:
-          - $ref: '#/components/schemas/DeploymentLifecycle'
-          - description: The current status of the deployment.
-        statusReason:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The reason for the reported status.
-      description: A subset of information about a specific deployment.
-    ApplicationSummaryList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ApplicationSummary'
-    String:
-      type: string
-    GdgAttributes:
-      type: object
-      properties:
-        limit:
-          allOf:
-          - $ref: '#/components/schemas/Integer'
-          - description: The maximum number of generation data sets, up to 255, in a GDG.
-        rollDisposition:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The disposition of the data set in the catalog.
-      description: The required attributes for a generation data group data set. A generation data set is one of a collection of successive, historically related, catalogued data sets that together are known as a generation data group (GDG). Use this structure when you want to import a GDG. For more information on GDG, see <a href="https://www.ibm.com/docs/en/zos/2.3.0?topic=guide-generation-data-sets">Generation data sets</a>.
-    DeleteApplicationFromEnvironmentResponse:
-      type: object
-      properties: {}
-    EntityName:
-      type: string
-      pattern: ^[A-Za-z0-9][A-Za-z0-9_\-]{1,59}$
     ListDeploymentsResponse:
       type: object
       required:
@@ -2436,510 +3044,6 @@ components:
           allOf:
           - $ref: '#/components/schemas/NextToken'
           - description: If there are more items to return, this contains a token that is passed to a subsequent call to this operation to retrieve the next set of items.
-    FileBatchJobIdentifier:
-      type: object
-      required:
-      - fileName
-      properties:
-        fileName:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The file name for the batch job identifier.
-        folderPath:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The relative path to the file name for the batch job identifier.
-      description: A batch job identifier in which the batch job to run is identified by the file name and the relative path to the file name.
-    PsAttributes:
-      type: object
-      required:
-      - format
-      properties:
-        encoding:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The character set encoding of the data set.
-        format:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The format of the data set records.
-      description: The supported properties for a PS type data set.
-    DataSetImportTask:
-      type: object
-      required:
-      - status
-      - summary
-      - taskId
-      properties:
-        status:
-          allOf:
-          - $ref: '#/components/schemas/DataSetTaskLifecycle'
-          - description: The status of the data set import task.
-        summary:
-          allOf:
-          - $ref: '#/components/schemas/DataSetImportSummary'
-          - description: A summary of the data set import task.
-        taskId:
-          allOf:
-          - $ref: '#/components/schemas/Identifier'
-          - description: The identifier of the data set import task.
-      description: Contains information about a data set import task.
-    ThrottlingException: {}
-    DataSetsSummaryList:
-      type: array
-      items:
-        $ref: '#/components/schemas/DataSetSummary'
-    Timestamp:
-      type: string
-      format: date-time
-    TagValue:
-      type: string
-      minLength: 0
-      maxLength: 256
-    ListBatchJobDefinitionsResponse:
-      type: object
-      required:
-      - batchJobDefinitions
-      properties:
-        batchJobDefinitions:
-          allOf:
-          - $ref: '#/components/schemas/BatchJobDefinitions'
-          - description: The list of batch job definitions.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: If there are more items to return, this contains a token that is passed to a subsequent call to this operation to retrieve the next set of items.
-    RecordLength:
-      type: object
-      required:
-      - max
-      - min
-      properties:
-        max:
-          allOf:
-          - $ref: '#/components/schemas/Integer'
-          - description: The maximum record length. In case of fixed, both minimum and maximum are the same.
-        min:
-          allOf:
-          - $ref: '#/components/schemas/Integer'
-          - description: The minimum record length of a record.
-      description: The length of the records in the data set.
-    LogGroupIdentifier:
-      type: string
-      minLength: 1
-      maxLength: 512
-    String50:
-      type: string
-      pattern: ^\S{1,50}$
-    GetDeploymentResponse:
-      type: object
-      required:
-      - applicationId
-      - applicationVersion
-      - creationTime
-      - deploymentId
-      - environmentId
-      - status
-      properties:
-        applicationId:
-          allOf:
-          - $ref: '#/components/schemas/Identifier'
-          - description: The unique identifier of the application.
-        applicationVersion:
-          allOf:
-          - $ref: '#/components/schemas/Version'
-          - description: The application version.
-        creationTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The timestamp when the deployment was created.
-        deploymentId:
-          allOf:
-          - $ref: '#/components/schemas/Identifier'
-          - description: The unique identifier of the deployment.
-        environmentId:
-          allOf:
-          - $ref: '#/components/schemas/Identifier'
-          - description: The unique identifier of the runtime environment.
-        status:
-          allOf:
-          - $ref: '#/components/schemas/DeploymentLifecycle'
-          - description: The status of the deployment.
-        statusReason:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The reason for the reported status.
-    DataSetImportList:
-      type: array
-      items:
-        $ref: '#/components/schemas/DataSetImportItem'
-      minItems: 1
-      maxItems: 100
-    PortList:
-      type: array
-      items:
-        $ref: '#/components/schemas/Integer'
-      minItems: 1
-    CreateDeploymentResponse:
-      type: object
-      required:
-      - deploymentId
-      properties:
-        deploymentId:
-          allOf:
-          - $ref: '#/components/schemas/Identifier'
-          - description: The unique identifier of the deployment.
-    DeployedVersionSummary:
-      type: object
-      required:
-      - applicationVersion
-      - status
-      properties:
-        applicationVersion:
-          allOf:
-          - $ref: '#/components/schemas/Version'
-          - description: The version of the deployed application.
-        status:
-          allOf:
-          - $ref: '#/components/schemas/DeploymentLifecycle'
-          - description: The status of the deployment.
-        statusReason:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The reason for the reported status.
-      description: Contains a summary of a deployed application.
-    BatchParamValue:
-      type: string
-      description: Parameter value can be of up to 44 alphanumeric characters.
-      minLength: 0
-      maxLength: 44
-    BatchJobExecutionStatus:
-      type: string
-      enum:
-      - Submitting
-      - Holding
-      - Dispatching
-      - Running
-      - Cancelling
-      - Cancelled
-      - Succeeded
-      - Failed
-      - Succeeded With Warning
-    GetDataSetDetailsResponse:
-      type: object
-      required:
-      - dataSetName
-      properties:
-        blocksize:
-          allOf:
-          - $ref: '#/components/schemas/Integer'
-          - description: 'The size of the block on disk. '
-        creationTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The timestamp when the data set was created.
-        dataSetName:
-          allOf:
-          - $ref: '#/components/schemas/String200'
-          - description: The name of the data set.
-        dataSetOrg:
-          allOf:
-          - $ref: '#/components/schemas/DatasetDetailOrgAttributes'
-          - description: The type of data set. The only supported value is VSAM.
-        lastReferencedTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The last time the data set was referenced.
-        lastUpdatedTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The last time the data set was updated.
-        location:
-          allOf:
-          - $ref: '#/components/schemas/String2000'
-          - description: The location where the data set is stored.
-        recordLength:
-          allOf:
-          - $ref: '#/components/schemas/Integer'
-          - description: The length of records in the data set.
-    ListApplicationsResponse:
-      type: object
-      required:
-      - applications
-      properties:
-        applications:
-          allOf:
-          - $ref: '#/components/schemas/ApplicationSummaryList'
-          - description: Returns a list of summary details for all the applications in a runtime environment.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: A pagination token that's returned when the response doesn't contain all applications.
-    GetBatchJobExecutionResponse:
-      type: object
-      required:
-      - applicationId
-      - executionId
-      - startTime
-      - status
-      properties:
-        applicationId:
-          allOf:
-          - $ref: '#/components/schemas/Identifier'
-          - description: The identifier of the application.
-        batchJobIdentifier:
-          allOf:
-          - $ref: '#/components/schemas/BatchJobIdentifier'
-          - description: The unique identifier of this batch job.
-        endTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The timestamp when the batch job execution ended.
-        executionId:
-          allOf:
-          - $ref: '#/components/schemas/Identifier'
-          - description: The unique identifier for this batch job execution.
-        jobId:
-          allOf:
-          - $ref: '#/components/schemas/String100'
-          - description: The unique identifier for this batch job.
-        jobName:
-          allOf:
-          - $ref: '#/components/schemas/String100'
-          - description: The name of this batch job.
-        jobType:
-          allOf:
-          - $ref: '#/components/schemas/BatchJobType'
-          - description: The type of job.
-        jobUser:
-          allOf:
-          - $ref: '#/components/schemas/String100'
-          - description: The user for the job.
-        returnCode:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The batch job return code from either the Blu Age or Micro Focus runtime engines. For more information, see <a href="https://www.ibm.com/docs/en/was/8.5.5?topic=model-batch-return-codes">Batch return codes</a> in the <i>IBM WebSphere Application Server</i> documentation.
-        startTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The timestamp when the batch job execution started.
-        status:
-          allOf:
-          - $ref: '#/components/schemas/BatchJobExecutionStatus'
-          - description: The status of the batch job execution.
-        statusReason:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The reason for the reported status.
-    PsDetailAttributes:
-      type: object
-      required:
-      - encoding
-      - format
-      properties:
-        encoding:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The character set encoding of the data set.
-        format:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The format of the data set records.
-      description: The supported properties for a PS type data set.
-    String200:
-      type: string
-      pattern: ^\S{1,200}$
-    ResourceNotFoundException: {}
-    ApplicationLifecycle:
-      type: string
-      enum:
-      - Creating
-      - Created
-      - Available
-      - Ready
-      - Starting
-      - Running
-      - Stopping
-      - Stopped
-      - Failed
-      - Deleting
-      - Deleting From Environment
-    EntityDescription:
-      type: string
-      minLength: 0
-      maxLength: 500
-    FileBatchJobDefinition:
-      type: object
-      required:
-      - fileName
-      properties:
-        fileName:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The name of the file containing the batch job definition.
-        folderPath:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The path to the file containing the batch job definition.
-      description: A file containing a batch job definition.
-    Identifier:
-      type: string
-      pattern: ^\S{1,80}$
-    ExternalLocation:
-      type: object
-      properties:
-        s3Location:
-          allOf:
-          - $ref: '#/components/schemas/String2000'
-          - description: The URI of the Amazon S3 bucket.
-      description: Defines an external storage location.
-    String20List:
-      type: array
-      items:
-        $ref: '#/components/schemas/String20'
-      minItems: 1
-      maxItems: 10
-    LogGroupSummaries:
-      type: array
-      items:
-        $ref: '#/components/schemas/LogGroupSummary'
-    Version:
-      type: integer
-      minimum: 1
-    BatchJobType:
-      type: string
-      enum:
-      - VSE
-      - JES2
-      - JES3
-    ValidationException: {}
-    ScriptBatchJobIdentifier:
-      type: object
-      required:
-      - scriptName
-      properties:
-        scriptName:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The name of the script containing the batch job definition.
-      description: A batch job identifier in which the batch job to run is identified by the script name.
-    InternalServerException: {}
-    DataSetImportTaskList:
-      type: array
-      items:
-        $ref: '#/components/schemas/DataSetImportTask'
-    StartBatchJobResponse:
-      type: object
-      required:
-      - executionId
-      properties:
-        executionId:
-          allOf:
-          - $ref: '#/components/schemas/Identifier'
-          - description: The unique identifier of this execution of the batch job.
-    ListBatchJobExecutionsResponse:
-      type: object
-      required:
-      - batchJobExecutions
-      properties:
-        batchJobExecutions:
-          allOf:
-          - $ref: '#/components/schemas/BatchJobExecutionSummaryList'
-          - description: Returns a list of batch job executions for an application.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: A pagination token that's returned when the response doesn't contain all batch job executions.
-    StringFree65000:
-      type: string
-      minLength: 1
-      maxLength: 65000
-    DeploymentLifecycle:
-      type: string
-      enum:
-      - Deploying
-      - Succeeded
-      - Failed
-    DatasetDetailOrgAttributes:
-      type: object
-      properties:
-        gdg:
-          allOf:
-          - $ref: '#/components/schemas/GdgDetailAttributes'
-          - description: The generation data group of the data set.
-        po:
-          allOf:
-          - $ref: '#/components/schemas/PoDetailAttributes'
-          - description: The details of a PO type data set.
-        ps:
-          allOf:
-          - $ref: '#/components/schemas/PsDetailAttributes'
-          - description: The details of a PS type data set.
-        vsam:
-          allOf:
-          - $ref: '#/components/schemas/VsamDetailAttributes'
-          - description: The details of a VSAM data set.
-      description: Additional details about the data set. Different attributes correspond to different data set organizations. The values are populated based on datasetOrg, storageType and backend (Blu Age or Micro Focus).
-    VsamDetailAttributes:
-      type: object
-      properties:
-        alternateKeys:
-          allOf:
-          - $ref: '#/components/schemas/AlternateKeyList'
-          - description: The alternate key definitions, if any. A legacy dataset might not have any alternate key defined, but if those alternate keys definitions exist, provide them as some applications will make use of them.
-        cacheAtStartup:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: If set to True, enforces loading the data set into cache before it’s used by the application.
-        compressed:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: Indicates whether indexes for this dataset are stored as compressed values. If you have a large data set (typically &gt; 100 Mb), consider setting this flag to True.
-        encoding:
-          allOf:
-          - $ref: '#/components/schemas/String20'
-          - description: The character set used by the data set. Can be ASCII, EBCDIC, or unknown.
-        primaryKey:
-          allOf:
-          - $ref: '#/components/schemas/PrimaryKey'
-          - description: The primary key of the data set.
-        recordFormat:
-          allOf:
-          - $ref: '#/components/schemas/String20'
-          - description: The record format of the data set.
-      description: The attributes of a VSAM type data set.
-    ServiceQuotaExceededException: {}
-    NextToken:
-      type: string
-      pattern: ^\S{1,2000}$
-    CreateApplicationResponse:
-      type: object
-      required:
-      - applicationArn
-      - applicationId
-      - applicationVersion
-      properties:
-        applicationArn:
-          allOf:
-          - $ref: '#/components/schemas/Arn'
-          - description: The Amazon Resource Name (ARN) of the application.
-        applicationId:
-          allOf:
-          - $ref: '#/components/schemas/Identifier'
-          - description: The unique application identifier.
-        applicationVersion:
-          allOf:
-          - $ref: '#/components/schemas/Version'
-          - description: The version number of the application.
-    Arn:
-      type: string
-      pattern: ^arn:(aws|aws-cn|aws-iso|aws-iso-[a-z]{1}|aws-us-gov):[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:([a-z]{2}-((iso[a-z]{0,1}-)|(gov-)){0,1}[a-z]+-[0-9]|):[0-9]{12}:[A-Za-z0-9/][A-Za-z0-9:_/+=,@.-]{0,1023}$
-    ApplicationVersionLifecycle:
-      type: string
-      enum:
-      - Creating
-      - Available
-      - Failed
     AlternateKey:
       type: object
       required:
@@ -2963,19 +3067,10 @@ components:
           - $ref: '#/components/schemas/Integer'
           - description: A positive integer value representing the offset to mark the start of the alternate key part in the record byte array.
       description: Defines an alternate key. This value is optional. A legacy data set might not have any alternate key defined but if those alternate keys definitions exist, provide them, as some applications will make use of them.
-    BatchJobDefinitions:
+    DeploymentList:
       type: array
       items:
-        $ref: '#/components/schemas/BatchJobDefinition'
-    UpdateApplicationResponse:
-      type: object
-      required:
-      - applicationVersion
-      properties:
-        applicationVersion:
-          allOf:
-          - $ref: '#/components/schemas/Version'
-          - description: The new version of the application.
+        $ref: '#/components/schemas/DeploymentSummary'
     ApplicationSummary:
       type: object
       required:
@@ -3040,52 +3135,41 @@ components:
           - $ref: '#/components/schemas/ApplicationVersionLifecycle'
           - description: Indicates the status of the latest version of the application.
       description: A subset of the possible application attributes. Used in the application list.
-    ApplicationVersionSummaryList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ApplicationVersionSummary'
-    DataSetImportItem:
-      type: object
-      required:
-      - dataSet
-      - externalLocation
-      properties:
-        dataSet:
-          allOf:
-          - $ref: '#/components/schemas/DataSet'
-          - description: The data set.
-        externalLocation:
-          allOf:
-          - $ref: '#/components/schemas/ExternalLocation'
-          - description: The location of the data set.
-      description: Identifies a specific data set to import from an external location.
-    ApplicationDeploymentLifecycle:
+    Timestamp:
       type: string
-      enum:
-      - Deploying
-      - Deployed
-    GetDataSetImportTaskResponse:
+      format: date-time
+    String100:
+      type: string
+      pattern: ^\S{1,100}$
+    VsamAttributes:
       type: object
       required:
-      - status
-      - taskId
+      - format
       properties:
-        status:
+        alternateKeys:
           allOf:
-          - $ref: '#/components/schemas/DataSetTaskLifecycle'
-          - description: The status of the task.
-        summary:
+          - $ref: '#/components/schemas/AlternateKeyList'
+          - description: The alternate key definitions, if any. A legacy dataset might not have any alternate key defined, but if those alternate keys definitions exist, provide them as some applications will make use of them.
+        compressed:
           allOf:
-          - $ref: '#/components/schemas/DataSetImportSummary'
-          - description: A summary of the status of the task.
-        taskId:
+          - $ref: '#/components/schemas/Boolean'
+          - description: Indicates whether indexes for this dataset are stored as compressed values. If you have a large data set (typically &gt; 100 Mb), consider setting this flag to True.
+        encoding:
           allOf:
-          - $ref: '#/components/schemas/Identifier'
-          - description: The task identifier.
-    PoDetailAttributes:
+          - $ref: '#/components/schemas/String'
+          - description: The character set used by the data set. Can be ASCII, EBCDIC, or unknown.
+        format:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The record format of the data set.
+        primaryKey:
+          allOf:
+          - $ref: '#/components/schemas/PrimaryKey'
+          - description: The primary key of the data set.
+      description: The attributes of a VSAM type data set.
+    PsAttributes:
       type: object
       required:
-      - encoding
       - format
       properties:
         encoding:
@@ -3096,116 +3180,14 @@ components:
           allOf:
           - $ref: '#/components/schemas/String'
           - description: The format of the data set records.
-      description: The supported properties for a PO type data set.
-    CancelBatchJobExecutionResponse:
-      type: object
-      properties: {}
-    PoAttributes:
-      type: object
-      required:
-      - format
-      - memberFileExtensions
-      properties:
-        encoding:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The character set encoding of the data set.
-        format:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The format of the data set records.
-        memberFileExtensions:
-          allOf:
-          - $ref: '#/components/schemas/String20List'
-          - description: An array containing one or more filename extensions, allowing you to specify which files to be included as PDS member.
-      description: The supported properties for a PO type data set.
-    PrimaryKey:
-      type: object
-      required:
-      - length
-      - offset
-      properties:
-        length:
-          allOf:
-          - $ref: '#/components/schemas/Integer'
-          - description: 'A strictly positive integer value representing the length of the primary key. '
-        name:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: A name for the Primary Key.
-        offset:
-          allOf:
-          - $ref: '#/components/schemas/Integer'
-          - description: A positive integer value representing the offset to mark the start of the primary key in the record byte array.
-      description: The primary key for a KSDS data set.
-    Boolean:
-      type: boolean
-    DataSetTaskLifecycle:
-      type: string
-      enum:
-      - Creating
-      - Running
-      - Completed
-    BatchJobDefinition:
-      type: object
-      properties:
-        fileBatchJobDefinition:
-          allOf:
-          - $ref: '#/components/schemas/FileBatchJobDefinition'
-          - description: Specifies a file containing a batch job definition.
-        scriptBatchJobDefinition:
-          allOf:
-          - $ref: '#/components/schemas/ScriptBatchJobDefinition'
-          - description: A script containing a batch job definition.
-      description: Defines the details of a batch job.
-    BatchJobExecutionSummaryList:
+      description: The supported properties for a PS type data set.
+    AlternateKeyList:
       type: array
       items:
-        $ref: '#/components/schemas/BatchJobExecutionSummary'
-    String20:
-      type: string
-      pattern: ^\S{1,20}$
-    DatasetOrgAttributes:
-      type: object
-      properties:
-        gdg:
-          allOf:
-          - $ref: '#/components/schemas/GdgAttributes'
-          - description: The generation data group of the data set.
-        po:
-          allOf:
-          - $ref: '#/components/schemas/PoAttributes'
-          - description: The details of a PO type data set.
-        ps:
-          allOf:
-          - $ref: '#/components/schemas/PsAttributes'
-          - description: The details of a PS type data set.
-        vsam:
-          allOf:
-          - $ref: '#/components/schemas/VsamAttributes'
-          - description: The details of a VSAM data set.
-      description: Additional details about the data set. Different attributes correspond to different data set organizations. The values are populated based on datasetOrg, storageType and backend (Blu Age or Micro Focus).
+        $ref: '#/components/schemas/AlternateKey'
   parameters:
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -3222,8 +3204,26 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
