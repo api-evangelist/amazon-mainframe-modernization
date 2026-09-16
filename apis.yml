@@ -1,8 +1,9 @@
 aid: amazon-mainframe-modernization
 name: Amazon Mainframe Modernization
-description: AWS Mainframe Modernization provides tools and resources to help you plan and implement migration and modernization
-  of your mainframe applications to AWS. It supports automated refactoring and replatforming of COBOL applications to run
-  natively on AWS with managed runtime environments, deployment pipelines, and batch job execution capabilities.
+description: AWS Mainframe Modernization provides tools and resources to help you plan and implement migration
+  and modernization of your mainframe applications to AWS. It supports automated refactoring and replatforming
+  of COBOL applications to run natively on AWS with managed runtime environments, deployment pipelines,
+  and batch job execution capabilities.
 type: Index
 deliveryModel:
   model: saas
@@ -40,13 +41,12 @@ tags:
 - Batch Processing
 url: https://raw.githubusercontent.com/api-evangelist/amazon-mainframe-modernization/refs/heads/main/apis.yml
 created: '2026-03-16'
-modified: '2026-05-19'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 apis:
 - aid: amazon-mainframe-modernization:amazon-mainframe-modernization-applications-api
   name: Amazon Mainframe Modernization Applications API
-  description: >-
-    The Applications API from Amazon Mainframe Modernization — 19 operation(s) for applications.
+  description: The Applications API from Amazon Mainframe Modernization — 19 operation(s) for applications.
   humanURL: https://aws.amazon.com/mainframe-modernization/
   baseURL: https://m2.amazonaws.com
   tags:
@@ -72,8 +72,8 @@ apis:
     url: json-ld/amazon-mainframe-modernization-context.jsonld
 - aid: amazon-mainframe-modernization:amazon-mainframe-modernization-engine-versions-api
   name: Amazon Mainframe Modernization Engine Versions API
-  description: >-
-    The Engine Versions API from Amazon Mainframe Modernization — 1 operation(s) for engine versions.
+  description: The Engine Versions API from Amazon Mainframe Modernization — 1 operation(s) for engine
+    versions.
   humanURL: https://aws.amazon.com/mainframe-modernization/
   baseURL: https://m2.amazonaws.com
   tags:
@@ -97,8 +97,7 @@ apis:
     url: json-ld/amazon-mainframe-modernization-context.jsonld
 - aid: amazon-mainframe-modernization:amazon-mainframe-modernization-environments-api
   name: Amazon Mainframe Modernization Environments API
-  description: >-
-    The Environments API from Amazon Mainframe Modernization — 2 operation(s) for environments.
+  description: The Environments API from Amazon Mainframe Modernization — 2 operation(s) for environments.
   humanURL: https://aws.amazon.com/mainframe-modernization/
   baseURL: https://m2.amazonaws.com
   tags:
@@ -122,8 +121,8 @@ apis:
     url: json-ld/amazon-mainframe-modernization-context.jsonld
 - aid: amazon-mainframe-modernization:amazon-mainframe-modernization-signed-bi-url-api
   name: Amazon Mainframe Modernization Signed Bi Url API
-  description: >-
-    The Signed Bi Url API from Amazon Mainframe Modernization — 1 operation(s) for signed bi url.
+  description: The Signed Bi Url API from Amazon Mainframe Modernization — 1 operation(s) for signed bi
+    url.
   humanURL: https://aws.amazon.com/mainframe-modernization/
   baseURL: https://m2.amazonaws.com
   tags:
@@ -170,6 +169,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-mainframe-modernization-context.jsonld
 common:
+- type: Website
+  url: https://amazon.com
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/amazon-mainframe-modernization/overview
 - type: AgenticAccess
