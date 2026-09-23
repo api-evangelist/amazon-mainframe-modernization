@@ -1,11 +1,7 @@
 {
   "provider": "amazon-mainframe-modernization",
   "sources": [
-    "amazon-mainframe-modernization-applications-api-openapi.yml",
-    "amazon-mainframe-modernization-engine-versions-api-openapi.yml",
-    "amazon-mainframe-modernization-environments-api-openapi.yml",
-    "amazon-mainframe-modernization-signed-bi-url-api-openapi.yml",
-    "amazon-mainframe-modernization-tags-api-openapi.yml"
+    "_original/amazon-mainframe-modernization-openapi-original.yaml"
   ],
   "outputs": [
     "amazon-mainframe-modernization-applications-api-openapi.yml",
@@ -18,7 +14,53 @@
   "errors": [],
   "warnings": [],
   "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "amazon-mainframe-modernization-openapi-original.yaml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "amazon-mainframe-modernization-openapi-original.yaml: tagged paths POST /applications/{applicationId}/batch-job-executions/{executionId}/cancel -> Applications",
+    "amazon-mainframe-modernization-openapi-original.yaml: tagged paths POST /applications -> Applications",
+    "amazon-mainframe-modernization-openapi-original.yaml: tagged paths GET /applications -> Applications",
+    "amazon-mainframe-modernization-openapi-original.yaml: tagged paths POST /applications/{applicationId}/dataset-import-task -> Applications",
+    "amazon-mainframe-modernization-openapi-original.yaml: tagged paths POST /applications/{applicationId}/deployments -> Applications",
+    "amazon-mainframe-modernization-openapi-original.yaml: tagged paths GET /applications/{applicationId}/deployments -> Applications",
+    "amazon-mainframe-modernization-openapi-original.yaml: tagged paths POST /environments -> Environments",
+    "amazon-mainframe-modernization-openapi-original.yaml: tagged paths GET /environments -> Environments",
+    "amazon-mainframe-modernization-openapi-original.yaml: tagged paths DELETE /applications/{applicationId} -> Applications",
+    "amazon-mainframe-modernization-openapi-original.yaml: tagged paths GET /applications/{applicationId} -> Applications",
+    "amazon-mainframe-modernization-openapi-original.yaml: tagged paths PATCH /applications/{applicationId} -> Applications",
+    "amazon-mainframe-modernization-openapi-original.yaml: tagged paths DELETE /applications/{applicationId}/environment/{environmentId} -> Applications",
+    "amazon-mainframe-modernization-openapi-original.yaml: tagged paths DELETE /environments/{environmentId} -> Environments",
+    "amazon-mainframe-modernization-openapi-original.yaml: tagged paths GET /environments/{environmentId} -> Environments",
+    "amazon-mainframe-modernization-openapi-original.yaml: tagged paths PATCH /environments/{environmentId} -> Environments",
+    "amazon-mainframe-modernization-openapi-original.yaml: tagged paths GET /applications/{applicationId}/versions/{applicationVersion} -> Applications",
+    "amazon-mainframe-modernization-openapi-original.yaml: tagged paths GET /applications/{applicationId}/batch-job-executions/{executionId} -> Applications",
+    "amazon-mainframe-modernization-openapi-original.yaml: tagged paths GET /applications/{applicationId}/datasets/{dataSetName} -> Applications",
+    "amazon-mainframe-modernization-openapi-original.yaml: tagged paths GET /applications/{applicationId}/dataset-import-tasks/{taskId} -> Applications",
+    "amazon-mainframe-modernization-openapi-original.yaml: tagged paths GET /applications/{applicationId}/deployments/{deploymentId} -> Applications",
+    "amazon-mainframe-modernization-openapi-original.yaml: tagged paths GET /signed-bi-url -> Signed Bi Url",
+    "amazon-mainframe-modernization-openapi-original.yaml: tagged paths GET /applications/{applicationId}/versions -> Applications",
+    "amazon-mainframe-modernization-openapi-original.yaml: tagged paths GET /applications/{applicationId}/batch-job-definitions -> Applications",
+    "amazon-mainframe-modernization-openapi-original.yaml: tagged paths GET /applications/{applicationId}/batch-job-executions -> Applications",
+    "amazon-mainframe-modernization-openapi-original.yaml: tagged paths GET /applications/{applicationId}/dataset-import-tasks -> Applications",
+    "amazon-mainframe-modernization-openapi-original.yaml: tagged paths GET /applications/{applicationId}/datasets -> Applications",
+    "amazon-mainframe-modernization-openapi-original.yaml: tagged paths GET /engine-versions -> Engine Versions",
+    "amazon-mainframe-modernization-openapi-original.yaml: tagged paths GET /tags/{resourceArn} -> Tags",
+    "amazon-mainframe-modernization-openapi-original.yaml: tagged paths POST /tags/{resourceArn} -> Tags",
+    "amazon-mainframe-modernization-openapi-original.yaml: tagged paths POST /applications/{applicationId}/start -> Applications",
+    "amazon-mainframe-modernization-openapi-original.yaml: tagged paths POST /applications/{applicationId}/batch-job -> Applications",
+    "amazon-mainframe-modernization-openapi-original.yaml: tagged paths POST /applications/{applicationId}/stop -> Applications",
+    "amazon-mainframe-modernization-openapi-original.yaml: tagged paths DELETE /tags/{resourceArn}#tagKeys -> Tags",
+    "amazon-mainframe-modernization-openapi-original.yaml: declared missing tag: Applications",
+    "amazon-mainframe-modernization-openapi-original.yaml: declared missing tag: Engine Versions",
+    "amazon-mainframe-modernization-openapi-original.yaml: declared missing tag: Environments",
+    "amazon-mainframe-modernization-openapi-original.yaml: declared missing tag: Signed Bi Url",
+    "amazon-mainframe-modernization-openapi-original.yaml: declared missing tag: Tags",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "amazon-mainframe-modernization-applications-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-mainframe-modernization-engine-versions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-mainframe-modernization-environments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-mainframe-modernization-signed-bi-url-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-mainframe-modernization-tags-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

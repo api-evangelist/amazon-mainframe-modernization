@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: '2021-04-28'
   x-release: v4
-  title: AWSMainframeModernization Applications Engine Versions API
+  title: AWSMainframeModernization Engine Versions API
   description: Amazon Web Services Mainframe Modernization provides tools and resources to help you plan and implement migration and modernization from mainframes to Amazon Web Services managed runtime environments. It provides tools for analyzing existing mainframe applications, developing or updating mainframe applications using COBOL or PL/I, and implementing an automated pipeline for continuous integration and continuous delivery (CI/CD) of the applications.
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
@@ -24,6 +24,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/m2-2021-04-28.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -186,6 +187,48 @@ paths:
       tags:
       - Engine Versions
 components:
+  schemas:
+    EngineVersionsSummaryList:
+      type: array
+      items:
+        $ref: '#/components/schemas/EngineVersionsSummary'
+    String:
+      type: string
+    NextToken:
+      type: string
+      pattern: ^\S{1,2000}$
+    InternalServerException: {}
+    EngineVersionsSummary:
+      type: object
+      required:
+      - engineType
+      - engineVersion
+      properties:
+        engineType:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The type of target platform for the application.
+        engineVersion:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The version of the engine type used by the application.
+      description: A subset of information about the engine version for a specific application.
+    ListEngineVersionsResponse:
+      type: object
+      required:
+      - engineVersions
+      properties:
+        engineVersions:
+          allOf:
+          - $ref: '#/components/schemas/EngineVersionsSummaryList'
+          - description: Returns the engine versions.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: If there are more items to return, this contains a token that is passed to a subsequent call to this operation to retrieve the next set of items.
+    ValidationException: {}
+    AccessDeniedException: {}
+    ThrottlingException: {}
   parameters:
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
@@ -199,8 +242,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -217,60 +260,18 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-  schemas:
-    String:
-      type: string
-    EngineVersionsSummary:
-      type: object
-      required:
-      - engineType
-      - engineVersion
-      properties:
-        engineType:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The type of target platform for the application.
-        engineVersion:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The version of the engine type used by the application.
-      description: A subset of information about the engine version for a specific application.
-    ThrottlingException: {}
-    ListEngineVersionsResponse:
-      type: object
-      required:
-      - engineVersions
-      properties:
-        engineVersions:
-          allOf:
-          - $ref: '#/components/schemas/EngineVersionsSummaryList'
-          - description: Returns the engine versions.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: If there are more items to return, this contains a token that is passed to a subsequent call to this operation to retrieve the next set of items.
-    EngineVersionsSummaryList:
-      type: array
-      items:
-        $ref: '#/components/schemas/EngineVersionsSummary'
-    ValidationException: {}
-    NextToken:
-      type: string
-      pattern: ^\S{1,2000}$
-    InternalServerException: {}
-    AccessDeniedException: {}
   securitySchemes:
     hmac:
       type: apiKey
