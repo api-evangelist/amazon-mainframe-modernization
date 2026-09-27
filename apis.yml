@@ -172,7 +172,7 @@ apis:
     url: json-ld/amazon-mainframe-modernization-context.jsonld
 common:
 - type: Website
-  url: https://amazon.com
+  url: https://aws.amazon.com/mainframe-modernization/
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/amazon-mainframe-modernization/overview
 - type: AgenticAccess
@@ -262,5 +262,5 @@ integrations:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
-x-parent: aws
+x-parent: amazon-web-services
 x-relationship: product

@@ -187,17 +187,75 @@ paths:
       tags:
       - Engine Versions
 components:
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
   schemas:
+    ValidationException: {}
+    ListEngineVersionsResponse:
+      type: object
+      required:
+      - engineVersions
+      properties:
+        engineVersions:
+          allOf:
+          - $ref: '#/components/schemas/EngineVersionsSummaryList'
+          - description: Returns the engine versions.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: If there are more items to return, this contains a token that is passed to a subsequent call to this operation to retrieve the next set of items.
     EngineVersionsSummaryList:
       type: array
       items:
         $ref: '#/components/schemas/EngineVersionsSummary'
+    AccessDeniedException: {}
     String:
       type: string
+    InternalServerException: {}
     NextToken:
       type: string
       pattern: ^\S{1,2000}$
-    InternalServerException: {}
     EngineVersionsSummary:
       type: object
       required:
@@ -213,65 +271,7 @@ components:
           - $ref: '#/components/schemas/String'
           - description: The version of the engine type used by the application.
       description: A subset of information about the engine version for a specific application.
-    ListEngineVersionsResponse:
-      type: object
-      required:
-      - engineVersions
-      properties:
-        engineVersions:
-          allOf:
-          - $ref: '#/components/schemas/EngineVersionsSummaryList'
-          - description: Returns the engine versions.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: If there are more items to return, this contains a token that is passed to a subsequent call to this operation to retrieve the next set of items.
-    ValidationException: {}
-    AccessDeniedException: {}
     ThrottlingException: {}
-  parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
   securitySchemes:
     hmac:
       type: apiKey
