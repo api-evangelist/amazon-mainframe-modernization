@@ -157,12 +157,6 @@ paths:
       - Signed Bi Url
 components:
   parameters:
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Signature:
       name: X-Amz-Signature
       in: header
@@ -175,20 +169,26 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
       in: header
       schema:
         type: string
       required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -200,6 +200,8 @@ components:
         type: string
       required: false
   schemas:
+    InternalServerException: {}
+    AccessDeniedException: {}
     GetSignedBluinsightsUrlResponse:
       type: object
       required:
@@ -209,11 +211,9 @@ components:
           allOf:
           - $ref: '#/components/schemas/String'
           - description: Single sign-on AWS Blu Insights URL.
-    InternalServerException: {}
     String:
       type: string
     ThrottlingException: {}
-    AccessDeniedException: {}
   securitySchemes:
     hmac:
       type: apiKey
