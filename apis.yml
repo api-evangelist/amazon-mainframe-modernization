@@ -171,6 +171,12 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-mainframe-modernization-context.jsonld
 common:
+- type: Plans
+  url: plans/amazon-mainframe-modernization-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/amazon-mainframe-modernization-rate-limits.yml
+- type: FinOps
+  url: finops/amazon-mainframe-modernization-finops.yml
 - type: Website
   url: https://aws.amazon.com/mainframe-modernization/
 - type: PostmanWorkspace
