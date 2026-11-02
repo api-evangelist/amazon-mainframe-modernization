@@ -1,0 +1,323 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-28'
+method: searched
+source: https://aws.amazon.com/mainframe-modernization/pricing/
+sources:
+- https://aws.amazon.com/mainframe-modernization/pricing/
+provenance:
+  tool: engine/economics/harvest_pricing.py
+  run: 20261028T141238
+  grounding: every price_text was found verbatim in the fetched page text
+audience: business-product
+pricing_basis: usage-other
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-10-28'
+published: true
+note: 'AWS Mainframe Modernization pricing: hourly per-CPU-core/instance runtime and developer pricing,
+  plus per-GB and per-LOC charges; analysis/build tools free. Committed plan discounts are quote-based.'
+plan_count: 21
+currency: USD
+plans:
+- name: AWS Transform for mainframe Runtime (M2.m6i.large)
+  price_text: $0.31 per hour
+  price: 0.31
+  currency: USD
+  period: per-use
+  unit: instance-hour
+- name: AWS Transform for mainframe Runtime (M2.m6i.xlarge)
+  price_text: $0.62 per hour
+  price: 0.62
+  currency: USD
+  period: per-use
+  unit: instance-hour
+- name: AWS Transform for mainframe Runtime (M2.m6i.2xlarge)
+  price_text: $1.24 per hour
+  price: 1.24
+  currency: USD
+  period: per-use
+  unit: instance-hour
+- name: AWS Transform for mainframe Runtime (M2.m6i.4xlarge)
+  price_text: $2.48 per hour
+  price: 2.48
+  currency: USD
+  period: per-use
+  unit: instance-hour
+- name: AWS Transform for mainframe Runtime (M2.m6i.8xlarge)
+  price_text: $4.96 per hour
+  price: 4.96
+  currency: USD
+  period: per-use
+  unit: instance-hour
+- name: AWS Transform for mainframe Runtime (M2.m6i.16xlarge)
+  price_text: $9.92 per hour
+  price: 9.92
+  currency: USD
+  period: per-use
+  unit: instance-hour
+- name: Rocket Runtime (M2.m6i.large)
+  price_text: $5.55 per hour
+  price: 5.55
+  currency: USD
+  period: per-use
+  unit: instance-hour
+- name: Rocket Runtime (M2.m6i.xlarge)
+  price_text: $11.10 per hour
+  price: 11.1
+  currency: USD
+  period: per-use
+  unit: instance-hour
+- name: Rocket Runtime (M2.m6i.2xlarge)
+  price_text: $22.20 per hour
+  price: 22.2
+  currency: USD
+  period: per-use
+  unit: instance-hour
+- name: Rocket Runtime (M2.m6i.4xlarge)
+  price_text: $44.40 per hour
+  price: 44.4
+  currency: USD
+  period: per-use
+  unit: instance-hour
+- name: Rocket Runtime (M2.m6i.8xlarge)
+  price_text: $88.80 per hour
+  price: 88.8
+  currency: USD
+  period: per-use
+  unit: instance-hour
+- name: Rocket Developer (large)
+  price_text: $2.14 per hour
+  price: 2.14
+  currency: USD
+  period: per-use
+  unit: instance-hour
+- name: Rocket Developer (xlarge)
+  price_text: $4.28 per hour
+  price: 4.28
+  currency: USD
+  period: per-use
+  unit: instance-hour
+- name: Rocket Developer (2xlarge)
+  price_text: $8.56 per hour
+  price: 8.56
+  currency: USD
+  period: per-use
+  unit: instance-hour
+- name: Rocket Developer (4xlarge)
+  price_text: $17.12 per hour
+  price: 17.12
+  currency: USD
+  period: per-use
+  unit: instance-hour
+- name: Rocket Developer (8xlarge)
+  price_text: $34.24 per hour
+  price: 34.24
+  currency: USD
+  period: per-use
+  unit: instance-hour
+- name: Data Replication with Precisely - IBM z/OS mainframe
+  price_text: $60 per GB
+  price: 60
+  currency: USD
+  period: per-use
+  unit: GB
+- name: Data Replication with Precisely - IBM i
+  price_text: $30 per GB
+  price: 30
+  currency: USD
+  period: per-use
+  unit: GB
+- name: File Transfer with BMC - IBM z/OS mainframe
+  price_text: $1.30 per GB
+  price: 1.3
+  currency: USD
+  period: per-use
+  unit: GB
+- name: Code Conversion with mLogica - Assembler to COBOL
+  price_text: $2.75 per line of code
+  price: 2.75
+  currency: USD
+  period: per-use
+  unit: line of code
+- name: Committed plans
+  price_text: Please contact your AWS representative for discount details.
+  period: none
+  included_quota: One-year and three-year commitments are available.
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - hybrid
+  - subscription
+  units:
+  - compute
+  - data
+  plans:
+  - name: AWS Transform for mainframe Runtime (M2.m6i.large)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: AWS Transform for mainframe Runtime (M2.m6i.xlarge)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: AWS Transform for mainframe Runtime (M2.m6i.2xlarge)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: AWS Transform for mainframe Runtime (M2.m6i.4xlarge)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: AWS Transform for mainframe Runtime (M2.m6i.8xlarge)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: AWS Transform for mainframe Runtime (M2.m6i.16xlarge)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Rocket Runtime (M2.m6i.large)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Rocket Runtime (M2.m6i.xlarge)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Rocket Runtime (M2.m6i.2xlarge)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Rocket Runtime (M2.m6i.4xlarge)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Rocket Runtime (M2.m6i.8xlarge)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Rocket Developer (large)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Rocket Developer (xlarge)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Rocket Developer (2xlarge)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Rocket Developer (4xlarge)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Rocket Developer (8xlarge)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Data Replication with Precisely - IBM z/OS mainframe
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - data
+    periods:
+    - other
+  - name: Data Replication with Precisely - IBM i
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - data
+    periods:
+    - other
+  - name: File Transfer with BMC - IBM z/OS mainframe
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - data
+    periods:
+    - other
+  - name: Code Conversion with mLogica - Assembler to COBOL
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - other
+  - name: Committed plans
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods:
+    - none
