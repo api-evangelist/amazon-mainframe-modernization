@@ -5,8 +5,20 @@ artifacts:
   agentic-access/amazon-mainframe-modernization-agentic-access.yml:
     method: generated
     evidence: declared in the artifact
+  ai-preferences/amazon-mainframe-modernization-ai-preferences.yml:
+    method: harvested
+    evidence: declared in the artifact
   authentication/amazon-mainframe-modernization-authentication.yml:
     method: derived
+    evidence: declared in the artifact
+  certification/observations-2026-11-11.jsonl:
+    method: unknown
+    evidence: no authorship recorded
+  certification/status.yml:
+    method: unknown
+    evidence: no authorship recorded
+  cli/amazon-mainframe-modernization-cli.yml:
+    method: searched
     evidence: declared in the artifact
   collections/amazon-mainframe-modernization-applications-api.opencollection.json:
     method: derived
@@ -38,6 +50,21 @@ artifacts:
   collections/amazon-mainframe-modernization-tags-api.postman_collection.json:
     method: derived
     evidence: openapi/amazon-mainframe-modernization-tags-api
+  conformance/amazon-mainframe-modernization-conformance.yml:
+    method: derived
+    evidence: declared in the artifact
+  conventions/amazon-mainframe-modernization-conventions.yml:
+    method: derived
+    evidence: declared in the artifact
+  data-model/amazon-mainframe-modernization-data-model.yml:
+    method: derived
+    evidence: declared in the artifact
+  eligibility/amazon-mainframe-modernization-eligibility.yml:
+    method: harvested
+    evidence: declared in the artifact
+  errors/amazon-mainframe-modernization-problem-types.yml:
+    method: derived
+    evidence: declared in the artifact
   examples/amazon-mainframe-modernization-access-denied-exception-example.json:
     method: unknown
     evidence: no authorship recorded
@@ -548,6 +575,9 @@ artifacts:
   front-door-ai/2026-09-17.yml:
     method: unknown
     evidence: no authorship recorded
+  hosts/amazon-mainframe-modernization-hosts.yml:
+    method: derived
+    evidence: declared in the artifact
   integrations/_index.yml:
     method: generated
     evidence: carries an API Evangelist house phrase
@@ -642,6 +672,9 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   json-schema/amazon-mainframe-modernization-create-application-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-mainframe-modernization-create-data-set-export-task-request-schema.json:
     method: unknown
     evidence: no authorship recorded
   json-schema/amazon-mainframe-modernization-create-data-set-import-task-request-schema.json:
@@ -806,6 +839,12 @@ artifacts:
   json-schema/amazon-mainframe-modernization-get-data-set-details-response-schema.json:
     method: unknown
     evidence: no authorship recorded
+  json-schema/amazon-mainframe-modernization-get-data-set-export-task-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-mainframe-modernization-get-data-set-export-task-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
   json-schema/amazon-mainframe-modernization-get-data-set-import-task-request-schema.json:
     method: unknown
     evidence: no authorship recorded
@@ -864,6 +903,15 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   json-schema/amazon-mainframe-modernization-list-batch-job-executions-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-mainframe-modernization-list-batch-job-restart-points-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-mainframe-modernization-list-data-set-export-history-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-mainframe-modernization-list-data-set-export-history-response-schema.json:
     method: unknown
     evidence: no authorship recorded
   json-schema/amazon-mainframe-modernization-list-data-set-import-history-request-schema.json:
@@ -1568,7 +1616,7 @@ artifacts:
   kin/checks-2026-10-23T222754.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  kin/checks-2026-11-02T082323.yml:
+  kin/checks-2026-11-06T143934.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-23T000603.yml:
@@ -1637,28 +1685,45 @@ artifacts:
   kin/score-2026-11-02T082323.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  openapi/_original/amazon-mainframe-modernization-openapi-original.yaml:
-    method: harvested
-    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
-      to the provider's source is unverified
+  kin/score-2026-11-06T143934.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  lifecycle/amazon-mainframe-modernization-lifecycle.yml:
+    method: searched
+    evidence: declared in the artifact
+  llms/amazon-mainframe-modernization-llms-provenance.yml:
+    method: unknown
+    evidence: no authorship recorded
+  llms/amazon-mainframe-modernization-llms.txt:
+    method: unknown
+    evidence: no authorship recorded
+  mcp/amazon-mainframe-modernization-mcp.yml:
+    method: derived
+    evidence: declared in the artifact
   openapi/amazon-mainframe-modernization-applications-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-mainframe-modernization-engine-versions-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-mainframe-modernization-environments-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-mainframe-modernization-operations-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
   openapi/amazon-mainframe-modernization-signed-bi-url-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: harvested
+    evidence: declared in the artifact
   openapi/amazon-mainframe-modernization-tags-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  packages/amazon-mainframe-modernization-packages.yml:
+    method: unknown
+    evidence: no authorship recorded
+  patterns/amazon-mainframe-modernization-patterns.yml:
     method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    evidence: declared in the artifact
   plans/amazon-mainframe-modernization-plans-pricing.yml:
     method: searched
     evidence: declared in the artifact
@@ -1677,10 +1742,16 @@ artifacts:
   postman/amazon-mainframe-modernization-tags-api.postman_collection.json:
     method: derived
     evidence: openapi/amazon-mainframe-modernization-tags-api
+  privacy/amazon-mainframe-modernization-privacy-policy.yml:
+    method: harvested
+    evidence: declared in the artifact
   rate-limits/amazon-mainframe-modernization-rate-limits.yml:
     method: generated
     evidence: declared in the artifact
   rules/amazon-mainframe-modernization-jsonschema-spectral-rules.yml:
+    method: generated
+    evidence: declared in the artifact
+  rules/amazon-mainframe-modernization-rules.yml:
     method: generated
     evidence: declared in the artifact
   rules/amazon-mainframe-modernization-spectral-rules.yml:
@@ -1699,8 +1770,27 @@ artifacts:
     method: generated
     evidence: declared in the artifact
   smithy/m2-2021-04-28.json:
+    method: harvested
+    evidence: byte-identical to https://raw.githubusercontent.com/aws/api-models-aws/3cd98287b471c106254abd89279cc87308d38bfd/models/m2/service/2021-04-28/m2-2021-04-28.json
+      (sha256 0828b076e8b2, fetched 2026-11-11T21:12:14+00:00)
+  terms/amazon-mainframe-modernization-terms-of-service.yml:
+    method: harvested
+    evidence: declared in the artifact
+  vendors/amazon-mainframe-modernization-vendors.yml:
     method: unknown
     evidence: no authorship recorded
   vocabulary/amazon-mainframe-modernization-vocabulary.yaml:
+    method: unknown
+    evidence: no authorship recorded
+  vocabulary/amazon-mainframe-modernization-vocabulary.yml:
+    method: derived
+    evidence: declared in the artifact
+  well-known/amazon-mainframe-modernization-midway-auth-openid-configuration.json:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/amazon-mainframe-modernization-security.txt:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/amazon-mainframe-modernization-well-known.yml:
     method: unknown
     evidence: no authorship recorded

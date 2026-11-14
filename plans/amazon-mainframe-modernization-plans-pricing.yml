@@ -2,6 +2,7 @@
 generated: '2026-10-28'
 method: searched
 source: https://aws.amazon.com/mainframe-modernization/pricing/
+name: Amazon Mainframe Modernization API Plans
 sources:
 - https://aws.amazon.com/mainframe-modernization/pricing/
 provenance:
@@ -145,7 +146,7 @@ plans:
   period: none
   included_quota: One-year and three-year commitments are available.
 x-canonical:
-  generated: '2026-11-06'
+  generated: '2026-11-13'
   vocabulary: engine/economics/plans-canonical.yml
   models:
   - hybrid
