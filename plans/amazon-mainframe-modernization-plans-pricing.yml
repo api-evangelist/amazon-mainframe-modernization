@@ -146,7 +146,7 @@ plans:
   period: none
   included_quota: One-year and three-year commitments are available.
 x-canonical:
-  generated: '2026-11-13'
+  generated: '2026-11-20'
   vocabulary: engine/economics/plans-canonical.yml
   models:
   - hybrid
